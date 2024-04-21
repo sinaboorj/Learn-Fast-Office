@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
            
             </div>
-            <div className="under-footer" style={{ fontSize: '13px' }}>This page was programmed (Backend and Frontend) and designed by Hossein Zarei alias Sina in March 2024.</div>
+            <div className="under-footer" style={{ fontSize: '13px',color:'#383838', backgroundColor:'white' }}>This page was programmed (Backend and Frontend) and designed by Hossein Zarei alias Sina in March 2024.</div>
         </>
     );
 }
