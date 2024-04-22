@@ -39,7 +39,8 @@ function Register() {
 
     try {
       const result = await axios.post("http://localhost:5500/api/register", newUserData);
-      if (result) { setAddUserMsg(result.data); setMessageStatus(true) } //sendeing successfully
+      console.log(result)
+      if (result.data) { setAddUserMsg(result.data); setMessageStatus(true) } //sendeing successfully
     } catch (err) {
       if (err.code === 'ERR_BAD_REQUEST') {
         navigate('/'); setLogin(false); setIsLoading(false); setPassword(''); setConfirmPassword(''); setMessageStatus(false); //Url sending Error  or  ERR_BAD_REQUEST -----> refresh link
@@ -47,7 +48,7 @@ function Register() {
         setAddUserMsg(result.data); setMessageStatus(true); setPassword(''); setConfirmPassword(''); //sending Error
       }
     }
-    setIsLoading(false); setPassword(''); setConfirmPassword(''); //sending Error
+    setIsLoading(false); setPassword(''); setConfirmPassword(''); 
   };
 
   //**************************************************** Register Form ************************************ */
@@ -60,13 +61,14 @@ function Register() {
 
             <div className="register-input" >
               <input {...register("email")} type="email" value={registerEmail}
-                onChange={(e) => { setRegisterEmail(e.target.value); setSchemaRegisterError(false) }}
+                onChange={(e) => { setRegisterEmail(e.target.value); setSchemaRegisterError(false); setMessageStatus(false) }}
                 placeholder="Email..." tabIndex={1}
                 className="input" onInput={() => { setMessageStatus(false); }} />
             </div>
+
             <div className="register-input">
               <input {...register("password")} type={showPass.type} value={password}
-                onChange={(e) => { setPassword(e.target.value); setSchemaRegisterError(false) }}
+                onChange={(e) => { setPassword(e.target.value); setSchemaRegisterError(false); setMessageStatus(false) }}
                 placeholder="Password..." className="input" autoComplete='off' tabIndex={2} />
               <FontAwesomeIcon icon={faEyeSlash} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
@@ -74,16 +76,17 @@ function Register() {
 
             <div className="register-input">
               <input {...register("confirmPasswrd")} type={showPass.type} value={confirmPassword}
-                onChange={(e) => { setConfirmPassword(e.target.value); setSchemaRegisterError(false) }}
+                onChange={(e) => { setConfirmPassword(e.target.value); setSchemaRegisterError(false); setMessageStatus(false) }}
                 placeholder="Confirm Password..." className="input" autoComplete='off' tabIndex={3} />
               <FontAwesomeIcon icon={faEyeSlash} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
             <input type="submit" value={"Register"} className="register-btn" onClick={() => setSchemaRegisterError(true)} tabIndex={4} />
+
           </form>
         </div>
-        {isLoading && <h6 style={{ color: 'blue', textAlign: 'center' }}>Waiting... <img src="/sysImage/addUser.gif" width={50} height={50} alt="Loading user" /></h6>}
+        {isLoading && <h6 style={{ color: '#a3a3a3', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
         {/* *********************************** Add User Msg ********************************  */}
         {messageStatus && (
           <h6 style={{ color: addUserMsg.sendingMsg ? 'green' : 'red', margin: '0px', textAlign: 'center' }}>{addUserMsg.title}</h6>
@@ -97,7 +100,6 @@ function Register() {
           </div>
         )}
       </div>
-      <div>H</div>
     </>
   );
 }

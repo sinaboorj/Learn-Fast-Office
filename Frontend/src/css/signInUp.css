@@ -17,7 +17,6 @@
     margin-top: 15px;
     font-weight: bold;
     width: 90%;
-    border-bottom: solid 1px rgb(62 62 62);
 }
 .sign-form{
     display: flex;
@@ -25,7 +24,7 @@
     padding-top: 5px;
     flex-direction: column;
     align-items: center;
-    border: solid 1px #282828;
+    border: solid 1px #333333;
 }
 .sign:hover{
     cursor:pointer;

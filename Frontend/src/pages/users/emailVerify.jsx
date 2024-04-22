@@ -40,7 +40,7 @@ const EmailVerify = () => {
         <>
             {isLoading && (
                 <div className='contaner-verify'>
-                    <h4 style={{ color: 'blue', textAlign: 'center' }}>Waiting... <img src="/sysImage/addUser.gif" width={100} height={100} alt="Loading user" /></h4>
+                    <h4 style={{ color: '#b7b2b2', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={100} height={100} alt="Loading user" /></h4>
                 </div>
             )
             }
@@ -49,26 +49,8 @@ const EmailVerify = () => {
                 (
                     <div className='contaner-verify'>
                         <img src={success} alt="Verify-img" className='verification-img' />
-                        <h5 style={{ color: validStatusMsg ? 'black' : 'red', textAlign: 'center' }}>{validationMsg}</h5>
-                        <Link to={'/api/login:signup'} style={{
-                            ...validStatusMsg ? {
-                                background: '#15a763',
-                                padding: '5px 35px',
-                                marginTop: '15px',
-                                textDecoration: 'none',
-                                color: 'black',
-                                fontWeight: '600',
-                                borderRadius: '15px',
-                            } : {
-                                padding: '5px 35px',
-                                marginTop: '15px',
-                                textDecoration: 'none',
-                                color: 'black',
-                                fontWeight: '600',
-                                borderRadius: '15px',
-                                border: 'solid 2px green',
-                            }
-                        }} >
+                        <h5 style={{ color: validStatusMsg ? '#b7b2b2' : 'red', textAlign: 'center' }}>{validationMsg}</h5>
+                        <Link to={'/api/login:signup'} className='verifylogin'>
                             Login
                         </Link>
                     </div>
@@ -76,8 +58,8 @@ const EmailVerify = () => {
             {!validUrl && !isLoading && (
                 <div className='contaner-verify'>
                     <img src={error} alt="Verify-img" className='verification-img' />
-                    <h5 style={{ color: 'black', textAlign: 'center' }}>Verification Error</h5>
-                    <h6 style={{ color: 'black' }}>{validationMsg}</h6>
+                    <h5 style={{ color: '#b7b2b2', textAlign: 'center' }}>Verification Error</h5>
+                    <h6 style={{ color: '#b7b2b2' }}>{validationMsg}</h6>
                 </div>
             )
                         

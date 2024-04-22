@@ -7,7 +7,7 @@ const errorHandler = (error, req, res, next) => {
         return res.send(error.details[0].message)
        
     if (error instanceof appErrors)
-        return res.status(error.statusCode).send({errorCode:error.errorCode, message: error.message})
+        return res.status(error.statusCode).send({errorCode:error.errorCode, msg: error.message})
     res.status(400).send(`Something is failed`)
 }
 

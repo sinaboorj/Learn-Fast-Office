@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "../../css/register.css";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -59,20 +59,23 @@ function Login() {
 
             <div className="register-input" >
               <input {...register("email")} type="email" value={loginEmail}
-                onChange={(e) => { setLoginEmail(e.target.value); setSchemaLoginError(false) }}
+                onChange={(e) => { setLoginEmail(e.target.value); setSchemaLoginError(false); setMessageStatus(false) }}
                 placeholder="Email..." tabIndex={1}
                 className="input" onInput={() => { setMessageStatus(false); }} />
             </div>
+
             <div className="register-input">
               <input {...register("password")} type={showPass.type} value={password}
-                onChange={(e) => { setPassword(e.target.value); setSchemaLoginError(false) }}
+                onChange={(e) => { setPassword(e.target.value); setSchemaLoginError(false); setMessageStatus(false) }}
                 placeholder="Password..." className="input" autoComplete='off' tabIndex={2} />
               <FontAwesomeIcon icon={faEyeSlash} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
             <input type="submit" value={"Login"} className="register-btn" onClick={() => setSchemaLoginError(true)} tabIndex={4} />
+
           </form>
+         
         </div>
         {isLoading && <h6 style={{ color: 'blue', textAlign: 'center' }}>Waiting... <img src="/sysImage/addUser.gif" width={50} height={50} alt="Loading user" /></h6>}
         {/* *********************************** Add User Msg ********************************  */}
@@ -86,6 +89,7 @@ function Login() {
             <span> { errors.password?.message}</span>
           </div>
         )}
+         <div className="forgotpass" ><Link style={{textDecoration:'none'}}>Forgot Password</Link></div>
       </div>
     </>
   );

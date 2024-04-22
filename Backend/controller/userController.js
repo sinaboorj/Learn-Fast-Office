@@ -24,7 +24,7 @@ const register = trycatchHandler(async (req, res, next) => {
     if (datavalidResult.error) throw datavalidResult.error;
 
     const chechEmail = await userModel.getByEmail(req.body.email); // بررسی وجود ایمیل قبلی و وضعیت تایید کاربر
-    if (chechEmail && chechEmail.verified === 1) throw new appErrors(102, 'User Already Registered', 400);
+    if (chechEmail && chechEmail.verified === 1) return res.send({ sendingMsg: false, title: 'Error', msg: 'User Already Registered' });
     
     //const salt = await bcrypt.genSalt(number(process.env.SALT)); // ايمن تر كردن رمز
     const hashPassword = await bcrypt.hash(req.body.password, 10); // رمزنگاری رمز عبور

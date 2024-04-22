@@ -89,7 +89,7 @@
     color: #838282;
 }
 .input::-webkit-input-placeholder {
-     color: #383838;
+     color: #4b4a4a;
 }
 .input:focus{
     outline: solid 1px rgb(207, 183, 43); 
@@ -108,4 +108,9 @@
         width: calc(100% / 1.1);
         font-size: 14px;
     }
+}
+.forgotpass{
+    font-size: 13px;
+    padding: 0 20px 12px;
+    text-align: end;
 }
