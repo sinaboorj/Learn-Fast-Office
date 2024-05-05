@@ -4,6 +4,7 @@ import { FaSkype , FaEnvelope, FaMapPin, FaLinkedin} from 'react-icons/fa';
 import { UserContext } from '../context/userContext';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faMapPin, faEnvelope ,faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import imgFooter from '/sysImage/LF-black.png'
 
 const Footer = () => {
     const { hidden } = useContext(UserContext)
@@ -20,7 +21,7 @@ const Footer = () => {
                             <span className="contact-us"> <FaMapPin style={{ color: '#ffd461' }} /> : Iran.Ahvaz</span>
                         </div>
                         <div>
-                            <img className="lf-footer" src="/sysImage/LF-black.png" width={100} height={100} alt="Logo" />
+                            <img className="lf-footer" src={imgFooter} width={100} height={100} alt="Logo" />
                         </div>
                         <div className="zarei">
                             <ul style={{ color: 'rgba(241, 241, 241, 0.54)', fontSize: '15px' }}>

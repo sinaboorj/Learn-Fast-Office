@@ -11,7 +11,7 @@ import { faEyeSlash , faEye} from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const { setLogin, Msg, setMsg, loginEmail, setLoginEmail, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError } = useContext(UserContext)
+  const {Msg, setMsg, loginEmail, setLoginEmail, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError } = useContext(UserContext)
   const [password, setPassword] = useState('');
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
 
@@ -31,10 +31,23 @@ function Login() {
       password: data.password,
     };
 
+    const response = await fetch("http://localhost:5500/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const res = await response.json();
+    console.log(data)
+    console.log(response)
+    console.log(res)
+    console.log(res.token)
+
     try {
       if (password !== '') {
         const result = await axios.post("http://localhost:5500/api/login", loginUserData);
-        if (result) { setMsg(result.data); setMessageStatus(true); } //Login successfully
+        if (result) { setMsg(result.data); setMessageStatus(true);  } //Login successfully
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
         setTimeout(() => {
@@ -42,7 +55,7 @@ function Login() {
       }
     }
 
-    catch (err) {fdfg
+    catch (err) {
       if (err.response.status === 505) { 
         setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); setMessageStatus(true); //Url sending Error  or  ERR_BAD_REQUEST 
       } else {
@@ -50,7 +63,7 @@ function Login() {
       }
      
     }
-    setIsLoading(false); setPassword('');
+    setIsLoading(false);// setPassword('');
   };
 
   

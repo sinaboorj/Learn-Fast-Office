@@ -45,7 +45,7 @@ function Register() {
         }, 100);
       }
       
-    } catch (err) {
+    } catch (err) { 
       if (err.response.status === 505) {
         setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); setMessageStatus(true);  //Url sending Error  or  ERR_BAD_REQUEST 
       } else {

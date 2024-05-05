@@ -53,9 +53,9 @@ const EmailVerify = () => {
                 <div className='contaner-verify'>
                     <img src={success} alt="Verify-img" className='verification-img' />
                     <h5 style={{ color: 'red', textAlign: 'center' }}>{validationMsg.msg}</h5>
-                    <Link to={'/api/login:signup'} className='verifylogin'>
+                    <Link to={'/api/login'} className='verifylogin'>
                         Login
-                    </Link>
+                    </Link> 
                 </div>
             )}
            

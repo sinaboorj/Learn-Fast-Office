@@ -1,11 +1,11 @@
 
 .learn-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     align-content: center;
     flex-direction: column;
     color: #838383;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .lf-logo{
     margin: 15px 0 15px 0;
@@ -20,7 +20,7 @@
     border-radius: 5px;
     margin: 20px;
 }
-.web-img{
+.learn-text{
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -59,16 +59,18 @@ li.learn-item {
     margin-left: 25px;
 }
 
-/* .img-backgrand{
+ .img-backgrand{
     width: 100vw;
-    height: 35vh;
-    background-image: url('/sysImage/web-.jpg');
-    background-size: cover;
-    opacity: 70%;
-} */
+    height: calc(100vw / 1.2);
+    background-image: url('/sysImage/skill.jpg');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    opacity: 100%;
+    margin-bottom: 15px;
+} 
 
 @media only screen and (max-width:409px) {
-    
     .logo-format {
         flex-direction: column;
     }

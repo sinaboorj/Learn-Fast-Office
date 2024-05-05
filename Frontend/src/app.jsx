@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/api/cart" element={<Cart />} />
           <Route path="/api/about" element={<About />} />
           <Route path="/api/about" element={<About />} />
-          <Route path="/api/login:signup" element={<SignInUp />} />
+          <Route path="/api/login" element={<SignInUp />} />
           <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} />
         </Routes>
         <Footer />
