@@ -10,8 +10,6 @@ const Learn = () => {
         <>
             <hr />
             <div className="learn-container">
-
-                <div className='img-backgrand'></div> {/* use background-image in CSS */}
                 
                 <div className='right'>
                     <div className='learn-text'>
@@ -49,6 +47,7 @@ const Learn = () => {
                         </div>
                     </div>
                 </div>
+                <div className='img-backgrand'></div> {/* use background-image in CSS */}
             </div>
            
         </>

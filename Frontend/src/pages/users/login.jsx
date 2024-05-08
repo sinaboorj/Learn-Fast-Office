@@ -31,19 +31,6 @@ function Login() {
       password: data.password,
     };
 
-    const response = await fetch("http://localhost:5500/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const res = await response.json();
-    console.log(data)
-    console.log(response)
-    console.log(res)
-    console.log(res.token)
-
     try {
       if (password !== '') {
         const result = await axios.post("http://localhost:5500/api/login", loginUserData);
@@ -109,6 +96,7 @@ function Login() {
           </div>
         )}
       </div>
+      <br /><br /><br />
     </>
   );
 }
