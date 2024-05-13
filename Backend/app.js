@@ -8,8 +8,12 @@ import errorHandler from "./middelwares/errorHandler.js"
 
 dotenv.config() 
 const app = express()
- 
-app.use(cors())
+
+const corsOptions = { //add access to the header Authorization data
+  exposedHeaders: 'Authorization',
+};
+
+app.use(cors(corsOptions));
 app.use(express.json())  
 app.use(fileUpload())
 console.clear()

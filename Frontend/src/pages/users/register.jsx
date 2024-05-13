@@ -20,7 +20,7 @@ function Register() {
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(6).required(), //password: yup.string().min(6).matches(/[A-Z]+/).matches(/[a-z]+/).matches(/\d*/).matches(/[!,@,#,$,&,*]+/).required(),
-    confirmPasswrd: yup.string().oneOf([yup.ref("password")], "Confirm password is not matching").required(),
+    confirmPasswrd: yup.string().required().oneOf([yup.ref("password")], "Confirm password is not matching"),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
@@ -28,30 +28,34 @@ function Register() {
   //**************************************************** Add New User Function ************************************ */
   const addNewUser = async (data) => {
     setIsLoading(true); setSchemaRegisterError(false);
-   
-
     const newUserData = {
       email: data.email,
       password: data.password,
     };
    
     try {
-      if (password !== '') {  
+      if (password !== '' && confirmPassword !== '') {  
         const result = await axios.post("http://localhost:5500/api/register", newUserData);
-      if (result) { setMsg(result.data); setMessageStatus(true); } //sendeing successfully
+      if (result) { setMsg(result.data);  } //sendeing successfully
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
-        setTimeout(() => {
-        }, 100);
       }
-      
-    } catch (err) { 
-      if (err.response.status === 505) {
-        setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); setMessageStatus(true);  //Url sending Error  or  ERR_BAD_REQUEST 
-      } else {
-        setMsg(err.response.data); setMessageStatus(true);  //sending Error
-      }
+      setMessageStatus(true);
     }
+    
+    catch (err) { 
+      console.log(err)
+      if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' });  //Internal Service Error 
+        
+      if (err.response.status === 404) { 
+        setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' }); //Url sending Error  or  ERR_BAD_REQUEST 
+      }
+      else {
+        setMsg(err.response.data);   //sending Error
+      }
+      setMessageStatus(true);
+    }
+
     setIsLoading(false); setPassword(''); setConfirmPassword(''); 
   };
 

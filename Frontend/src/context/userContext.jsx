@@ -19,6 +19,7 @@ const UserContextProvider = (props) => {
     loginEmail, setLoginEmail, registerEmail, setRegisterEmail, hidden, setHidden
   }
 
+
   return <UserContext.Provider value={UserContextValue}>{props.children} </UserContext.Provider>
 }
 export default UserContextProvider

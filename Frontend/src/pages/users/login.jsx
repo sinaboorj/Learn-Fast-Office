@@ -7,12 +7,12 @@ import axios from "axios";
 import { UserContext } from "../../context/userContext";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEyeSlash , faEye} from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const {Msg, setMsg, loginEmail, setLoginEmail, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError } = useContext(UserContext)
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('123456');
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
 
   const schema = yup.object().shape({
@@ -30,25 +30,32 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-
+    
     try {
       if (password !== '') {
-        const result = await axios.post("http://localhost:5500/api/login", loginUserData);
-        if (result) { setMsg(result.data); setMessageStatus(true);  } //Login successfully
+        const result = await axios.post("http://localhost:5500/api/login", loginUserData)
+        
+        if (result) { setMsg({ status: true, title: 'successfully', msg: 'Login successfully' }); } //Login successfully
+        const token = result.headers.authorization
+        
+        console.log(token)
+ 
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
-        setTimeout(() => {
-        }, 100);
       }
+      setMessageStatus(true);
     }
 
     catch (err) {
-      if (err.response.status === 505) { 
-        setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); setMessageStatus(true); //Url sending Error  or  ERR_BAD_REQUEST 
-      } else {
-        setMsg(err.response.data); setMessageStatus(true);  //Login Error
+      if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); //Internal Service Error 
+      
+      if (err.response.status === 404) { 
+        setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' });  //Url sending Error  or  ERR_BAD_REQUEST 
       }
-     
+      else {
+        setMsg(err.response.data); //Login Error
+      }
+      setMessageStatus(true);
     }
     setIsLoading(false);// setPassword('');
   };
@@ -96,7 +103,7 @@ function Login() {
           </div>
         )}
       </div>
-      <br /><br /><br />
+      <br />
     </>
   );
 }

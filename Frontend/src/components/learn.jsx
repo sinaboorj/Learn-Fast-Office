@@ -8,14 +8,11 @@ import learnImg from '/sysImage/skill.jpg'
 const Learn = () => {
     return (
         <>
-            <hr />
+           <br /><br /><br /><br /> <hr />
             <div className="learn-container">
                 
                 <div className='right'>
-                    <div className='learn-text'>
-                        <h5 style={{ marginBottom: '20px' }}>Teaching programming from beginner to advanced</h5>
-                        <span style={{ fontStyle: 'italic', fontWeight: '500', marginBottom: '20px' }}>Fast and professional web programming training</span>
-                    </div>
+                    
                     <div className='logo-format'>
                         <div className='learn'>
                             <div>
@@ -45,6 +42,11 @@ const Learn = () => {
                                 <li className='learn-item' style={{ marginTop: '15px' }}>MySQL</li>
                             </div>
                         </div>
+                    </div>
+                    <br />
+                    <div className='learn-text'>
+                        <span style={{ marginBottom: '20px',fontWeight: '500' }}>Teaching programming from beginner to advanced</span>
+                        <span style={{  marginBottom: '20px',fontSize:'14px' }}>Fast and professional web programming training</span>
                     </div>
                 </div>
                 <div className='img-backgrand'></div> {/* use background-image in CSS */}

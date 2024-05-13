@@ -20,8 +20,8 @@ const SignInUp = () => {
                 <div className="sign-form-container">
                     <div className="sign-form">
                         <div className="user-sign">
-                            <span className="sign" style={{ borderBottom: login ? 'solid 2px #ffd461' : 'solid 2px #262626', color: login ? '#ffd461' : 'rgb(191 191 191)' }} onClick={() => { setLogin(true); setMessageStatus(false) }}>Login</span>
-                            <span className="sign" style={{ borderBottom: login ? 'solid 2px #262626' : 'solid 2px #ffd461', color: login ? 'rgb(191 191 191)' : '#ffd461' }} onClick={() => { setLogin(false); setMessageStatus(false) }}>Register</span>
+                            <span className="sign" style={{ borderBottom: login ? 'solid 2px #ffd461' : 'solid 2px #262626', color: login ? '#ffd461' : 'rgb(203 203 203)' }} onClick={() => { setLogin(true); setMessageStatus(false) }}>Login</span>
+                            <span className="sign" style={{ borderBottom: login ? 'solid 2px #262626' : 'solid 2px #ffd461', color: login ? 'rgb(203 203 203)' : '#ffd461' }} onClick={() => { setLogin(false); setMessageStatus(false) }}>Register</span>
                         </div>
                         {login ? <Login /> : <Register />}
                     </div>
