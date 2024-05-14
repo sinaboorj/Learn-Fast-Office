@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const UserContext=createContext(null)
 
@@ -9,14 +9,24 @@ const UserContextProvider = (props) => {
   const [messageStatus, setMessageStatus] = useState(false);
   const [schemaLoginError, setSchemaLoginError] = useState(false);
   const [schemaRegisterError, setSchemaRegisterError] = useState(false);
-  const [loginEmail, setLoginEmail] = useState('');
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [hidden, setHidden]=useState(false)
+  const [hidden, setHidden] = useState(false) //براي زماني كه ميخواهيم يك كاربر جديد را وريفاي كنيم و تمام صفحه شدن پيج وريفاي و مخفي شدن پيج فوتر و نوبار بالاي صفحه
+  const [userData, setUserData] = useState() //email, userID and token 
+
+  useEffect(() => { //read email, userID and token to local storage
+    const userData = localStorage.getItem('userData');
+    setUserData(!!JSON.parse(userData) ? JSON.parse(userData) : {})
+  }, [])
+
+  useEffect(() => { //add email, userID and token to local storage
+    if (userData !== undefined)
+    localStorage.setItem('userData', JSON.stringify({token: userData.token, email: userData.email, userID: userData.userID }))
+  }, [userData])
 
   const UserContextValue = {
     login, setLogin, Msg, setMsg, messageStatus, setMessageStatus,
     schemaLoginError, setSchemaLoginError, schemaRegisterError, setSchemaRegisterError,
-    loginEmail, setLoginEmail, registerEmail, setRegisterEmail, hidden, setHidden
+    hidden, setHidden,
+    userData, setUserData
   }
 
 

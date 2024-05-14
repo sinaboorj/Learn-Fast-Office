@@ -10,7 +10,7 @@ const Footer = () => {
     const { hidden } = useContext(UserContext)
     return (
         <>
-            {!hidden && ( //برای زمانی که میخواهیم کاربر جدید را تایید یا وریفای کنیم
+            {!hidden && (
                 <>
                     <div className="footer">
              

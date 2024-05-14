@@ -11,8 +11,9 @@ import { faEyeSlash , faEye} from "@fortawesome/free-solid-svg-icons";
 
 function Register() {
   const [isLoading, setIsLoading] = useState(false);
-  const { Msg, registerEmail, setRegisterEmail, setMsg, messageStatus, setMessageStatus, schemaRegisterError, setSchemaRegisterError } = useContext(UserContext)
+  const { Msg, setMsg, messageStatus, setMessageStatus, schemaRegisterError, setSchemaRegisterError } = useContext(UserContext)
   const [password, setPassword] = useState('');
+  const [registerEmail, setRegisterEmail] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
 
@@ -34,20 +35,20 @@ function Register() {
     };
    
     try {
-      if (password !== '' && confirmPassword !== '') {  
+      if (password !== '' && confirmPassword !== '') {
         const result = await axios.post("http://localhost:5500/api/register", newUserData);
-      if (result) { setMsg(result.data);  } //sendeing successfully
+        if (result) { setMsg(result.data); } //sendeing successfully
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
       }
       setMessageStatus(true);
     }
     
-    catch (err) { 
+    catch (err) {
       console.log(err)
       if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' });  //Internal Service Error 
         
-      if (err.response.status === 404) { 
+      if (err.response.status === 404) {
         setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' }); //Url sending Error  or  ERR_BAD_REQUEST 
       }
       else {
@@ -56,7 +57,7 @@ function Register() {
       setMessageStatus(true);
     }
 
-    setIsLoading(false); setPassword(''); setConfirmPassword(''); 
+    setIsLoading(false); setPassword(''); setConfirmPassword('');
   };
 
   //**************************************************** Register Form ************************************ */
@@ -77,8 +78,8 @@ function Register() {
             <div className="register-input">
               <input {...register("password")} type={showPass.type} value={password}
                 onChange={(e) => { setPassword(e.target.value); setSchemaRegisterError(false); setMessageStatus(false) }}
-                placeholder="Password..." className="input" autoComplete='off' tabIndex={2}  />
-              <FontAwesomeIcon  icon={showPass.status ? faEyeSlash : faEye } className="show-pass" title="Show/Hidden"
+                placeholder="Password..." className="input" autoComplete='off' tabIndex={2} />
+              <FontAwesomeIcon icon={showPass.status ? faEyeSlash : faEye} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
@@ -86,7 +87,7 @@ function Register() {
               <input {...register("confirmPasswrd")} type={showPass.type} value={confirmPassword}
                 onChange={(e) => { setConfirmPassword(e.target.value); setSchemaRegisterError(false); setMessageStatus(false) }}
                 placeholder="Confirm Password..." className="input" autoComplete='off' tabIndex={3} />
-              <FontAwesomeIcon icon={showPass.status ? faEyeSlash : faEye } className="show-pass" title="Show/Hidden"
+              <FontAwesomeIcon icon={showPass.status ? faEyeSlash : faEye} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
@@ -95,7 +96,7 @@ function Register() {
 
         </div>
 
-        {isLoading && <h6 style={{ color: '#a3a3a3', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
+        {isLoading && <h6 style={{ color: '#0d6efd', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
         {/* *********************************** Sendeing Email Msg ********************************  */}
 
         {messageStatus && (
@@ -103,15 +104,15 @@ function Register() {
         )}
 
         {/* *********************************** User Input Error ********************************  */}
-        {errors && schemaRegisterError &&(
+        {errors && schemaRegisterError && (
           <div className="error-form-register">
             <span>{errors.email?.message}</span>
             <span>{errors.password?.message}</span>
             <span>{errors.confirmPasswrd?.message}</span>
           </div>
         )}
-
       </div>
+      <br />
     </>
   );
 }

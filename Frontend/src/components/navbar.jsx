@@ -2,13 +2,21 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import '../css/navbar.css'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../context/userContext";
 import logo from '/sysImage/Logo.png'
 import EnFlag from "/sysImage/Englan.png"
 
 const Navbar = () => {
-    const { hidden } = useContext(UserContext)
+    const { hidden, userData } = useContext(UserContext)
+
+    var userStatus = false;
+    var firstStrEmail = userData?.email?.charAt(0)
+  
+     if (firstStrEmail !== undefined ) {
+        userStatus = true;
+    }else {userStatus = false;}
+ 
     return (
         <>
             {!hidden && (
@@ -16,7 +24,13 @@ const Navbar = () => {
                     <div className="main-nav">
 
                         <div className="nav-left">
-                            <Link to='/' className="nav-link "><img className="nav-logo" src={logo} width={30} height={30} alt="Logo" /></Link>
+                        <Link to='/' className="nav-link ">
+                                {userStatus
+                                    ? <span className="user-info">{firstStrEmail}</span>
+                                    : 
+                                        < img className="nav-logo" src={logo} width={30} height={30} alt="Logo" />
+                                    }
+                            </Link>
                             <Link to='/' className="nav-link">Learn Fast</Link>
                         </div>
 

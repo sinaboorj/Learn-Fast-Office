@@ -5,15 +5,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "../../css/register.css";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const {Msg, setMsg, loginEmail, setLoginEmail, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError } = useContext(UserContext)
-  const [password, setPassword] = useState('123456');
+  const { Msg, setMsg, messageStatus, setMessageStatus,
+    schemaLoginError, setSchemaLoginError, setUserData } = useContext(UserContext);
+  
+  const [password, setPassword] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
+  const nav = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -35,11 +39,16 @@ function Login() {
       if (password !== '') {
         const result = await axios.post("http://localhost:5500/api/login", loginUserData)
         
-        if (result) { setMsg({ status: true, title: 'successfully', msg: 'Login successfully' }); } //Login successfully
-        const token = result.headers.authorization
-        
-        console.log(token)
- 
+        if (result) {//Login successfully
+          setMsg({ status: true, title: 'successfully', msg: 'Login successfully' });
+          setUserData({
+            email: result.data.email,
+            userID: result.data.userID,
+            token: result.headers.authorization
+          })
+          nav('/')
+        } 
+       
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
       }
@@ -49,7 +58,7 @@ function Login() {
     catch (err) {
       if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); //Internal Service Error 
       
-      if (err.response.status === 404) { 
+      if (err.response.status === 404) {
         setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' });  //Url sending Error  or  ERR_BAD_REQUEST 
       }
       else {
@@ -57,7 +66,7 @@ function Login() {
       }
       setMessageStatus(true);
     }
-    setIsLoading(false);// setPassword('');
+    setIsLoading(false); setPassword('');
   };
 
   
@@ -90,7 +99,7 @@ function Login() {
           </form>
          
         </div>
-        {isLoading && <h6 style={{ color: 'blue', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
+        {isLoading && <h6 style={{ color: '#0d6efd', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
         {/* *********************************** Login User Msg ********************************  */}
         {messageStatus && (
           <h6 style={{ color: Msg.status ? 'green' : 'red', marginTop: '20px', textAlign: 'center' }}>{Msg.title}</h6>
