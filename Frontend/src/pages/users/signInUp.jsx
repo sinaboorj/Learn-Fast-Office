@@ -3,7 +3,8 @@ import Login from "./login";
 import Register from "./register";
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect } from "react";
-import Learn from "../../components/learn";
+import Home from "../home";
+
 //signIn
 const SignInUp = () => {
     const { login, setLogin, Msg, messageStatus, setMessageStatus, setHidden } = useContext(UserContext)
@@ -33,7 +34,7 @@ const SignInUp = () => {
                     </div>
                 )}
             </div>
-            <Learn />
+           <Home />
         </>
     );
 }

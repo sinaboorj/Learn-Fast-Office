@@ -35,9 +35,10 @@ const Navbar = () => {
                         </div>
 
                         <div className="nav-center">
-                            <Link to='/api/shop' className="nav-link">Dashboard</Link>
-                            <Link to='/api/shop' className="nav-link">Products</Link>
-                            <Link to='/api/about' className="nav-link about">About</Link>
+                            <Link to='/api/dashboard' className="nav-link">Dashboard</Link>
+                            <Link to='/api/products' className="nav-link">Products</Link>
+                            <Link to='/api/appointment' className="nav-link">Appointment</Link>
+                            <Link to='/api/about' className="nav-link">About</Link>
                         </div>
 
                         <div className="nav-right">
