@@ -7,7 +7,7 @@ import databaseImg from '/sysImage/database.jpg'
 const Home = () => {
     return ( 
         <>
-           <br /><br /><br /><br /> <hr />
+           <br/><br/><br/><br/>
             <div className="learn-container">
                 
                 <div className='right'>
