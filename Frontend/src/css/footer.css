@@ -7,13 +7,14 @@
     justify-content: space-around;
     padding: 5px;
     font-size: 15px;
-    border-top: solid 1px #dfd80833;
+    border-top: solid 1px #68686833;
 }
 .lf-footer{
     border-radius: 50%;
     margin: 20px;
-    box-shadow: 0px 0px 10px rgba(148, 147, 147, 0.54);
+    box-shadow: 0px 0px 10px blue;
     padding: 12px;
+    border: solid 2px blue;
 }
 .contact{
     color: rgba(241, 241, 241, 0.54);
@@ -32,7 +33,7 @@
     font-size: 14px;
 }
 .footer .zarei ul li::marker{
-    color: #ffd461!important;
+    color: #044ef5!important;
     font-size: 16px;
 }
 .contact-us{

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHomeLgAlt } from "@fortawesome/free-solid-svg-icons";
 import '../css/navbar.css'
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
-import logo from '/sysImage/Logo.png'
+import logo from '/sysImage/Logo 2.png'
 import EnFlag from "/sysImage/Englan.png"
 import faFlag from "/sysImage/Iran.png"
 
@@ -31,7 +31,7 @@ const Navbar = () => {
                                     : < img className="nav-logo" src={logo} width={30} height={30} alt="Logo" />
                                 }
                             </Link>
-                            <Link to='/' className="nav-link">Learn Fast</Link>
+                            <Link to='/' className="nav-link" style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon"  title={language ? 'Home' : 'خانه'}/></Link>
                         </div>
 
                         <div className="nav-center">
@@ -45,8 +45,8 @@ const Navbar = () => {
                             <Link to='/api/cart' className="nav-link cart-icon"><FontAwesomeIcon icon={faCartShopping} title={language ? 'Cart' : 'سبد خريد'} /></Link>
                             <div className="log-font">
                                 {userStatus
-                                    ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{color:'#df0b0b', fontWeight:'500'}}>Exit</Link>
-                                    : <Link to='/api/login' className="nav-link log-item" style={{color:'#0fc30f'}}>Login</Link>
+                                    ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{color:'rgb(255 39 39)', fontWeight:'500'}}>Exit</Link>
+                                    : <Link to='/api/login' className="nav-link log-item" >Login</Link>
                                 }
                             </div>
 

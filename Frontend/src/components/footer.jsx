@@ -4,7 +4,7 @@ import { FaSkype , FaEnvelope, FaMapPin, FaLinkedin} from 'react-icons/fa';
 import { UserContext } from '../context/userContext';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faMapPin, faEnvelope ,faMobileAlt } from "@fortawesome/free-solid-svg-icons";
-import imgFooter from '/sysImage/LF-black.png'
+import imgFooter from '/sysImage/INSIG.png'
 
 const Footer = () => {
     const { hidden } = useContext(UserContext)
@@ -15,10 +15,10 @@ const Footer = () => {
                     <div className="footer">
              
                         <div className="contact">
-                            <span className="contact-us"> <FaEnvelope style={{ color: '#ffd461' }} /> : sina_boorj@yahoo.com</span>
-                            <span className="contact-us"> <FaSkype style={{ color: '#ffd461' }} /> : live:.cid.75d52dccd1467185</span>
-                            <span><a className="contact-us unlink-color unlink-decoration" href="https://www.linkedin.com/in/hossein-zarei-462a8a215/"><FaLinkedin style={{ color: '#ffd461' }} /> : Hossein Zarei</a></span>
-                            <span className="contact-us"> <FaMapPin style={{ color: '#ffd461' }} /> : Iran.Ahvaz</span>
+                            <span className="contact-us"> <FaEnvelope style={{ color: '#0d6efd' }} /> : sina_boorj@yahoo.com</span>
+                            <span className="contact-us"> <FaSkype style={{ color: '#0d6efd' }} /> : live:.cid.75d52dccd1467185</span>
+                            <span><a className="contact-us unlink-color unlink-decoration" href="https://www.linkedin.com/in/hossein-zarei-462a8a215/"><FaLinkedin style={{ color: '#0d6efd' }} /> : Hossein Zarei</a></span>
+                            <span className="contact-us"> <FaMapPin style={{ color: '#0d6efd' }} /> : Iran.Ahvaz</span>
                         </div>
                         <div>
                             <img className="lf-footer" src={imgFooter} width={100} height={100} alt="Logo" />

@@ -23,7 +23,7 @@
     font-size: 16px;
 }
 .register-btn{
-    background-color: #ffd461;
+    background-color: #044ef5;
     color: black;
     padding: 3px;
     border: none; 
@@ -94,7 +94,7 @@
      color: #4b4a4a;
 }
 .input:focus{
-    outline: solid 1px rgb(207, 183, 43); 
+    outline: solid 1px #044ef5; 
     border-color: black;  
 }
 
@@ -105,7 +105,7 @@
     align-items: center;
 }
 .login-btn {
-    background-color: #ffd461;
+    background-color: #044ef5;
     color: black;
     border: none;
     border-radius: 3px;

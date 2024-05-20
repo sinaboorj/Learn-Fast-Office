@@ -1,7 +1,7 @@
 
 import '../css/about.css'
-import resume from '/sysImage/Resume.jpg'
-import sina from '/sysImage/Sina 1.png'
+import resume from '/sysImage/Resume.png'
+import sina from '/sysImage/Sina.png'
 import { useContext } from 'react'
 import { UserContext } from '../context/userContext'
 

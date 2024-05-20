@@ -1,21 +1,23 @@
 import '../css/home.css'
 import '../css/register.css'
-import backendImg from '/sysImage/backend.jpg'
-import frontendImg from '/sysImage/frontend.jpg'
-import databaseImg from '/sysImage/database.jpg'
+import Planning from '/sysImage/Planning.jpg'
+import Analysis from '/sysImage/Analysis.jpg'
+import Repairs from '/sysImage/Repairs.jpg'
+import { useContext } from 'react'
+import { UserContext } from '../context/userContext'
 
 const Home = () => {
-    return ( 
+    const { language } = useContext(UserContext);
+    return (
         <>
-           <br/><br/><br/><br/>
-            <div className="learn-container">
-                
+            <br/><br/><br/>
+                <div className="learn-container">
                 <div className='right'>
                     
                     <div className='logo-format'>
                         <div className='learn'>
                             <div>
-                                <img src={backendImg} className="learn-backend" width={100} height={100} alt="learn backend" />
+                                <img src={Planning} className="learn-backend" width={300} height={300} alt="learn backend" />
                             </div>
                             <div>
                                 <li className='learn-item' style={{ marginTop: '15px' }}>Node.js</li>
@@ -24,7 +26,7 @@ const Home = () => {
                         </div>
                         <div className='learn'>
                             <div>
-                                <img src={frontendImg} className="learn-frontend" width={100} height={100} alt="learn frontend" />
+                                <img src={Repairs} className="learn-frontend" width={300} height={300} alt="learn frontend" />
                             </div>
                             <div>
                                 <li className='learn-item' style={{ marginTop: '15px' }}>React.js</li>
@@ -35,7 +37,7 @@ const Home = () => {
                         </div>
                         <div className='learn'>
                             <div>
-                                <img src={databaseImg} className="learn-database" width={100} height={100} alt="learn database" />
+                                <img src={Analysis} className="learn-database" width={300} height={300} alt="learn database" />
                             </div>
                             <div>
                                 <li className='learn-item' style={{ marginTop: '15px' }}>MySQL</li>
@@ -44,14 +46,16 @@ const Home = () => {
                     </div>
                     <br />
                     <div className='learn-text'>
-                        <span style={{ marginBottom: '20px',fontWeight: '500' }}>Teaching programming from beginner to advanced</span>
-                        <span style={{  marginBottom: '20px',fontSize:'14px' }}>Fast and professional web programming training</span>
+                        <span style={{ marginBottom: '20px', fontWeight: '500' }}>{language ? 'Teaching programming from beginner to advanced' : 'آموزش برنامه نویسی از مبتدی تا پیشرفته'}</span>
+                        <span style={{ marginBottom: '20px', fontSize: '14px' }}> {language ? 'Fast and professional web programming training' : 'آموزش سریع و حرفه ای برنامه نویسی وب'}</span>
                     </div>
                 </div>
                 <div className='img-backgrand'></div> {/* use background-image in CSS */}
-            </div>
+                </div>
+                
+            <br />
         </>
-     );
+    );
 }
  
 export default Home;
