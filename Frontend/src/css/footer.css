@@ -11,7 +11,6 @@
 }
 .lf-footer{
     border-radius: 50%;
-    margin: 20px;
     box-shadow: 0px 0px 10px blue;
     padding: 12px;
     border: solid 2px blue;
@@ -29,12 +28,8 @@
 .unlink-color{
     color: rgba(241, 241, 241, 0.54);
 }
-.footer .zarei ul li{
-    font-size: 14px;
-}
-.footer .zarei ul li::marker{
-    color: #044ef5!important;
-    font-size: 16px;
+.planning-pic {
+    width: 180px;
 }
 .contact-us{
     margin-bottom: 3px;
@@ -42,6 +37,10 @@
 }
 .under-footer{
     text-align: center;
+}
+.about-sina{
+    text-decoration: none;
+    color: rgb(255, 212, 97);
 }
 
 

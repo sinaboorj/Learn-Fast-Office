@@ -11,44 +11,46 @@ const Home = () => {
     return (
         <>
             <br/><br/><br/>
-                <div className="learn-container">
+                <div className="c-plan-container">
                 <div className='right'>
                     
                     <div className='logo-format'>
-                        <div className='learn'>
+                        <div className='c-plan'>
                             <div>
-                                <img src={Planning} className="learn-backend" width={300} height={300} alt="learn backend" />
+                                <img src={Planning} className="c-plan-pic" width={200} height={200} alt="c-plan backend" />
                             </div>
                             <div>
-                                <li className='learn-item' style={{ marginTop: '15px' }}>Node.js</li>
-                                <li className='learn-item'>Express</li>
-                            </div>
-                        </div>
-                        <div className='learn'>
-                            <div>
-                                <img src={Repairs} className="learn-frontend" width={300} height={300} alt="learn frontend" />
-                            </div>
-                            <div>
-                                <li className='learn-item' style={{ marginTop: '15px' }}>React.js</li>
-                                <li className='learn-item'>JavaScript</li>
-                                <li className='learn-item'>CSS</li>
-                                <li className='learn-item'>HTML</li>
+                                <li className='c-plan-item'>Node.js</li>
+                                <li className='c-plan-item'>Express</li>
                             </div>
                         </div>
-                        <div className='learn'>
+                        <div className='c-plan'>
                             <div>
-                                <img src={Analysis} className="learn-database" width={300} height={300} alt="learn database" />
+                                <img src={Repairs} className="c-plan-pic" width={200} height={200} alt="c-plan frontend" />
                             </div>
                             <div>
-                                <li className='learn-item' style={{ marginTop: '15px' }}>MySQL</li>
+                                <li className='c-plan-item'>React.js</li>
+                                <li className='c-plan-item'>JavaScript</li>
+                                <li className='c-plan-item'>CSS</li>
+                                <li className='c-plan-item'>HTML</li>
+                            </div>
+                        </div>
+                        <div className='c-plan'>
+                            <div>
+                                <img src={Analysis} className="c-plan-pic" width={200} height={200} alt="c-plan database" />
+                            </div>
+                            <div>
+                                <li className='c-plan-item' style={{}}>پايش و تحليل دادها</li>
+                                <li className='c-plan-item'>محاسبه پاداش بهره وري</li>
+                                <li className='c-plan-item'>محاسبه اضافه كاري</li>
+                                <li className='c-plan-item'>پيش بيني ها</li>
+                                <li className='c-plan-item'>محاسبه شاخص ها</li>
+                                <li className='c-plan-item'>تهيه گزارشات داشبوردي</li>
+                                <li className='c-plan-item'>ثبت اطلاعات سامانه ها</li>
                             </div>
                         </div>
                     </div>
                     <br />
-                    <div className='learn-text'>
-                        <span style={{ marginBottom: '20px', fontWeight: '500' }}>{language ? 'Teaching programming from beginner to advanced' : 'آموزش برنامه نویسی از مبتدی تا پیشرفته'}</span>
-                        <span style={{ marginBottom: '20px', fontSize: '14px' }}> {language ? 'Fast and professional web programming training' : 'آموزش سریع و حرفه ای برنامه نویسی وب'}</span>
-                    </div>
                 </div>
                 <div className='img-backgrand'></div> {/* use background-image in CSS */}
                 </div>

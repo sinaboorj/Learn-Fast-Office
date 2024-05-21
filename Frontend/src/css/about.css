@@ -10,22 +10,29 @@
     align-items: center;
     flex-direction: column;
 }
-.sina{
+.resume{
     font-family: fangsong;
     font-weight: bold;
     font-size: 19px;
-    color: rgb(161 161 161);
-    margin-bottom: 10px;
+    color: rgb(183 183 183);
+    margin-bottom: 15px;
 }
-img.sina-about {
-    width: 110px;
-    border-radius: 47%;
-    border: solid 3px #8a8a8a;
-    margin-bottom: 35px;
+img.resume-pic {
+    width: 116px;
+    border-radius: 50%;
+    border: solid 5px rgb(1 84 155);
+  margin-bottom: 25px;
 }
-.resume{
+.resume-pic{
     border-radius: 5px;
+    width: 80%;
 }
-.sina-text{
-    margin-bottom: 40px;
+.resume-text-en{
+    margin-bottom: 30px;
+}
+.resume-text-fa{
+    margin-bottom: 20px;
+    direction: rtl;
+    font-family: system-ui;
+    font-size: 14px;
 }

@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/api/dashboard" element={<Dashboard />} />
           <Route path="/api/products" element={<Products />} />
           <Route path="/api/appointment" element={<Appointment />} />
-          <Route path="/api/about" element={<About />} />
+          <Route path="/api/about-hossein-zarei" element={<About />} />
           <Route path="/api/login" element={<SignInUp />} />
           <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} />
         </Routes>

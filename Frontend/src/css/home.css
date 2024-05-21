@@ -1,5 +1,5 @@
 
-.learn-container {
+.c-plan-container {
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -20,15 +20,9 @@
     border-radius: 5px;
     margin: 20px;
 }
-.learn-text{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    padding: 10px;
-    font-size: 16px;
-    text-align: center;
-    
+
+.c-plan-pic{
+    margin-bottom: 25px;
 }
 .logo-format {
     display: flex;
@@ -50,21 +44,21 @@
     font-size: 14px;
     font-weight: 400;
 }
-.learn{
+.c-plan{
     display: flex;
     margin: 10px;
     flex-direction: column;
     align-content: center;
     align-items: center;
 }
-li.learn-item {
+li.c-plan-item {
     margin-left: 25px;
 }
 
  .img-backgrand{
     width: 100vw;
     height: calc(100vw / 1.2);
-    background-image: url('/sysImage/skill.jpg');
+    background-image: url('../../public/sysImage/CR.png');
     background-repeat: no-repeat;
     background-size:contain;
     background-position: center;
