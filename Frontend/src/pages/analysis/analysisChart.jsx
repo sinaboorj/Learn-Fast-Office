@@ -1,18 +1,16 @@
 import '../../css/analysisChart.css'
 
 const AnalysisChart = () => {
-    return ( 
+    return (
         <>
+            <br /><br />
             <div className="analysis-chart">
-                <div className="a-chart-head">
-                   <span>supervisor</span> 
-                </div>
-                <div className="a-chart-expert">
-                <span>ٍExpert</span> 
-                </div>
+                    <div className='person'>supervisor</div>
+                    <div className='v-line'></div>
+                    <div className='person'>Expert</div>
             </div>
         </>
-     );
+    );
 }
  
 export default AnalysisChart;
