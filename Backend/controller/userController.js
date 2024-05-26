@@ -78,8 +78,6 @@ const login = trycatchHandler(async (req, res, next) => {
     const token = jwt.sign({ status: true , title: 'Successful', msg: 'Login successfully', token:chechUser.token }, process.env.LOGIN_PRIVATE_KEY)// ارسال توکن کاربر لاکین شده
     res.header('authorization', token).send(_.pick(chechUser, ["userID", "email"]))
   
-   
-
 }
 )
 

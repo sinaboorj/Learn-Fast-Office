@@ -2,10 +2,10 @@
 import '../css/about.css'
 import sina from '../../public/sysImage/Sina.png'
 import { useContext } from 'react'
-import { UserContext } from '../context/userContext'
+import { LanguageContext } from '../context/languageContext';
 
 const About = () => {
-    const { language } = useContext(UserContext)
+    const { language } = useContext(LanguageContext);
     return (
         <>
             <br /><br /><br />

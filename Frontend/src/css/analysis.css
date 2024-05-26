@@ -1,0 +1,62 @@
+
+.analysis{
+    color: rgb(97, 97, 97);
+} 
+.folder-img{
+    width: 35x;
+    height: 25px;
+}
+.analysis-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px;
+    margin: 120px 10px 5px 10px;
+}
+.summry {
+    font-family: 'Vazir';
+    font-size: 16px;
+    width: 92%;
+    margin: auto;
+}
+.analysis .analysis-title span{
+    color: rgb(97, 97, 97);
+    margin: 0 15px;
+    font-family: 'Vazir';
+    font-weight: bolder;
+    font-size: 16px;
+}
+.discription{
+    font-family: 'Vazir';
+    font-size: 15px;
+    width: 69%;
+    margin: auto;
+}
+.items-title {
+    background: #6e6e6e;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 14px;
+    border: solid 2px #7e764d;
+}
+.items {
+    list-style-type: square;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.under-under-items {
+    font-size: 13px;
+    margin: 5px 43px 0px;
+    list-style-type: disclosure-closed;
+}
+.img-backgrand{
+    width: 100vw;
+    height: calc(100vw / 1);
+    background-image: url('../../public/sysImage/CR.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    opacity: 100%;
+}

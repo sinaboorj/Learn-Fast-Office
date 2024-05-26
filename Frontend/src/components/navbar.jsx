@@ -7,9 +7,12 @@ import { UserContext } from "../context/userContext";
 import logo from '/sysImage/Logo 2.png'
 import EnFlag from "/sysImage/Englan.png"
 import faFlag from "/sysImage/Iran.png"
+import { LanguageContext } from "../context/languageContext";
+
 
 const Navbar = () => {
-    const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError, language, setLanguage } = useContext(UserContext)
+    const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError } = useContext(UserContext)
+    const { language, setLanguage } = useContext(LanguageContext);
 
     var userStatus = false;
     var firstStrEmail = userData?.email?.charAt(0)
@@ -36,9 +39,11 @@ const Navbar = () => {
 
                         <div className="nav-center">
                             <Link to='/api/dashboard' className="nav-link">{language ? 'Dashboard' : 'داشبورد'}</Link>
-                            <Link to='/api/products' className="nav-link" >{language ? 'Products' : 'محصولات'}</Link>
-                            <Link to='/api/appointment' className="nav-link" > {language ? 'Appointment' : 'وقت ملاقات'}</Link>
-                            <Link to='/api/about' className="nav-link" title="درباره من"> {language ? 'About' : 'درباره من'}</Link>
+                            <Link to='/api/products' className="nav-link" >{language ? 'Chart' : 'چارت'}</Link>
+                            <Link to='/api/appointment' className="nav-link" > {language ? 'Planning' :'برنامه ريزي و كنترل'}</Link>
+                            <Link to='/api/about' className="nav-link" > {language ? 'Maintenance' : 'نگهداري و تعميرات'}</Link>
+                            <Link to='/api/monitoring-analysis' className="nav-link"> {language ? 'Statistics' : 'پايش و تحليل'}</Link>
+
                         </div>
 
                         <div className="nav-right">

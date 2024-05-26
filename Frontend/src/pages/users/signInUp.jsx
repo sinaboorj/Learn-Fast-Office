@@ -4,11 +4,12 @@ import Register from "./register";
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect } from "react";
 import Home from "../home";
+import { LanguageContext } from "../../context/languageContext";
 
 //signIn
 const SignInUp = () => {
-    const { login, setLogin, Msg, messageStatus, setMessageStatus, setHidden, language } = useContext(UserContext)
-
+    const { login, setLogin, Msg, messageStatus, setMessageStatus, setHidden } = useContext(UserContext)
+    const { language } = useContext(LanguageContext);
     useEffect(() => {
         setLogin(true)
         setHidden(false)
