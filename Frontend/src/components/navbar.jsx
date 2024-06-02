@@ -8,19 +8,21 @@ import logo from '/sysImage/Logo 2.png'
 import EnFlag from "/sysImage/Englan.png"
 import faFlag from "/sysImage/Iran.png"
 import { LanguageContext } from "../context/languageContext";
-
+import Strings from "../helper/strings";
 
 const Navbar = () => {
     const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError } = useContext(UserContext)
-    const { language, setLanguage } = useContext(LanguageContext);
+    const { lang, setLang } = useContext(LanguageContext)
 
+    //************************************* show the First client's name in Navbar  ***************************** */
     var userStatus = false;
     var firstStrEmail = userData?.email?.charAt(0)
+    //**************************************************************************************** */
    
     if (firstStrEmail !== undefined) {
         userStatus = true;
     } else { userStatus = false; }
- 
+
     return (
         <>
             {!hidden && (
@@ -34,37 +36,37 @@ const Navbar = () => {
                                     : < img className="nav-logo" src={logo} width={30} height={30} alt="Logo" />
                                 }
                             </Link>
-                            <Link to='/' className="nav-link" style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon"  title={language ? 'Home' : 'خانه'}/></Link>
+                            <Link to='/' className="nav-link" style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
                         </div>
 
                         <div className="nav-center">
-                            <Link to='/api/dashboard' className="nav-link">{language ? 'Dashboard' : 'داشبورد'}</Link>
-                            <Link to='/api/products' className="nav-link" >{language ? 'Chart' : 'چارت'}</Link>
-                            <Link to='/api/appointment' className="nav-link" > {language ? 'Planning' :'برنامه ريزي و كنترل'}</Link>
-                            <Link to='/api/about' className="nav-link" > {language ? 'Maintenance' : 'نگهداري و تعميرات'}</Link>
-                            <Link to='/api/monitoring-analysis' className="nav-link"> {language ? 'Statistics' : 'پايش و تحليل'}</Link>
+                            <Link to='/api/dashboard' className="nav-link">{Strings.Dashboard}</Link>
+                            <Link to='/' className="nav-link">{Strings.Chart}</Link>
+                            <Link to='/' className="nav-link" >{Strings.Planning}</Link>
+                            <Link to='/' className="nav-link" > {Strings.Maintenance}</Link>
+                            <Link to='/api/monitoring-analysis' className="nav-link"> {Strings.Statistics}</Link>
 
                         </div>
 
                         <div className="nav-right">
-                            <Link to='/api/cart' className="nav-link cart-icon"><FontAwesomeIcon icon={faCartShopping} title={language ? 'Cart' : 'سبد خريد'} /></Link>
+                            <Link to='/' className="nav-link cart-icon"><FontAwesomeIcon icon={faCartShopping} /></Link>
                             <div className="log-font">
                                 {userStatus
-                                    ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{color:'rgb(255 39 39)', fontWeight:'500'}}>Exit</Link>
+                                    ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{ color: 'rgb(255 39 39)', fontWeight: '500' }}>Exit</Link>
                                     : <Link to='/api/login' className="nav-link log-item" >Login</Link>
                                 }
                             </div>
 
-                            {language
-                                ? <img onClick={() => { setLanguage(!language) }} src={EnFlag} className="nav-link language" title="Change language" alt="language" />
-                                : <img onClick={() => { setLanguage(!language) }} src={faFlag} className="nav-link language" title="Change language" alt="language" />
+                            {lang
+                                ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="nav-link language" title="en/fa" alt="language" />
+                                : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="nav-link language" title="en/fa" alt="language" />
                             }
                         </div>
 
                     </div>
+                    <br />  <br />
                 </>
             )}
-            
         </>
     );
 }

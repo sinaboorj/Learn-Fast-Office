@@ -1,0 +1,49 @@
+
+.person {
+    background-color: #343333;
+    border-radius: 8px;
+    width: 85px;
+    height: 40px;
+    padding: 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b3b3b3;
+    border: solid 1px #dfb950;
+    font-size: 13px;
+}
+.v-line {
+    width: 2px;
+    height: 60px;
+    background-color: #626262;
+}
+.title-chart{
+    color: rgb(241 241 241 / 68%);
+    margin-bottom: 20px;
+   display: flex;
+   font-family: 'Vazir';
+}
+.managechart-chart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 1px 0px;
+    border: solid 1px #404040;
+    width: calc(100vw / 3 - 10px);
+    margin: -5px 5px;
+    background-color: #343333;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom-color: #343333;
+}
+.analysis-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 1px 15px;
+    border: solid 1px #404040;
+    width: calc(100vw / 3 - 10px);
+    background-color: #343333;
+    border-radius: 0px 0px 5px 5px;
+    border-top-color: #343333;
+}

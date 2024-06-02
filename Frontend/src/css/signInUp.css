@@ -13,15 +13,15 @@
 .user-sign {
     display: flex;
     justify-content: space-around;
-    font-family: auto;
+    font-family: 'Vazir';
     margin-top: 15px;
-    font-weight: bold;
     width: 100%;
     padding: 10px;
     background-color: #363636;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     outline: solid 1px #262626;
+    color: #175af7;
 }
 .sign-form{
     display: flex;

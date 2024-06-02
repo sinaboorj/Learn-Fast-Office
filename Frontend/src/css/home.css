@@ -51,7 +51,7 @@
     align-content: center;
     align-items: center;
     width: calc(100vw / 3);
-    border-right: dotted 1px #4c4c4c;
+    flex-grow: 1;
 }
 ul.home-items {
     display: flex;
@@ -67,7 +67,7 @@ li.c-plan-item {
     margin: 2px;
 }
 
-@media only screen and (max-width:409px) {
+@media only screen and (max-width:550px) {
     .logo-format {
         flex-direction: column;
     }

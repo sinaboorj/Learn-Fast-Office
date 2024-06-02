@@ -1,13 +1,13 @@
-import '../../css/analysisChart.css'
+import '../../css/chart.css'
+import Strings from '../../helper/strings';
 
 const AnalysisChart = () => {
     return (
         <>
-            <br /><br />
             <div className="analysis-chart">
-                    <div className='person'>supervisor</div>
+                    <div className='person'>{Strings.supervisor} </div>
                     <div className='v-line'></div>
-                    <div className='person'>Expert</div>
+                    <div className='person'>{Strings.Expert} </div>
             </div>
         </>
     );

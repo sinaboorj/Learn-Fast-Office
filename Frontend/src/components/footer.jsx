@@ -4,7 +4,7 @@ import { FaSkype , FaEnvelope, FaMapPin, FaLinkedin, FaInfoCircle} from 'react-i
 import { UserContext } from '../context/userContext';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faMapPin, faEnvelope ,faMobileAlt } from "@fortawesome/free-solid-svg-icons";
-import INSIGmain from '../../public/sysImage/INSIGmain.jpg'
+import INSIGmain1 from '../../public/sysImage/INSIGmain1.jpg'
 import INSIG from '../../public/sysImage/INSIG.png'
 import { Link } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const Footer = () => {
                         <div>
                             <img className="insig-footer" src={INSIG} width={100} height={100} alt="Logo" />
                         </div>
-                            <img className="planning-pic" src={INSIGmain}  alt="planning-pic" />
+                            <img className="planning-pic" src={INSIGmain1}  alt="planning-pic" />
                     </div>
                     <div className="under-footer" style={{ fontSize: '13px', color: '#383838', backgroundColor: 'white' }}>This page was programmed (Backend and Frontend) and designed by Hossein Zarei alias Sina in March 2024.</div>
                 </>

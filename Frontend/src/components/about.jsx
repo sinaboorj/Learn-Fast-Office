@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { LanguageContext } from '../context/languageContext';
 
 const About = () => {
-    const { language } = useContext(LanguageContext);
+    const { lang } = useContext(LanguageContext);
     return (
         <>
             <br /><br /><br />

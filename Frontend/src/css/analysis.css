@@ -1,6 +1,9 @@
 
 .analysis{
     color: rgb(97, 97, 97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } 
 .folder-img{
     width: 35x;
@@ -11,13 +14,13 @@
     flex-direction: row;
     align-items: center;
     padding: 3px;
-    margin: 120px 10px 5px 10px;
+    margin: 40px 10px 5px 10px;
 }
-.summry {
+.folder-summry{
     font-family: 'Vazir';
-    font-size: 16px;
-    width: 92%;
+    font-size: 15px;
     margin: auto;
+    padding: 2px 50px;
 }
 .analysis .analysis-title span{
     color: rgb(97, 97, 97);
@@ -29,26 +32,35 @@
 .discription{
     font-family: 'Vazir';
     font-size: 15px;
-    width: 69%;
+    width: 100%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 .items-title {
-    background: #6e6e6e;
+    width: calc(100vw / 3 - 8px);
+    background: #919191;
     color: #000000;
     border-radius: 5px;
     padding: 10px 25px;
     font-size: 14px;
-    border: solid 2px #7e764d;
+    border: solid 2px #b3b3b3;
+    margin: 3px 4px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: justify;
 }
 .items {
     list-style-type: square;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
+    text-align: -webkit-auto;
 }
 .under-under-items {
-    font-size: 13px;
-    margin: 5px 43px 0px;
+    margin: 5px 18px 0px 0px;
     list-style-type: disclosure-closed;
 }
 .img-backgrand{
@@ -59,4 +71,13 @@
     background-size:contain;
     background-position: center;
     opacity: 100%;
+    margin-top: 15px;
+}
+li.items::marker {
+    font-size: 19px;
+  }
+@media only screen and (max-width: 455px){
+    .items-title {
+        width: 100%;
+    }
 }

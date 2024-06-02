@@ -1,20 +1,18 @@
 body{
     overflow-x: hidden !important;
-    overflow-y:auto;
-    background-color: black;
+    box-sizing: border-box;
 } 
 div#root {
     background-color: black;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
-    height: calc(100vw /10 );
+    width: 10px;
   }
 
   /* Track */
 ::-webkit-scrollbar-track {
-    background: white; 
+    background: rgb(206, 206, 206); 
   }
    
   /* Handle */
