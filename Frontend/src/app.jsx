@@ -18,12 +18,12 @@ const App = () => {
         <LanguageContextProvider>
         <Navbar />
         <Routes>
-           <Route path="/" element={<Home />} />
-          {/*<Route path="/api/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/api/dashboard" element={<Dashboard />} />
           <Route path="/api/about-hossein-zarei" element={<About />} />
           <Route path="/api/login" element={<SignInUp />} />
           <Route path="/api/monitoring-analysis" element={<Analysis />} />
-          <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} /> */}
+          <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} /> 
         </Routes>
           <Footer />
           </LanguageContextProvider>

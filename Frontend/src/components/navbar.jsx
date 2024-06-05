@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHomeLgAlt } from "@fortawesome/free-solid-svg-icons";
 import '../css/navbar.css'
@@ -13,6 +13,7 @@ import Strings from "../helper/strings";
 const Navbar = () => {
     const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError } = useContext(UserContext)
     const { lang, setLang } = useContext(LanguageContext)
+    const nav = useNavigate();
 
     //************************************* show the First client's name in Navbar  ***************************** */
     var userStatus = false;
@@ -33,7 +34,7 @@ const Navbar = () => {
                             <Link to='/' className="nav-link ">
                                 {userStatus
                                     ? <span className="user-info">{firstStrEmail}</span>
-                                    : < img className="nav-logo" src={logo} width={30} height={30} alt="Logo" />
+                                    : < img className="nav-logo" src={logo} width={30} height={30} alt="Logo"  onClick={()=>{nav('/api/')}}/>
                                 }
                             </Link>
                             <Link to='/' className="nav-link" style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
