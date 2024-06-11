@@ -1,10 +1,10 @@
 .footer{
     background-color: black;
-    margin-top: 20px;
+    margin: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 5px;
     font-size: 15px;
     border-top: solid 1px #68686833;
@@ -29,12 +29,12 @@
     color: rgba(241, 241, 241, 0.54);
 }
 .planning-pic {
-    width: 180px;
+    width: 60px;
     margin: 10px;
 }
 .contact-us{
     margin-bottom: 3px;
-    font-size: 14px;
+    font-size: 12.5px;
 }
 .under-footer{
     text-align: center;
@@ -43,7 +43,16 @@
     text-decoration: none;
     color: rgb(255, 212, 97);
 }
-
+.left-footer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    color: #616161;
+}
+.left-footer h6{
+    font-size: 14px;
+}
 
 @media only screen and (max-width:619px) {
     

@@ -63,10 +63,20 @@
     margin: 5px 18px 0px 0px;
     list-style-type: disclosure-closed;
 }
-.img-backgrand{
+.img-backgrand-fa{
     width: 100vw;
     height: calc(100vw / 1);
-    background-image: url('../../public/sysImage/CR.png');
+    background-image: url('../../public/sysImage/CR_fa.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+    opacity: 100%;
+    margin-top: 15px;
+}
+.img-backgrand-en{
+    width: 100vw;
+    height: calc(100vw / 1);
+    background-image: url('../../public/sysImage/CR_en.png');
     background-repeat: no-repeat;
     background-size:contain;
     background-position: center;

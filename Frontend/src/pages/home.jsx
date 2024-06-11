@@ -22,21 +22,8 @@ const Home = () => {
               
                     
                 <div className='logo-format'>
-                    <div className='c-plan'>
-                        {lang
-                            ? <img src={PlanningEn} className="c-plan-pic" alt="c-plan backend" />
-                            : <img src={PlanningFa} className="c-plan-pic" alt="c-plan backend" />
-                        }
-                        <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
-                            <li className='c-plan-item'>Node.js</li>
-                            <li className='c-plan-item'>Express</li>
-                        </div>
-                    </div>
-                    <div className='c-plan'>
-                        {lang
-                            ? < img src={RepairsEn} className="c-plan-pic" alt="c-plan frontend" />
-                            : < img src={RepairsFa} className="c-plan-pic" alt="c-plan frontend" />
-                        }
+                <div className='c-plan'>
+                        < img src={lang ? RepairsEn : RepairsFa} className="c-plan-pic" alt="c-plan frontend" />
                         <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
                             <li className='c-plan-item'>React.js</li>
                             <li className='c-plan-item'>JavaScript</li>
@@ -45,18 +32,23 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='c-plan'>
-                        {lang
-                            ? < img src={AnalysisEn} className="c-plan-pic" alt="c-plan database" onClick={() => { nav('/api/monitoring-analysis') }} />
-                            :  < img src={AnalysisFa} className="c-plan-pic" alt="c-plan database" onClick={() => { nav('/api/monitoring-analysis') }} />
-                        }
+                        <img src={lang ? PlanningEn : PlanningFa} className="c-plan-pic" alt="c-plan backend" />
                         <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
-                            <li className='c-plan-item'>{Strings.Data_monitoring_and_analysis}</li>
-                            <li className='c-plan-item'>{Strings.Calculation_of_productivity_bonus}</li>
-                            <li className='c-plan-item'>{Strings.Calculation_of_overtime}</li>
-                            <li className='c-plan-item'>{Strings.Production_forecast_and_required_materials}</li>
-                            <li className='c-plan-item'>{Strings.Calculation_of_indicators}</li>
-                            <li className='c-plan-item'>{Strings.Preparation_of_dashboard_reports}</li>
-                            <li className='c-plan-item'>{Strings.Sites_information_registration}</li>
+                            <li className='c-plan-item'>Node.js</li>
+                            <li className='c-plan-item'>Express</li>
+                        </div>
+                    </div>
+
+                    <div className='c-plan'>
+                        < img src={lang ? AnalysisEn : AnalysisFa} className="c-plan-pic" alt="c-plan database" onClick={() => { nav('/api/monitoring-analysis') }} />
+                        <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
+                            <li className='c-plan-item'>{Strings.Analysis_title_1}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_2}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_3}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_4}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_5}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_6}</li>
+                            <li className='c-plan-item'>{Strings.Analysis_title_7}</li>
                         </div>
                     </div>
                 </div>

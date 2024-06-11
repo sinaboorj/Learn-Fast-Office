@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHomeLgAlt } from "@fortawesome/free-solid-svg-icons";
+import { faHomeLgAlt , faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import '../css/navbar.css'
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
@@ -50,11 +50,10 @@ const Navbar = () => {
                         </div>
 
                         <div className="nav-right">
-                            <Link to='/' className="nav-link cart-icon"><FontAwesomeIcon icon={faCartShopping} /></Link>
                             <div className="log-font">
                                 {userStatus
                                     ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{ color: 'rgb(255 39 39)', fontWeight: '500' }}>Exit</Link>
-                                    : <Link to='/api/login' className="nav-link log-item" >Login</Link>
+                                    : <Link to='/api/login' className="nav-link log-item" ><FontAwesomeIcon icon={faUserCircle} className="login-icon" /></Link>
                                 }
                             </div>
 
