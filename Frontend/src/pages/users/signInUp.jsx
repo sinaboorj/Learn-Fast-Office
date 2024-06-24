@@ -7,7 +7,6 @@ import Home from "../home";
 import { LanguageContext } from "../../context/languageContext";
 import '../../css/font.css'
 
-//signIn
 const SignInUp = () => {
     const { login, setLogin, Msg, messageStatus, setMessageStatus, setHidden } = useContext(UserContext)
     const { lang } = useContext(LanguageContext);

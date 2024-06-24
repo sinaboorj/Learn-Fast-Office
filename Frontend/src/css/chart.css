@@ -12,6 +12,7 @@
     color: #b3b3b3;
     border: solid 1px #dfb950;
     font-size: 13px;
+    cursor: pointer;
 }
 .v-line {
     width: 2px;

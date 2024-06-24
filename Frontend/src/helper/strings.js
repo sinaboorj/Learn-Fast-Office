@@ -19,11 +19,12 @@ const Strings = new LocalizedStrings({
         "Analysis_title_5":"Calculation of indicators",
         "Analysis_title_6":"Preparation of dashboard reports",
         "Analysis_title_7": "Sites information registration",
-        // ****************************************** Title *********************************************
-        "Organizational_Chart":"Organizational Chart",
-        "supervisor":"Supervisor",
-        "Expert":"Expert",
+        // ****************************************** Job Title *********************************************
+        "Organizational_Chart": "Organizational Chart",
         "Manager": "Manager",
+        "Supervisor":"Supervisor",
+        "Expert": "Expert",
+        "Technician": "Technician",
         // ****************************************** Analysis Jobs *************************************
         "Analysis_job_1": "The process of collecting primary data, filtering data, preparing data, processing data and finally analyzing various data in order to extract useful information for decision making is one of the most important activities of this unit.",
         "Analysis_job_2": "At the end of each one-month period, the production productivity bonus is calculated based on the efficiency of the line (grade one, waste and oxide powder), the amount of consumption (roller, grease, types of oil) and the number of personnel.",
@@ -49,7 +50,7 @@ const Strings = new LocalizedStrings({
         "Dashboard":"داشبورد",
         "Chart":"چارت",
         "Planning":"برنامه ريزي",
-        "Maintenance":"نگهداي و تعميرات",
+        "Maintenance":"نگهداري و تعميرات",
         "Statistics": "آمار",
         // ****************************************** Analysis Assinment *********************************
         "Analysis_title": "واحد پايش و تحليل اطلاعات",
@@ -61,11 +62,12 @@ const Strings = new LocalizedStrings({
         "Analysis_title_5":"محاسبه شاخص ها",
         "Analysis_title_6":"تهيه گزارشات داشبوردي",
         "Analysis_title_7": "ثبت اطلاعات سامانه ها",
-        // ****************************************** Title ***********************************************
-        "Organizational_Chart":"چارت سازماني",
-        "supervisor":"سرپرست",
-        "Expert":"كارشناس",
+        // ****************************************** Job Title ***********************************************
+        "Organizational_Chart": "چارت سازماني",
         "Manager": "مدير",
+        "Supervisor":"سرپرست",
+        "Expert":"كارشناس",
+        "Technician": "تكنيسين",
         // ****************************************** Analysis Jobs ***************************************
         "Analysis_job_1": "فرایند جمع آوري داده هاي اوليه، فيلتر داده ها، آماده‌سازی داده ها ، پردازش داده ها و در نهايت تحلیل داده‌ هاي مختلف به منظور استخراج اطلاعات سودمند جهت تصمیم‌گیری، از مهم ترين فعاليت هاي اين واحد مي باشد.",
         "Analysis_job_2": "در پايان هر دوره يك ماهه پاداش بهره وري توليد بر اساس راندمان خط (درجه يك، ضايعات و پودر اكسيد) ، ميزان مصارف (غلطك، گريس، انواع روغن) و تعداد پرسنل محاسبه ميگردد.",

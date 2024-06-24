@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
 import dotenv from 'dotenv';
-
 dotenv.config(); 
 
 const sendEmail = async (email, mailSubject, text) => {
@@ -20,7 +19,7 @@ const sendEmail = async (email, mailSubject, text) => {
 			html: text,
 		};
 
-		await transporter.sendMail(mailOptions)
+		await transporter.sendMail(mailOp.tions)
 		return { status: true, title: 'Email sent successfully!', msg: 'An Email sent to your account , please verify' };
 	} catch (error) {
 		return { status: false, title: 'Registration error!', msg: error.message };
