@@ -3,9 +3,10 @@ import '../../css/analysis.css'
 import folder_img from '../../../public/sysImage/FY1.png'
 import { LanguageContext } from '../../context/languageContext';
 import '../../css/font.css'
-import AnalysisChart from './analysisChart';
+
 import ManagerChart from '../manager/managerChart';
 import Strings from '../../helper/strings';
+import AnalysisChart from './analysisChart';
 
 const Analysis = () => {
      const { lang } = useContext(LanguageContext)

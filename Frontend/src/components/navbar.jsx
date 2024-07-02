@@ -13,7 +13,7 @@ import Strings from "../helper/strings";
 const Navbar = () => {
     const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError } = useContext(UserContext)
     const { lang, setLang } = useContext(LanguageContext)
-
+     
     //************************************* show the First client's name in Navbar  ***************************** */
     var userStatus = false;
     var firstStrEmail = userData?.email?.charAt(0)

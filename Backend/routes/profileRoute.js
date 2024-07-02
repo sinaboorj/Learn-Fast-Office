@@ -4,8 +4,10 @@ import authorization from '../middelwares/authorization.js'
 
 const profileRouter = experss.Router()
 
- profileRouter.put('/update/:userID?', authorization, profileController.updateUser)
- profileRouter.get('/:userID?', authorization, profileController.get)
+profileRouter.get('/users', authorization, profileController.getAll)
+profileRouter.get('/user/:userID?', authorization, profileController.get)
+profileRouter.post('/usersonchart', authorization, profileController.get_Level_No)
+profileRouter.put('/update/:userID?', authorization, profileController.updateUser)
 
 export default profileRouter  
 

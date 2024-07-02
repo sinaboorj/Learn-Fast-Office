@@ -7,14 +7,13 @@ import PlanningFa from '/sysImage/PlanningFa.jpg'
 import AnalysisFa from '/sysImage/AnalysisFa.jpg'
 import RepairsFa from '/sysImage/RepairsFa.jpg'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { LanguageContext } from '../context/languageContext'
 import Strings from '../helper/strings'
 
-
 const Home = () => {
     const { lang } = useContext(LanguageContext);
-    const nav = useNavigate();
+
     return (
         <>
             <br /><br /><br />
@@ -40,7 +39,7 @@ const Home = () => {
                     </div>
 
                     <div className='c-plan'>
-                        < img src={lang ? AnalysisEn : AnalysisFa} className="c-plan-pic" alt="c-plan database" onClick={() => { nav('/api/monitoring-analysis') }} />
+                        <Link to='/api/monitoring-analysis'> < img src={lang ? AnalysisEn : AnalysisFa} className="c-plan-pic" alt="c-plan database" /></Link>
                         <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
                             <li className='c-plan-item'>{Strings.Analysis_title_1}</li>
                             <li className='c-plan-item'>{Strings.Analysis_title_2}</li>
@@ -53,8 +52,6 @@ const Home = () => {
                     </div>
                 </div>
                 <br />
-                
-               
             </div>
                 
             <br />

@@ -19,7 +19,7 @@ const sendEmail = async (email, mailSubject, text) => {
 			html: text,
 		};
 
-		await transporter.sendMail(mailOp.tions)
+		await transporter.sendMail(mailOptions)
 		return { status: true, title: 'Email sent successfully!', msg: 'An Email sent to your account , please verify' };
 	} catch (error) {
 		return { status: false, title: 'Registration error!', msg: error.message };
