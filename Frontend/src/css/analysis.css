@@ -41,12 +41,11 @@
 }
 .items-title {
     width: calc(100vw / 3 - 8px);
-    background: #919191;
+    background: #acacac;
     color: #000000;
     border-radius: 5px;
     padding: 10px 25px;
     font-size: 14px;
-    border: solid 2px #b3b3b3;
     margin: 3px 4px;
     display: flex;
     flex-direction: column;
@@ -59,6 +58,7 @@
     font-weight: 600;
     margin-bottom: 5px;
     text-align: -webkit-auto;
+    color: #031780;
 }
 .under-under-items {
     margin: 5px 18px 0px 0px;

@@ -44,6 +44,8 @@ function Login() {
           setUserData({
             email: result.data.email,
             userID: result.data.userID,
+            level: result.data.level,
+            unit: result.data.unit,
             token: result.headers.authorization
           })
           nav('/')

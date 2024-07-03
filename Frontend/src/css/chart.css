@@ -1,6 +1,6 @@
 
 .person {
-    background-color: #343333;
+    background: #acacac;
     border-radius: 8px;
     width: 85px;
     height: 40px;
@@ -9,10 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #b3b3b3;
-    border: solid 1px #dfb950;
+    border: solid 1px #737373;
     font-size: 13px;
     cursor: pointer;
+    color: #000000;
+    font-weight: 500;
 }
 .v-line {
     width: 2px;

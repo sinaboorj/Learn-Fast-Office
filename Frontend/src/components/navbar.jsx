@@ -53,7 +53,7 @@ const Navbar = () => {
                             <div className="log-font">
                                 {userStatus
                                     ? <Link to='/api/login' className="nav-link log-item" onClick={() => { setUserData({}); localStorage.clear(); setMessageStatus(false); setSchemaLoginError(false) }} style={{ color: 'rgb(255 39 39)', fontWeight: '500' }}>Exit</Link>
-                                    : <Link to='/api/login' className="nav-link log-item" ><FontAwesomeIcon icon={faUserCircle} className="login-icon" /></Link>
+                                    : <Link to='/api/login' className="nav-link log-item" ><FontAwesomeIcon icon={faUserCircle} className="login-icon" title="Login" /></Link>
                                 }
                             </div>
                         </div>

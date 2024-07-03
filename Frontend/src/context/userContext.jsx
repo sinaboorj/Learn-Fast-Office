@@ -21,8 +21,7 @@ const UserContextProvider = (props) => {
  //*********************************  add email, userID and token to local storage   ****************** */ 
   useEffect(() => { 
     if (userData !== undefined)
-      localStorage.setItem('userData', JSON.stringify({ token: userData.token, email: userData.email, userID: userData.userID }))
-  
+      localStorage.setItem('userData', JSON.stringify(userData))
   }, [userData])
 
   const UserContextValue = {
