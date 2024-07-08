@@ -2,7 +2,7 @@ import React, { useContext,  useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "../../css/register.css";
+import "../../sass/register.scss";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
 //import { useNavigate } from "react-router-dom";
@@ -45,7 +45,6 @@ function Register() {
     }
     
     catch (err) {
-      console.log(err)
       if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' });  //Internal Service Error 
         
       if (err.response.status === 404) {

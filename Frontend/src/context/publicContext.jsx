@@ -1,31 +1,25 @@
 import { createContext, useEffect, useState } from "react";
 import Strings from "../helper/strings";
 
-
-export const LanguageContext = createContext(null) 
+export const PublicContext = createContext(null) 
 //********************************************** Language Context ****************************** */
-const LanguageContextProvider = (props) => {
-  const [lang, setLang] = useState()
+const PublicContextProvider = (props) => {
 
-  //*********************************  Read local storage   ************************************ */ 
-  useEffect(() => {
-    const language = JSON.parse(localStorage.getItem('language'))
-    setLang(language ?? null)
-  }, [])
+  const [lang, setLang] = useState(JSON.parse(localStorage.getItem('language')) ?? true)
 
   //********************************* Save local storage ************************************* */ 
   useEffect(() => {
     if (lang !== undefined) localStorage.setItem('language', JSON.stringify(lang))
-
   }, [lang])
 
   //******************************** Main Body ************************************************ */
+  
   lang ? Strings.setLanguage('en') : Strings.setLanguage('fa')
 
   //********************************* Value ************************************************* */
-  const languageContextValue = { lang, setLang }
+  const PublicContextValue = { lang, setLang }
     
-  return <LanguageContext.Provider value={languageContextValue}>{props.children}</LanguageContext.Provider>
+  return <PublicContext.Provider value={PublicContextValue}>{props.children}</PublicContext.Provider>
 }
  
-export default LanguageContextProvider;
+export default PublicContextProvider;

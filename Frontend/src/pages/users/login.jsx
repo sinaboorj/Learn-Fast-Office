@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "../../css/register.css";
+import "../../sass/register.scss";
 import axios from "axios";
 import { UserContext } from "../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -46,9 +46,16 @@ function Login() {
             userID: result.data.userID,
             level: result.data.level,
             unit: result.data.unit,
+            No: result.data.No,
             token: result.headers.authorization
           })
-          nav('/')
+          
+         
+          let perUrl = localStorage.getItem('url')
+          perUrl = perUrl.replace('http://localhost:5173', '')
+          let activeLink = perUrl.replace('/api/', '')
+          localStorage.setItem('activeLink',activeLink)
+          nav(perUrl)
         } 
        
       } else {
@@ -93,7 +100,7 @@ function Login() {
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
-            <div className="forgotpass" ><Link style={{ textDecoration: 'none', fontWeight: '400' }}>Forgot Password</Link></div>
+            <div className="forgotpass" ><Link style={{ textDecoration:'none' }}>Forgot Password</Link></div>
 
             <input type="submit" value={"Login"} className="login-btn" onClick={() => setSchemaLoginError(true)} tabIndex={4} />
 
