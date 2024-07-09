@@ -8,12 +8,12 @@ import { UserContext } from "../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { PublicContext } from "../../context/publicContext";
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const { Msg, setMsg, messageStatus, setMessageStatus,
-    schemaLoginError, setSchemaLoginError, setUserData } = useContext(UserContext);
-  
+  const { Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError, setUserData } = useContext(UserContext);
+  const { setActiveLink } = useContext(PublicContext);
   const [password, setPassword] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
@@ -49,21 +49,20 @@ function Login() {
             No: result.data.No,
             token: result.headers.authorization
           })
-          
-         
-          let perUrl = localStorage.getItem('url')
+          let perUrl = localStorage.getItem('previousURL')
           perUrl = perUrl.replace('http://localhost:5173', '')
-          let activeLink = perUrl.replace('/api/', '')
-          localStorage.setItem('activeLink',activeLink)
+         
+          let Link = perUrl.replace('/api/', '')
+          setActiveLink(Link)
+          localStorage.setItem('activeLink', Link)
+     
           nav(perUrl)
-        } 
-       
+        }
       } else {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
       }
       setMessageStatus(true);
     }
-
     catch (err) {
       if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' }); //Internal Service Error 
       
@@ -100,12 +99,11 @@ function Login() {
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>
 
-            <div className="forgotpass" ><Link style={{ textDecoration:'none' }}>Forgot Password</Link></div>
+            <div className="forgotpass" ><Link style={{ textDecoration: 'none' }}>Forgot Password</Link></div>
 
             <input type="submit" value={"Login"} className="login-btn" onClick={() => setSchemaLoginError(true)} tabIndex={4} />
 
           </form>
-         
         </div>
         {isLoading && <h6 style={{ color: '#0d6efd', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={50} height={50} alt="Loading user" /></h6>}
         {/* *********************************** Login User Msg ********************************  */}

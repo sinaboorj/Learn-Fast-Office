@@ -2,24 +2,15 @@ import "../../sass/signInUp.scss";
 import Login from "./login";
 import Register from "./register";
 import { UserContext } from "../../context/userContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Home from "../home";
 import '../../sass/font.css'
 import { PublicContext } from "../../context/publicContext";
 
 const SignInUp = () => {
     const { login, setLogin, Msg, messageStatus, setMessageStatus } = useContext(UserContext)
-    const { lang } = useContext(PublicContext);
-    const [activeLink, setActiveLink] = useState(localStorage.getItem('activeLink') ?? 'login'); //برای ثابت ماندن رنگ لینک انتخابی
-   
-    useEffect(() => {
-        if (activeLink !== 'Register')  setActiveLink('login')
-    }, [])
-    
-    useEffect(() => {
-        if (activeLink !== undefined) localStorage.setItem('activeLink', activeLink)
-    }, [activeLink])
-  
+    const { lang ,activeLink, setActiveLink  } = useContext(PublicContext);
+     
     const handleLinkClick = (link) => {
         setActiveLink(link);
     }

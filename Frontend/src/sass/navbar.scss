@@ -61,7 +61,7 @@ div.main-nav li{
 }
 .user-login {
     border-radius: 50%;
-    border: solid 2px #37bd3b;
+    border: solid 2px $home-mainObject-color;
     display: flex;
     flex-direction: row;
     width: 45px;
@@ -70,7 +70,7 @@ div.main-nav li{
     color: white;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px #37bd3b;
+    box-shadow: 0 0 10px $differentColor;
     padding-bottom: 3px;
     margin-right: 6px;
 }

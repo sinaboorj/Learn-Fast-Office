@@ -20,7 +20,7 @@ const App = () => {
         <DropDownMenu />
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/api/dashboard" element={<Dashboard />} />
             <Route path="/api/about-hossein-zarei" element={<About />} />
             <Route path="/api/login" element={<SignInUp />} />

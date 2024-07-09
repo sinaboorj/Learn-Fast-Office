@@ -3,6 +3,7 @@ import '../../sass/chart.scss'
 import Strings from '../../helper/strings';
 import axios from 'axios';
 import { UserContext } from '../../context/userContext';
+import UserOnChart from '../users/userOnChart';
 
 const ManagerChart = () => {
     const [showPersonDetail, setShowPersonDetail] = useState(false);
@@ -29,7 +30,7 @@ const ManagerChart = () => {
     return (
         <>
             <br />
-            <div className='title-chart'  onMouseEnter={() => { setShowUserOnChart(false) }}>{Strings.Organizational_Chart}</div>
+            <div className='title-chart' onMouseEnter={() => { setShowUserOnChart(false) }}>{Strings.Organizational_Chart}</div>
             <div className="managechart-chart">
                 <div
                     onMouseEnter={() => { showUserChart(1, 1, 'T') }}
@@ -37,17 +38,7 @@ const ManagerChart = () => {
                     className='person' >{Strings.Manager} </div>
                 <div className='v-line'></div>
             </div>
-            {showUserOnChart && (
-                < div className="hint show-user-on-chart" >
-                    <img className="show-pic-on-chart" src={showPersonDetail?.url} alt="" />
-                    <span className='full-name'>{showPersonDetail?.firstName} {showPersonDetail?.lastName} </span>
-                    {
-                        !error
-                            ? <label> {Strings.Experience} <span>{showPersonDetail?.experiecne} {Strings.Year} </span></label>
-                            : <label className='no-data'>No Data: Complete Profile</label>
-                    }
-                </div >
-            )}
+            <UserOnChart userData={showPersonDetail} statusShow={showUserOnChart} error={error} />
         </>
     );
 }
