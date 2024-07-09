@@ -29,7 +29,6 @@ const ManagerChart = () => {
     }
     return (
         <>
-            <br />
             <div className='title-chart' onMouseEnter={() => { setShowUserOnChart(false) }}>{Strings.Organizational_Chart}</div>
             <div className="managechart-chart">
                 <div

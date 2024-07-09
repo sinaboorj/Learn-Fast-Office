@@ -22,10 +22,16 @@
     background-color: #626262;
 }
 .title-chart{
-    color: rgb(241 241 241 / 68%);
+    color: $backgroundColor;
     margin-bottom: 20px;
-   display: flex;
-   font-family: 'Vazir';
+    display: flex;
+    font-family: "Vazir";
+    background-color: rgb(63 63 63);
+    width: calc(100vw / 2);
+    height: 60px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
 }
 .managechart-chart{
     display: flex;
@@ -51,8 +57,8 @@
     padding: 4px;
 }
 .show-user-on-chart{
-    width: 128px;
-    top: 65px;
+    width: 118px;
+    top: 170px;
     left: 65px;
     position: absolute;
     height: 166px;
@@ -61,7 +67,7 @@
     justify-content: flex-start;
     margin: 2px;
     z-index: 0;
-    font-size: .75rem;
+    font-size: 0.75rem;
     flex-direction: column;
     color: black;
     font-weight: bold;

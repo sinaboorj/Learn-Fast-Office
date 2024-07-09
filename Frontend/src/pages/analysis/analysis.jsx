@@ -16,8 +16,10 @@ const Analysis = () => {
           <>
                {userData?.token !== undefined &&
                     <div className="analysis" >
-                         <ManagerChart />
-                         <AnalysisChart />
+                         <div className="chart">
+                              <ManagerChart />
+                              <AnalysisChart />
+                         </div>
                          <div className='folder' style={{ direction: lang ? 'ltr' : 'rtl', width: '100%' }}>
                               <div className='analysis-title'>
                                    <img src={folder_img} alt="Chart-img" className='folder-img' />
