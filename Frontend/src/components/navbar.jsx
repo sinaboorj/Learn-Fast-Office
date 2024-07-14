@@ -18,6 +18,9 @@ const Navbar = () => {
     var userStatus = false;
     var firstStrEmail = userData?.email?.charAt(0)
     //**************************************************************************************** */
+   
+    let url = window.location.href
+    url = url.slice(0, url.indexOf('/api/'))
 
     const exit = () => {
         setUserData({});
@@ -28,7 +31,7 @@ const Navbar = () => {
 
     const login = () => { //برای رفتن به لینک قبل از لاگین
         const url = window.location.href;
-        if (url !== 'http://localhost:5173/api/login') localStorage.setItem('previousURL', url)
+        if (url !== `${url}/api/login`) localStorage.setItem('previousURL', url)
     }
 
     const handleLinkClick = (link) => {
@@ -47,9 +50,9 @@ const Navbar = () => {
                         <nav className="nav-left">
                             {userStatus
                                 ? <Link to={`/api/profile/userID:${userData?.userID}`}><span className="user-login" title={userData?.email}>{firstStrEmail}</span></Link>
-                                : <Link to='/home'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo"   onClick={() => handleLinkClick('home')}/></Link>
+                                : <Link to='/'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo"   onClick={() => handleLinkClick('home')}/></Link>
                             }
-                            <Link to='/home' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')} style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
+                            <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')} style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
                         </nav>
 
                         <nav className="nav-center">

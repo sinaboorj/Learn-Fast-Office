@@ -18,8 +18,6 @@ const Home = () => {
         <>
             <br /><br /><br />
             <div className="c-plan-container">
-              
-                    
                 <div className='logo-format'>
                 <div className='c-plan'>
                 <Link to='/'> <div className='c-plan-pic-border'>< img src={lang ? RepairsEn : RepairsFa} className="c-plan-pic" alt="c-plan frontend" /></div></Link>

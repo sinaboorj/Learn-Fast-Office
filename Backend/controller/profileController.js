@@ -39,7 +39,7 @@ const getAll = trycatchHandler(async (req, res, next) => {
     result.forEach((item, index) => {
         element.push(_.pick(result[index], filterValues))
     })
-    return res.send(element)
+    return res.send(element)  
 }
 ) 
 
