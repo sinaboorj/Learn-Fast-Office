@@ -1,33 +1,33 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext";
 import axios from "axios";
+import '../../sass/profile.scss'
 
 const Profile = () => {
-    const { userData, headers, backendUrl } = useContext(UserContext);
+    const { profile  } = useContext(UserContext);
+ 
     
-    try {
-        const fetchData = async () => {
-            const result = await axios.get(`${backendUrl}/api/user/${userData?.userID}`, { headers: headers })
-            console.log('result', result?.data)
-        }
-        fetchData()
-    } catch (error) {
-            
-    }
-  
-    
+console.log(profile)
     return (
         <>
-            <div className="profile">
-                <div className="pro-left">
-                    <div className="user-name">
-                      
+            <div className="profile-container">
+                {/* ************************ Left ********************* */}
+                <div className="left-side">
+                    <div className="profile-name">
+                        <h3 style={{color:'white'}}>{profile.firstName }</h3>
                     </div>
                     <div className="user-info">
+    <img src={profile.url} alt="" />
+                    </div>
+                    <div className="user-known">
+    
+                    </div>
+                    <div className="user-interest">
     
                     </div>
                 </div>
-                <div className="pro-right">
+                {/* ************************ Right ********************* */}
+                <div className="right-side">
                     
                     
                 </div>

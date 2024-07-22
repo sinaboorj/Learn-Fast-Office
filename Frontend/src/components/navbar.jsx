@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Outlet, Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHomeLgAlt , faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import '../sass/navbar.scss'
@@ -11,7 +11,7 @@ import Strings from "../helper/strings";
 import { PublicContext } from "../context/publicContext";
 
 const Navbar = () => {
-    const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError } = useContext(UserContext)
+    const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError, fetchData } = useContext(UserContext)
     const { lang, setLang, activeLink, setActiveLink } = useContext(PublicContext)
     
     //************************************* show the First client's name in Navbar  ***************************** */
@@ -37,7 +37,7 @@ const Navbar = () => {
     const handleLinkClick = (link) => {
         setActiveLink(link);
     }
-    
+   
     if (firstStrEmail !== undefined) {
         userStatus = true;
     } else { userStatus = false; }
@@ -46,37 +46,36 @@ const Navbar = () => {
         <>
             {!hidden && (
                 <>
-                    <header className="main-nav">
-                        <nav className="nav-left">
-                            {userStatus
-                                ? <Link to={`/api/profile/userID:${userData?.userID}`}><span className="user-login" title={userData?.email}>{firstStrEmail}</span></Link>
-                                : <Link to='/'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo"   onClick={() => handleLinkClick('home')}/></Link>
-                            }
-                            <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')} style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
-                        </nav>
+                    <nav className="main-nav">
+                        <ul className="nav-left">
+                                {userStatus
+                                ? <Link to={`/api/user/${userData?.userID}`}><span onClick={() => { fetchData(); handleLinkClick(`user/${userData?.userID}`) }} className="user-login" title={userData?.email}>{firstStrEmail}</span></Link>
+                                    : <Link to='/'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo" onClick={() => handleLinkClick('home')} /></Link>
+                                }
+                                <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')} style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
+                        </ul>
 
-                        <nav className="nav-center">
-                            <Link to='/api/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('dashboard')}>{Strings.Dashboard}</Link>
-                            <Link to='/api/chart' className={`navlink ${activeLink === 'chart' ? 'active' : ''}`} onClick={() => handleLinkClick('chart')}>{Strings.Chart}</Link>
-                            <Link to='/api/planning' className={`navlink ${activeLink === 'planning' ? 'active' : ''}`} onClick={() => handleLinkClick('planning')}>{Strings.Planning}</Link>
-                            <Link to='/api/maintenance' className={`navlink ${activeLink === 'maintenance' ? 'active' : ''}`} onClick={() => handleLinkClick('maintenance')}> {Strings.Maintenance}</Link>
-                            <Link to='/api/statistics' className={`navlink ${activeLink === 'statistics' ? 'active' : ''}`} onClick={() => handleLinkClick('statistics')}> {Strings.Statistics}</Link>
+                        <ul className="nav-center">
+                                <Link to='/api/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => handleLinkClick('dashboard')}>{Strings.Dashboard}</Link>
+                                <Link to='/api/chart' className={`navlink ${activeLink === 'chart' ? 'active' : ''}`} onClick={() => handleLinkClick('chart')}>{Strings.Chart}</Link>
+                                <Link to='/api/planning' className={`navlink ${activeLink === 'planning' ? 'active' : ''}`} onClick={() => handleLinkClick('planning')}>{Strings.Planning}</Link>
+                                <Link to='/api/maintenance' className={`navlink ${activeLink === 'maintenance' ? 'active' : ''}`} onClick={() => handleLinkClick('maintenance')}> {Strings.Maintenance}</Link>
+                                <Link to='/api/statistics' className={`navlink ${activeLink === 'statistics' ? 'active' : ''}`} onClick={() => handleLinkClick('statistics')}> {Strings.Statistics}</Link>
+                        </ul>
 
-                        </nav>
-
-                        <nav className="nav-right">
-                            {lang
-                                ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
-                                : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
-                            }
-                            <div>
+                        <ul className="nav-right">
+                                {lang
+                                    ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
+                                    : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
+                                }
+                     
                                 {userStatus
                                     ? <Link to='/api/login' className="navlink log-item" onClick={() => { exit(); handleLinkClick('login') }} style={{ color: 'rgb(255 39 39)', fontWeight: '500' }}>Exit</Link>
-                                    : <Link to='/api/login' className="navlink log-item" onClick={() => { login(); handleLinkClick('login') }} ><FontAwesomeIcon icon={faUserCircle} className={`login-icon ${activeLink === 'login' ? 'active' : ''}`} title="Login"  /></Link>
+                                    : <Link to='/api/login' className="navlink log-item" onClick={() => { login(); handleLinkClick('login') }} ><FontAwesomeIcon icon={faUserCircle} className={`login-icon ${activeLink === 'login' ? 'active' : ''}`} title="Login" /></Link>
                                 }
-                            </div>
-                        </nav>
-                    </header>
+                        </ul>
+                    </nav>
+                    <Outlet />
                     <br />  <br />
                 </>
             )}

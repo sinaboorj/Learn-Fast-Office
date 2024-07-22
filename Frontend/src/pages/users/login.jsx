@@ -13,7 +13,7 @@ import loadingImage from '/sysImage/loading.gif';
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const { Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError, setUserData, backendUrl } = useContext(UserContext);
+  const { Msg, setMsg, userData, messageStatus, setMessageStatus, schemaLoginError, setSchemaLoginError, setUserData, backendUrl } = useContext(UserContext);
   const { setActiveLink } = useContext(PublicContext);
   const [password, setPassword] = useState('');
   const [loginEmail, setLoginEmail] = useState('');
@@ -51,7 +51,6 @@ function Login() {
 
         if (result) {//Login successfully
           setMsg({ status: true, title: 'successfully', msg: 'Login successfully' });
-
           setUserData({
             email: result.data.email,
             userID: result.data.userID,
@@ -66,12 +65,13 @@ function Login() {
           //*********** برای اینکه بعد از لاگین به لینک قبل هدایت شود و رنگ لینک عوض شود  **********  */
           let perUrl = localStorage.getItem('previousURL')
           let Link = ''
-          if (perUrl !== null) {
+          if (perUrl !== null ) {
             perUrl = perUrl.replace(url, '')
-            if (perUrl !== '/') {
+            if (perUrl !== '/' && perUrl !== '/api/login') {
               Link = perUrl.replace('/api/', '')
             } else {
               Link = 'home'
+              perUrl='/'
             }
             setActiveLink(Link)
             localStorage.setItem('activeLink', Link)
@@ -79,7 +79,7 @@ function Login() {
           } else {
             nav('/')
           }
-        }
+         }
       } catch (err) {
         setIsLoading(false); setMessageStatus(true);
         err?.response?.data?.msg !== undefined ? setMsg(err.response?.data)  : setMsg( {status: false, title: 'Error', msg:err.message })

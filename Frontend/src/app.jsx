@@ -11,25 +11,30 @@ import Analysis from "./pages/analysis/analysis";
 import Profile from "./pages/users/profile";
 import DropDownMenu from "./components/dropDownMenu";
 import PublicContextProvider from "./context/publicContext";
+import "./sass/main.scss";
+import './sass/font.scss'
+import NotPage from "./pages/notpage";
 
 const App = () => {
   return (
     <>
       <UserContextProvider>
         <PublicContextProvider>
-        <DropDownMenu />
-          <Navbar />
+          <DropDownMenu />
           <Routes>
-            <Route index path="/" element={<Home />} />
-            <Route path="/api/dashboard" element={<Dashboard />} />
-            <Route path="/api/about-hossein-zarei" element={<About />} />
-            <Route path="/api/login" element={<SignInUp />} />
-            <Route path="/api/statistics" element={<Analysis />} />
-            <Route path="/api/profile/:userID" element={<Profile /> } />
-            <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} />
+            <Route path="/" element={<Navbar />}>
+              <Route index element={<Home />} />
+              <Route path="/api/dashboard" element={<Dashboard />} />
+              <Route path="/api/about-hossein-zarei" element={<About />} />
+              <Route path="/api/login" element={<SignInUp />} />
+              <Route path="/api/statistics" element={<Analysis />} />
+              <Route path="/api/user/:userID" element={<Profile />} />
+              <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} />
+              <Route path="*" element={<NotPage />} />
+            </Route>
           </Routes>
           <Footer />
-          </PublicContextProvider>
+        </PublicContextProvider>
       </UserContextProvider>
     </>
   );

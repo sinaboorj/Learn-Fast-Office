@@ -1,5 +1,4 @@
 @import "variable.scss";
-@import "font.scss";
 
 .login-container{
     display: flex;
@@ -30,7 +29,6 @@
 }
 .active{
     color: $differentColor;
-    font-weight: 500;
     border-bottom: $differentColor solid 2px;
 }
 .sign-form{
