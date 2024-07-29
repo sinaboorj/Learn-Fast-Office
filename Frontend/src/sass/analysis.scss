@@ -50,7 +50,7 @@
 .items-title {
     width: calc(100vw / 3 - 8px);
     background: $backgroundColor;
-    color: $primary-fontColor;
+    color: $fontColor-primary;
     border-radius: 5px;
     padding: 10px 25px;
     font-size: 14px;
@@ -67,7 +67,7 @@
     font-weight: 600;
     margin-bottom: 5px;
     text-align: -webkit-auto;
-    color: $top-performence-title_Color;
+    color: $color-performence-title;
 }
 .under-under-items {
     margin: 5px 18px 0px 0px;

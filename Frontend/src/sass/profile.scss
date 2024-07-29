@@ -1,0 +1,62 @@
+@import 'variable';
+
+%profile{
+    padding: 0px;
+    border-radius: 5px
+}
+%columnAlign{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+%font{
+    padding: 15px;
+    font-family: "Vazir";
+    font-size: 16px;
+}
+// ************************************************
+
+.profile-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.left-side{
+    @extend %profile;
+    width: 25%;
+    background-color: $background-profile-leftSide;
+    margin-left: 5px;
+    .user-info{
+        .user-personal{
+            @extend %columnAlign;
+            @extend %font;
+        }
+    }
+
+}
+.right-side{
+    @extend %profile;
+    background-color: $background-profile-rightSide;
+    width: 53%;
+    margin-right: 5px;
+}
+.profile-name{
+    background-color: $background-profileName;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 130px;
+        height: 165px;
+        border-radius: 50%;
+    }
+    span{
+        font-size: 21px;
+        font-family: 'Vazir';
+        padding: 25px 0 0px;
+        font-weight: 500;
+    }
+}

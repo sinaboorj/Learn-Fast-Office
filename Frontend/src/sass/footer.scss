@@ -10,7 +10,7 @@
     padding: 5px;
     font-size: 15px;
     border-top: solid 1px #68686833;
-    color: $primary-fontColor;
+    color: $fontColor-primary;
 }
 .insig-footer{
     border-radius: 50%;
@@ -19,7 +19,7 @@
     border: solid 2px $home-mainObject-color;
 }
 .icon-color{
-    color: $differentColor;
+    color: $fontColor-Second;
 }
 .contact{
     color: rgba(241, 241, 241, 0.54);
@@ -47,7 +47,7 @@
 }
 .about-sina{
     text-decoration: none;
-    color: $primary-fontColor;
+    color: $fontColor-primary;
 }
 .left-footer {
     display: flex;
