@@ -122,9 +122,8 @@
     color: rgb(13, 110, 202);
 }
 
-@media only screen and (max-width:380px ){
-    .sign-form-container {
-        width: calc(100% / 1.1);
-        font-size: 14px;
+@media only screen and (max-width:416px ){
+    .register-form {
+        width: 78%;
     }
 }

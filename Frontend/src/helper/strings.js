@@ -4,6 +4,7 @@ import LocalizedStrings from "react-localization";
 const Strings = new LocalizedStrings({
     en: {
         // ****************************************** NavBar ***************
+        "Home":"Home",
         "Dashboard":"Dashboard",
         "Chart":"Chart",
         "Planning":"Planning",
@@ -51,6 +52,7 @@ const Strings = new LocalizedStrings({
 
     fa: {
         // ****************************************** NavBar *********************************************
+        "Home":"خانه",
         "Dashboard":"داشبورد",
         "Chart":"چارت",
         "Planning":"برنامه ريزي",

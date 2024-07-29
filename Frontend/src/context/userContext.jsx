@@ -22,7 +22,6 @@ const UserContextProvider = ({ children }) => {
       setProfile(result?.data)
     }
 
-
   //*********************************  read email, userID and token to local storage   ****************** */ 
   useEffect(() => {
     const storedUserData = JSON.parse(localStorage.getItem('userData')) ?? {};

@@ -48,10 +48,10 @@ const Navbar = () => {
                 <>
                     <nav className="main-nav">
                         <ul className="nav-left">
-                                {userStatus
+                            {userStatus
                                 ? <Link to={`/api/user/${userData?.userID}`}><span onClick={() => { fetchData(); handleLinkClick(`user/${userData?.userID}`) }} className="user-login" title={userData?.email}>{firstStrEmail}</span></Link>
-                                    : <Link to='/'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo" onClick={() => handleLinkClick('home')} /></Link>
-                                }
+                                : <Link to='/'> <img className="nav-logo" src={logo} width={30} height={30} alt="Logo" onClick={() => handleLinkClick('home')} /></Link>
+                            }
                                 <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleLinkClick('home')} style={{ margin: ' 0 3px 0' }}><FontAwesomeIcon icon={faHomeLgAlt} className="home-icon" /></Link>
                         </ul>
 
