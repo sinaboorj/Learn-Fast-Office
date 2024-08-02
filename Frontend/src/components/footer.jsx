@@ -36,7 +36,7 @@ const Footer = () => {
                                     <img className="planning-pic" src={darkLogo} alt="planning-pic" />
                                     <h5>INSIG</h5>
                                     <h6>Production planning and control</h6>
-                                    <span style={{fontSize:'12px'}}>Information monitoring and analysis</span>
+                                    <span style={{fontSize:'12px'}}>Statistics monitoring and analysis</span>
                                 </>
                                 :
                                 <>

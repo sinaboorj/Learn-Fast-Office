@@ -17,8 +17,8 @@ import Strings from "../helper/strings";
 import logo from '/sysImage/Logo 2.png'
 
 const DropDownMenu = () => {
-    const { hidden, userData, setUserData, setMessageStatus, setSchemaLoginError, fetchData } = useContext(UserContext)
-    const { lang, setLang, activeLink, setActiveLink } = useContext(PublicContext)
+    const {  userData, setUserData, setMessageStatus, setSchemaLoginError, fetchData } = useContext(UserContext)
+    const { lang, setLang ,setActiveLink } = useContext(PublicContext)
     const [open, setOpen] = useState(false)
     const menuRef = useRef()
 

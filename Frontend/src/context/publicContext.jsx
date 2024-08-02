@@ -8,6 +8,7 @@ const PublicContextProvider = ({children}) => {
 
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('language')) ?? true)
   const [activeLink, setActiveLink] = useState(localStorage.getItem('activeLink') ?? 'home'); //برای ثابت ماندن رنگ لینک انتخابی
+  const [navSection, setNavSection] = useState(false);
   const nav = useNavigate()
 
   //********************************* Save local storage ************************************* */
@@ -49,7 +50,7 @@ const PublicContextProvider = ({children}) => {
 
   //********************************* Value ************************************************* */
   const PublicContextValue = {
-    lang, setLang, activeLink, setActiveLink
+    lang, setLang, activeLink, setActiveLink, navSection, setNavSection
   }
     
   return <PublicContext.Provider value={PublicContextValue}>{children}</PublicContext.Provider>

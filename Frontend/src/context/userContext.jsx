@@ -16,7 +16,6 @@ const UserContextProvider = ({ children }) => {
   const [profile, setProfile] = useState({})
   const backendUrl = 'http://localhost:5500'
 
-
   const fetchData = async () => {
       const result = await axios.get(`${backendUrl}/api/user/${userData?.userID}`, { headers: headers })
       setProfile(result?.data)

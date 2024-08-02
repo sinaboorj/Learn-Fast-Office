@@ -49,7 +49,6 @@ div.main-nav li{
 }
 .active{
     color: $fontColor-Second;
-    border-bottom: $fontColor-Second solid 2px;
 }
 .diactive{
     color: rgba(241, 241, 241, 0.637);
@@ -61,7 +60,6 @@ div.main-nav li{
 .log-item {
     padding: 1px 4px;
     margin: -2px 0px 0;
-    
 }
 .nav-logo {
     border-radius: 50%;
@@ -81,12 +79,13 @@ div.main-nav li{
     justify-content: center;
     box-shadow: 0 0 10px rgb(247, 211, 11);
     padding-bottom: 3px;
-    margin-right: 5px;
     text-align: center;
     align-items: center;
 }
-.home-icon {
-    font-size: 16px;
+.sort-down {
+    font-size: 15px;
+    margin-left: 0px;
+    color: $fontColor-primary;
 }
 .login-icon{
     font-size: 19px;
@@ -95,8 +94,41 @@ div.main-nav li{
 }
 .nav-left a{
     text-decoration: none;
-    margin-right: 6px;
 }
+.subdropdown {  
+    position: relative;  
+    display: inline-block;  
+}  
+.dropdown-toggle {
+    border: none;
+    background-color: $background-menu;
+    color: $fontColor-primary;
+    border-radius: 4px;
+    margin-left: 5px;
+} 
+.subdropdown-menu {  
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    top: 51px;
+    left: 1px;
+    font-size: 15px;
+    font-weight: 200;
+    background-color: $background-menu;
+    padding: 5px;
+    border-bottom: none;
+    border-radius: 0 0 5px 0;
+}  
+.subdropdown-item {  
+    padding: 5px 10px; 
+    border-radius: 3px; 
+    color: $fontColor-primary;
+}  
+.subdropdown-item:hover {  
+    cursor: pointer;  
+    background-color: $backgroundColor;
+    color: $fontColor-primary;
+}  
 
 @media (min-width:993px){
     .main-nav {
@@ -108,3 +140,4 @@ div.main-nav li{
       display: none;
     }
 }
+
