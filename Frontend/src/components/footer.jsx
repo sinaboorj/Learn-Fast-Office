@@ -26,9 +26,7 @@ const Footer = () => {
                             <span className="contact-us"> <FaMapPin className="icon-color" /> : Iran.Ahvaz</span>
                             <Link className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="icon-color" /> : About Programmer</Link>
                         </div>
-                        <div>
-                            <img className="insig-footer" src={INSIG} width={100} height={100} alt="Logo" />
-                        </div>
+        
                         <div className="left-footer">
                             {lang
                                 ?

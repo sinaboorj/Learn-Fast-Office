@@ -55,7 +55,7 @@ div.main-nav li{
 }
 .navlink:hover{
     transition: all .6s;
-    color: $fontColor-Second;
+    color: $loginBtn;
 }
 .log-item {
     padding: 1px 4px;
@@ -89,7 +89,7 @@ div.main-nav li{
 }
 .login-icon{
     font-size: 19px;
-    border-bottom: $backgroundColor solid 2px!important;
+    border-bottom: $mainBackgroundColor solid 2px!important;
     margin-top: 4px;
 }
 .nav-left a{
@@ -125,6 +125,7 @@ div.main-nav li{
     padding: 5px;
     border-bottom: none;
     border-radius: 0 0 5px 0;
+    z-index: 1;
 }  
 .subdropdown-item {  
     padding: 5px 10px; 
@@ -134,7 +135,7 @@ div.main-nav li{
 }  
 .subdropdown-item:hover {  
     cursor: pointer;  
-    background-color: $backgroundColor;
+    background-color: $mainBackgroundColor;
     color: $fontColor-primary;
 }  
 svg.svg-inline--fa.fa-circle-user.login-icon {

@@ -11,12 +11,17 @@
     width: 35x;
     height: 25px;
 }
-.analysis-title {
+.section-title {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 3px;
     margin: 40px 10px 5px 10px;
+    background-color: $background-header;
+    height: 60px;
+    border-radius: 5px;
+    font-weight: 500;
+    color: $fontColor-primary;
 }
 .folder-summry{
     font-family: 'Vazir';
@@ -41,16 +46,18 @@
     flex-direction: row;
 }
 .chart {
+    width: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    border: solid 1px rgb(63, 63, 63);
-    margin-top: 50px;
+    border: solid 1px $borderColor-objects;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
 }
 .items-title {
     width: calc(100vw / 3 - 8px);
-    background: $backgroundColor;
-    color: $fontColor-primary;
+    background: $mainBackgroundColor;
+    color: $fontColor-three;
     border-radius: 5px;
     padding: 10px 25px;
     font-size: 14px;
@@ -59,7 +66,7 @@
     flex-direction: column;
     flex-grow: 1;
     text-align: justify;
-    border: solid 1px $home-mainObject-color;
+    border: solid 1px $borderColor-objects;
 }
 .items {
     list-style-type: square;

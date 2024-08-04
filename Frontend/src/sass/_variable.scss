@@ -1,8 +1,9 @@
-$backgroundColor:black; //پس زمينه اصلي
+$mainBackgroundColor:black; //پس زمينه اصلي
 $background-header: #252525; // پس زمينه هدر ها با زنگ متفاوت پس زمينه
 $background-menu: #1c1c1c; // پس زمينه هدر ها با زنگ متفاوت پس زمينه
 $fontColor-Second: rgb(247, 211, 11); // فوت با رنگ متفاوت مثلا: در زمينه مشكي فونت آبي
 $fontColor-primary: rgba(241, 241, 241, 0.637); // رنگ عمومي فونت ها
+$fontColor-three: rgb(211 211 211 / 64%);
 
 $loginBtn: rgba(228, 195, 7, 0.74); // كليدهاي  لاگين و رجيستر
 $home-mainObject-color:  rgba(228, 195, 7, 0.74); // رنگ دور موضوعات اصلي صفحه هوم (خانه)
@@ -14,3 +15,6 @@ $color-performence-title: rgba(228, 195, 7, 0.74); //عنوان خلاصه وظ�
 $background-profileName:#363636; //رنگ هاي مربوط به پروفايل و رزومه
 $background-profile-rightSide:#5c5c5c;
 $background-profile-leftSide:#4d4c4c;
+
+$mainBackgroundColor-chart: #85854c;
+$borderColor-objects: rgba(48, 48, 45, 0.74); // رنگ دور موضوعات و توضيحات

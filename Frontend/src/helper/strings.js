@@ -8,7 +8,7 @@ const Strings = new LocalizedStrings({
     Chart: "Sitemap",
     Planning: "Planning",
     Maintenance: "Maintenance",
-    Statistics: "Statistics",
+    Statistics: "Analysis",
     Sections:"Sections",
     // ****************************************** Assinment ****************************************
     Analysis_title: "Statistics monitoring and analysis unit",
@@ -64,9 +64,9 @@ const Strings = new LocalizedStrings({
     Home: "خانه",
     Dashboard: "داشبورد",
     Chart: "چارت",
-    Planning: "برنامه ريزي",
+    Planning: "برنامه ريزي و كنترل توليد",
     Maintenance: "نگهداري و تعميرات",
-    Statistics: "آمار",
+    Statistics: "پايش و تحليل آمار",
     Sections:"واحدها",
     // ****************************************** Analysis Assinment *********************************
     Analysis_title: "واحد پايش و تحليل آمار",

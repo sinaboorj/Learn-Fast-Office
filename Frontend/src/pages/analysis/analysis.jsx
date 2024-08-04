@@ -15,14 +15,10 @@ const Analysis = () => {
           <>
                {userData?.token !== undefined &&
                     <div className="analysis" >
-                         <div className="chart">
-                              <ManagerChart />
-                              <AnalysisChart />
-                         </div>
                          <div className='folder' style={{ direction: lang ? 'ltr' : 'rtl', width: '100%' }}>
-                              <div className='analysis-title'>
+                              <div className='section-title'>
                                    <img src={folder_img} alt="Chart-img" className='folder-img' />
-                                   <span >{Strings.Analysis_title}</span>
+                                   <span style={{margin:'0px 10px'}} >{Strings.Analysis_title}</span>
                               </div>
                               <div className='folder-summry'>
                                    <p>{Strings.Analysis_discription}</p>
@@ -62,10 +58,14 @@ const Analysis = () => {
                                    <li className='under-under-items'>{Strings.Analysis_job_7_4} </li>
                               </ul>
                          </div>
-                    
+
                     </div>
                }
                <div className={lang ? 'img-backgrand-en' : 'img-backgrand-fa'}></div> {/* use background-image in CSS */}
+               <div className="chart">
+                              <ManagerChart />
+                              <AnalysisChart />
+                         </div>
           </>
      );
 }

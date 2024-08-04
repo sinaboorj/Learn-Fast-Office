@@ -8,7 +8,7 @@ const PublicContextProvider = ({ children }) => {
 
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('language')) ?? true)
   const [activeLink, setActiveLink] = useState(localStorage.getItem('activeLink') ?? 'home'); //برای ثابت ماندن رنگ لینک انتخابی
-  const [navSection, setNavSection] = useState(false);
+  const [navSection, setNavSection] = useState(JSON.parse(localStorage.getItem('navSection')) ?? false)
   const nav = useNavigate()
 
   //********************************* Save local storage ************************************* */
@@ -34,6 +34,7 @@ const PublicContextProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
+    if (navSection !== undefined) localStorage.setItem('navSection', JSON.stringify(navSection))
     if (lang !== undefined) localStorage.setItem('language', JSON.stringify(lang))
     if (activeLink !== undefined) {
       localStorage.setItem('activeLink', activeLink)
@@ -41,7 +42,7 @@ const PublicContextProvider = ({ children }) => {
       localStorage.setItem('currentURL', currentURL)
     }
 
-  }, [lang, activeLink])
+  }, [lang, activeLink, navSection])
 
   //******************************** Main Body ************************************************ */
   lang ? Strings.setLanguage('en') : Strings.setLanguage('fa')
