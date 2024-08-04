@@ -26,17 +26,17 @@ const Home = () => {
                 <div className='c-plan'>
                 <Link to='/'> <div className='c-plan-pic-border'>< img src={lang ? RepairsEn : RepairsFa} className="c-plan-pic" alt="c-plan frontend" /></div></Link>
                         <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
-                            <li className='c-plan-item'>React.js</li>
-                            <li className='c-plan-item'>JavaScript</li>
-                            <li className='c-plan-item'>CSS</li>
-                            <li className='c-plan-item'>HTML</li>
+                            <li className='c-plan-item'>test</li>
+                            <li className='c-plan-item'>test</li>
+                            <li className='c-plan-item'>test</li>
+                            <li className='c-plan-item'>test</li>
                         </div>
                     </div>
                     <div className='c-plan'>
                     <Link to='/'> <div className='c-plan-pic-border'> <img src={lang ? PlanningEn : PlanningFa} className="c-plan-pic" alt="c-plan backend" /></div></Link>
                         <div className='home-items' style={{ direction: lang ? 'ltr' : 'rtl' }}>
-                            <li className='c-plan-item'>Node.js</li>
-                            <li className='c-plan-item'>Express</li>
+                            <li className='c-plan-item'>test</li>
+                            <li className='c-plan-item'>test</li>
                         </div>
                     </div>
 

@@ -106,6 +106,13 @@ div.main-nav li{
     border-radius: 4px;
     margin-left: 5px;
 } 
+.item-email{
+    cursor: auto!important;
+    font-size: 13px;
+}
+.item-email:hover{
+    background-color: $background-menu!important;
+}
 .subdropdown-menu {  
     position: absolute;
     flex-direction: column;
@@ -123,13 +130,16 @@ div.main-nav li{
     padding: 5px 10px; 
     border-radius: 3px; 
     color: $fontColor-primary;
+
 }  
 .subdropdown-item:hover {  
     cursor: pointer;  
     background-color: $backgroundColor;
     color: $fontColor-primary;
 }  
-
+svg.svg-inline--fa.fa-circle-user.login-icon {
+    color: $fontColor-primary;
+}
 @media (min-width:993px){
     .main-nav {
       display: flex;
