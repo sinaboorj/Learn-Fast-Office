@@ -103,8 +103,16 @@
 li.items::marker {
     font-size: 19px;
   }
+  @media only screen and (max-width: 900px){
+    .chart {
+        width: 80%;
+    }
+}
 @media only screen and (max-width: 455px){
     .items-title {
         width: 100%;
+    }
+    .chart {
+        width: 90%;
     }
 }
