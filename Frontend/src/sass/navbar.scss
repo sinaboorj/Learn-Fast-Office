@@ -55,7 +55,7 @@ div.main-nav li{
 }
 .navlink:hover{
     transition: all .6s;
-    color: $loginBtn;
+    color: $fontColor-Second;
 }
 .log-item {
     padding: 1px 4px;
@@ -119,7 +119,7 @@ div.main-nav li{
     display: flex;
     top: 51px;
     left: 1px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 200;
     background-color: $background-menu;
     padding: 5px;

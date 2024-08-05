@@ -8,10 +8,10 @@
     justify-content: center;
 }
 .border-nav-section{
-    border-radius: 50%;
-    border: solid 2px green;
+    border-radius: 5px;
+    border:solid 2px #848484;
     padding: 10px;
-    height: 100px;
+    height: 49px;
     width: 100px;
     text-align: center;
     display: flex;
@@ -23,8 +23,8 @@
 }
 .nav-sections a{
     text-decoration: none;
-    color: $fontColor-primary;
-    background-color: #181818;
+    color: rgba(255, 255, 255, 0.705);
+    background-color: #013b03;
 }
 
 @media only screen and (max-width:340px) {
