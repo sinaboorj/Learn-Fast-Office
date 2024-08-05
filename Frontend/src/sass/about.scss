@@ -1,3 +1,5 @@
+@import "variable.scss";
+
 .about{
     color: rgb(120 120 120);
     text-align: justify;
@@ -35,4 +37,18 @@ img.resume-pic {
     direction: rtl;
     font-family: system-ui;
     font-size: 14px;
+}
+.contact-about{
+    .contact-about {
+        display: flex;
+    }
+    h6{
+        margin: 10px;
+        color: $fontColor-primary;
+        font-size: 14px;
+    }
+    .about-icon-color {
+        color: #0074ff;
+        font-size: medium;
+    }
 }
