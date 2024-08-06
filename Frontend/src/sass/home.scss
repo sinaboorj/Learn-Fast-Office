@@ -17,7 +17,8 @@
 }
 .moveing-text {  
     text-align: center;
-   /* animation: scroll 40s linear infinite;  زمان حرکت متن را تنظیم کنید */  
+   /* animation: scroll 40s linear infinite;  زمان حرکت متن را تنظیم کنید */
+   margin: 20px;  
 } 
 .home-icon{
     color: white;
@@ -34,6 +35,18 @@
     line-height: 30px;
     a{
         font-size: 14px;
+    }
+    li{
+        list-style: square;
+    }
+    li::marker {
+        font-size: 19px;
+    }
+    li.ok::marker{
+        color: green;
+    }
+    li.busy::marker{
+        color: blue;
     }
 }
 @keyframes scroll {  

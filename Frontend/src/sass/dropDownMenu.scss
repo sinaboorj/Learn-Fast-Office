@@ -1,13 +1,14 @@
 @import "variable.scss";
 
-
 .menu-container {
-    background-color: #212529;
-    position: relative;
-    top: 0px;
-    border-top: solid 3px #212529;
-    height: 50px;
-  }
+  background-color: #212529;
+  position: relative;
+  top: 0px;
+  border-top: solid 3px #212529;
+  height: 51px;
+  display: flex;
+  align-items: center;
+}
   .menu-container .linebar-title div .dropDown-login{
     border-radius: 50%;
     border: solid 2px rgba(228, 195, 7, 0.74);
@@ -29,19 +30,45 @@
   }
   .dropdown-menu{
     position: absolute;
-    top: 45px;
-    left: -1px;
+    border: none;
+    top: 49px;
+    left: 0px;
     font-size: 15px;
     font-weight: 200;
-    background-color: $mainBackgroundColor;
-    padding: 10px 10px;
-    width: 70%;
-    border-bottom:none;
+    background-color: $navbar-color;
+    padding: 20px 10px;
+    width: 200px;
+    border-bottom: none;
     border-radius: 0 0 5px 0;
+    a{
+      text-decoration: none;
+      list-style: none;
+    }
+  }
+  .user-title{
+    border-radius: 50%;
+    border: solid 2px rgba(228, 195, 7, 0.74);
+    display: flex;
+    flex-direction: column;
+    width: 37px;
+    height: 37px;
+    font-family: auto;
+    font-size: 23px;
+    justify-content: center;
+    box-shadow: 0 0 10px rgb(247, 211, 11);
+    padding-bottom: 3px;
+    text-align: center;
+    a{
+      color: white;
+    }
   }
   .linebar-title{
     display: flex;
     align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
   }
   .bars{
     display: flex;
@@ -50,7 +77,7 @@
     padding: 5px;
   }
   .dropdown-menu.active{
-    opacity: .90;
+    opacity: 95%;
     visibility: visible;
     transform: translateY(0);
     transition: var(--speed) ease;
@@ -98,9 +125,12 @@
   .menu-container ul li{
       list-style-type: none;
   }
+  .dropDown-nav-logo{
+    margin-top: 10px!important;
+  }
   .dropdown-menu .item{
-      margin: 17px;
-      position: relative;
+    margin: 0px 10px 20px 10px;
+    position: relative;
   }
   @media (min-width:993px){
       .menu-container{

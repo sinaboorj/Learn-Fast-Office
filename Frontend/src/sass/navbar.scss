@@ -1,6 +1,7 @@
 @import "variable.scss";
 
-.main-nav {
+.main-nav ,
+.main-nav-not-login{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,9 +18,11 @@
     width: 100%;
     z-index: 100; */
 }
-nav.main-nav ul li{
+nav.main-nav ul li ,
+nav.main-nav-not-login ul li{
     list-style: none;
 }
+div.main-nav-not-login li ,
 div.main-nav li{
     list-style-type: none;
 }

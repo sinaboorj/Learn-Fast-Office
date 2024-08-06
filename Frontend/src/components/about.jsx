@@ -6,6 +6,8 @@ import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
 import { FaSkype , FaEnvelope, FaLinkedin} from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
+import Home from '../pages/home';
+import InsigImage from './insigImage';
 
 const About = () => {
     const { lang } = useContext(PublicContext);
@@ -27,6 +29,8 @@ const About = () => {
                     <h6 title='Github'><FaGithub className="about-icon" /> GitHub <a href="https://github.com/sinaboorj/Learn-Fast-Office"> </a></h6>
                 </div>
             </div>
+            <br />
+           <InsigImage />
         </>
     )
 }
