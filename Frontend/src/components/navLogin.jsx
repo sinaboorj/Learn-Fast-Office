@@ -44,7 +44,7 @@ const NavLogin = (props) => {
                     {isOpen && (
                         <ul className="subdropdown-menu">
                             <li className="subdropdown-item item-email" >{userData?.email}</li>
-                            <Link to={`/api/user/${userData?.userID}`}><li onClick={() => { fetchData(); setIsOpen(!isOpen); setNavSection(false); handleLinkClick(`user/${userData?.userID}`) }} className="subdropdown-item">View Profile</li></Link>
+                            <Link to={`/api/user/${userData?.userID}`}><li onClick={() => { fetchData(); setIsOpen(!isOpen); setNavSection(false); handleLinkClick(`user/${userData?.userID}`) }} className="subdropdown-item view-profile">View Profile</li></Link>
                             <li className="subdropdown-item" onClick={() => { setLang(!lang); setIsOpen(!isOpen) }} >
                                 {lang
                                     ? <img src={faFlag} className="language" title="Change language" alt="language" />

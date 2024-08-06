@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import '../sass/footer.scss';
-import { FaSkype , FaEnvelope, FaMapPin, FaLinkedin, FaInfoCircle} from 'react-icons/fa';
+import { FaEnvelope, FaMapPin, FaInfoCircle} from 'react-icons/fa';
 import { UserContext } from '../context/userContext';
 import darkLogo from '../../public/sysImage/darkLogo.jpg'
 import INSIGmain1 from '../../public/sysImage/INSIGmain1.jpg'
@@ -17,9 +17,8 @@ const Footer = () => {
                     
                     <footer className="footer">
                         <div className="contact">
-                            <span className="contact-us"> <FaEnvelope className="icon-color" /> : info@insig.ir</span>
-                            <span className="contact-us"> <FaMapPin className="icon-color" /> : Iran.Ahvaz</span>
-                            <Link className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="icon-color" /> : About Programmer</Link>
+                            <span className="contact-us"> <FaMapPin className="footer-icon" /> : Iran.Ahvaz</span>
+                            <Link className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="footer-icon" /> : About Programmer</Link>
                         </div>
                         <div className="left-footer">
                             {lang

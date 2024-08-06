@@ -57,6 +57,7 @@ const Strings = new LocalizedStrings({
     // ********************************************** Chart User Info *************************************
     Year: "Year",
     Experience: "Experience: ",
+  
   },
 
   fa: {
