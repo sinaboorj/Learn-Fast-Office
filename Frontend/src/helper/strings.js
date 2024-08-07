@@ -5,7 +5,7 @@ const Strings = new LocalizedStrings({
     // ****************************************** NavBar ***************
     Home: "Home",
     Dashboard: "Dashboard",
-    Chart: "Sitemap",
+    Chart: "Chart",
     Planning: "Planning",
     Maintenance: "Maintenance",
     Statistics: "Analysis",

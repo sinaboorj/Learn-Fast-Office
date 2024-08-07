@@ -1,64 +1,73 @@
-@import "variable.scss";
+@import "variable.scss";  
 
-.about{
-    color: rgb(120, 120, 120);
-    width: 80%;
-    margin: auto;
-    font-size: 16px;
-    font-family: math;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: justify;
-}
-.resume{
-    font-family: fangsong;
-    font-weight: bold;
-    font-size: 19px;
-    color: rgb(183 183 183);
-    margin-bottom: 15px;
-}
-img.resume-pic {
-    width: 116px;
-    border-radius: 50%;
-    border: solid 5px rgb(1 84 155);
-  margin-bottom: 25px;
-}
-.resume-pic{
-    border-radius: 5px;
-    width: 80%;
-}
-.resume-text-en{
-    margin-bottom: 30px;
-}
-.resume-text-fa{
-    margin-bottom: 20px;
-    direction: rtl;
-    font-family: system-ui;
-    font-size: 14px;
-}
-.contact-about{
-        display: flex;
-        flex-direction: row;
-    h6{
-        margin: 10px;
-        color: $fontColor-primary;
-        font-size: 13px;
-    }
-    .about-icon {
-        color: #0074ff;
-        font-size: 16px;
-    }
-    a{
-        text-decoration: none;
-        color: $fontColor-primary;
-    }
-}
-@media only screen and ( max-width: 762px){
+.about {  
+    color: rgb(120, 120, 120);  
+    width: 80%;  
+    margin: auto;  
+    font-size: 16px;  
+    font-family: math;  
+    font-weight: 400;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;  
+    text-align: justify;  
+}  
 
-    .contact-about{
-        flex-direction: column;
-    }
-}
+.resume {  
+    font-family: fangsong;  
+    font-weight: bold;  
+    font-size: 19px;  
+    color: rgb(183, 183, 183);  
+    margin-bottom: 15px;  
+}  
+
+img.resume-pic {  
+    width: 116px;  
+    border-radius: 50%;  
+    border: solid 5px rgb(1, 84, 155);  
+    margin-bottom: 25px;  
+}  
+
+.resume-pic {  
+    border-radius: 5px;  
+    width: 80%;  
+}  
+
+.resume-text-en {  
+    margin-bottom: 30px;  
+}  
+
+.resume-text-fa {  
+    margin-bottom: 20px;  
+    direction: rtl;  
+    font-family: system-ui;  
+    font-size: 14px;  
+}  
+
+.contact-about {  
+    display: flex;  
+    flex-direction: row;  
+
+    h6 {  
+        margin: 10px;  
+        color: $fontColor-primary;  
+        font-size: 13px;  
+    }  
+
+    .about-icon {  
+        color: #0074ff;  
+        font-size: 16px;  
+    }  
+
+    a {  
+        text-decoration: none;  
+        color: $fontColor-primary;  
+    }  
+}  
+
+@media only screen and (max-width: 762px) {  
+    .contact-about {  
+        flex-direction: column;  
+    }  
+} 

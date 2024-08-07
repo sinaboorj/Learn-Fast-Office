@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext";
 import '../../sass/profile.scss'
+import InsigImage from "../../public/insigImage";
 
 const Profile = () => {
     const { profile } = useContext(UserContext);
@@ -38,6 +39,8 @@ const Profile = () => {
                     
                 </div>
             </div>
+            <br />
+            <InsigImage />
         </>
     );
 }

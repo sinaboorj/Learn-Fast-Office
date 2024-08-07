@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { PublicContext } from "../context/publicContext";
 import logo from '/sysImage/Logo 2.png'
 import { FaGithub } from 'react-icons/fa';
-import InsigImage from '../components/insigImage';
+import InsigImage from '../public/insigImage';
 
 const Home = () => {
     const { lang } = useContext(PublicContext)
@@ -55,7 +55,7 @@ const Home = () => {
                     <li>محاسبه و نمایش آنلاین پاداش بهره وری تولید و میزان اضافه کاری ماه</li>
                 </p>
             }
-            <InsigImage />
+           <InsigImage />
         </>
     );
 }

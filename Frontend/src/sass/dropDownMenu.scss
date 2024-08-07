@@ -1,148 +1,143 @@
-@import "variable.scss";
+@import "variable.scss";  
 
-.menu-container {
-  background-color: #212529;
-  position: relative;
-  top: 0px;
-  border-top: solid 3px #212529;
-  height: 51px;
-  display: flex;
-  align-items: center;
+.menu-container {  
+  background-color: $navbar-color;  
+  position: relative;  
+  top: 0;  
+  height: 51px;  
+  display: flex;  
+  align-items: center;  
+  
+  .bars {  
+    display: flex;  
+    flex-direction: column;  
+    width: 55px;  
+    padding: 5px;  
+
+    .bar {  
+      margin: 3px;  
+      border-bottom: solid 2px white;  
+    }  
+  } 
+
+  .user-title {  
+    border-radius: 50%;  
+    border: solid 2px rgba(228, 195, 7, 0.74);  
+    display: flex;  
+    flex-direction: column;  
+    width: 37px;  
+    height: 37px;  
+    font-family: auto; // Consider specifying a font  
+    color: white;  
+    font-size: 23px;  
+    justify-content: center;  
+    box-shadow: 0 0 10px rgb(247, 211, 11);  
+    padding-bottom: 3px;  
+    text-align: center;  
+
+    a {  
+      color: white;  
+    }  
+  } 
+
 }
-  .menu-container .linebar-title div .dropDown-login{
-    border-radius: 50%;
-    border: solid 2px rgba(228, 195, 7, 0.74);
-    display: flex;
-    flex-direction: row;
-    width: 38px;
-    height: 38px;
-    font-family: auto;
-    font-size: 23px;
-    color: white;
-    justify-content: center;
-    padding-bottom: 3px;
-    text-align: center;
-    align-items: center;
-    margin-top: 2px;
-}
-  .menu-container a{
-    text-decoration: none;
+.dropdown-menu { 
+  position: absolute;  
+  border: none;  
+  top: 49px;  
+  left: 0;  
+  font-size: 15px;  
+  font-weight: 200;  
+  background-color: $navbar-color;  
+  padding: 20px 10px;  
+  width: 200px;  
+  border-bottom: none;  
+  border-radius: 0 0 5px 0;  
+
+  .linebar-title {  
+    display: flex;  
+    align-items: center;  
+    width: 100%;  
+    justify-content: center;  
+    color: white;  
+  }  
+
+  a {  
+      text-decoration: none;  
+      color: $fontColor-primary;  
+    }  
+    .item {  
+      margin: 0 10px 20px;  
+      position: relative;  
+
+      &:hover {  
+        background-color: $mainBackgroundColor;  
+      }  
+    }  
+
+    &.active {  
+      opacity: 98%;  
+      visibility: visible;  
+      transform: translateY(0);  
+      transition: var(--speed) ease;  
+    }  
+
+    &.inactive {  
+      opacity: 0;  
+      visibility: hidden;  
+      transform: translateY(-20px);  
+      transition: var(--speed) ease;  
+    }  
+
+  .user-email {  
+    cursor: default;  
+    color: $fontColor-primary;  
+    margin: 0 10px 15px;
+  }  
+
+  .exit{
+    color: rgb(255 39 39);
+    font-weight: 500;
   }
-  .dropdown-menu{
-    position: absolute;
-    border: none;
-    top: 49px;
-    left: 0px;
-    font-size: 15px;
-    font-weight: 200;
-    background-color: $navbar-color;
-    padding: 20px 10px;
-    width: 200px;
-    border-bottom: none;
-    border-radius: 0 0 5px 0;
-    a{
-      text-decoration: none;
-      list-style: none;
-    }
-  }
-  .user-title{
-    border-radius: 50%;
-    border: solid 2px rgba(228, 195, 7, 0.74);
-    display: flex;
-    flex-direction: column;
-    width: 37px;
-    height: 37px;
-    font-family: auto;
-    font-size: 23px;
-    justify-content: center;
-    box-shadow: 0 0 10px rgb(247, 211, 11);
-    padding-bottom: 3px;
-    text-align: center;
-    a{
-      color: white;
-    }
-  }
-  .linebar-title{
-    display: flex;
-    align-items: center;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    color: white;
-  }
-  .bars{
-    display: flex;
-    flex-direction: column;
-    width: 55px;
-    padding: 5px;
-  }
-  .dropdown-menu.active{
-    opacity: 95%;
-    visibility: visible;
-    transform: translateY(0);
-    transition: var(--speed) ease;
-  }
-  .menu-container .dropdown-menu .navlink {
-    margin: 0 20px;
-    color: rgba(241, 241, 241, 0.637);
-    text-decoration: none;
-}
-  .dropdown-menu.inactive{
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: var(--speed) ease;
-  }
-  .dropdown-menu a{
+ 
+  hr {
+    margin: 23px 0 14px 5px;
     color: $fontColor-primary;
-    text-decoration: none;
-  }
-  .dropdown-menu ul .cartItemCount {
-    border-radius: 9px;
-    background: #FF0000;
-    color: #FFFF;
-    margin: 1px;
-    font-size: 12px;
-    padding: 0px 5px;
-    position: absolute;
-    top: 61px;
-    left: 87px;
-  }
-  .language {
-    height: 18px;
-    width: 27px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  .bar{
-      margin: 3px;
-      border-bottom: solid 2px white;
-  }
-  .menu-container ul{
-    padding-left: 0;
-    margin-bottom: 0;
-  }
-  .menu-container ul li{
-      list-style-type: none;
-  }
-  .dropDown-nav-logo{
-    margin-top: 10px!important;
-  }
-  .dropdown-menu .item{
-    margin: 0px 10px 20px 10px;
-    position: relative;
-  }
-  @media (min-width:993px){
-      .menu-container{
-        display: none;
-      }
-      .menu-container{
-        display: none;
-      }
-    }
-    @media (max-width:992px){
-      .dropdown-menu{
-        display: flex;
-      }
-    
-    }
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: .25;
+    width: 100%;
+}
+
+  ul {  
+    padding-left: 0;  
+    margin-bottom: 0;  
+
+    li {  
+      list-style-type: none;  
+    }  
+  }  
+
+  .dropDown-nav-logo {  
+    margin-top: 10px !important;  
+  }  
+
+  .language {  
+    height: 18px;  
+    width: 27px;  
+    cursor: pointer;  
+    border-radius: 3px;  
+  }  
+}  
+
+@media (min-width: 993px) {  
+  .menu-container {  
+    display: none;  
+  }  
+}  
+
+@media (max-width: 992px) {  
+  .dropdown-menu {  
+    display: flex;  
+  }  
+} 

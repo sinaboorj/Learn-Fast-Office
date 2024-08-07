@@ -6,6 +6,7 @@ import Strings from '../../helper/strings';
 import AnalysisChart from './analysisChart';
 import { UserContext } from '../../context/userContext';
 import { PublicContext } from '../../context/publicContext';
+import InsigImage from '../../public/insigImage';
 
 const Analysis = () => {
      const { lang } = useContext(PublicContext)
@@ -18,7 +19,7 @@ const Analysis = () => {
                          <div className='folder' style={{ direction: lang ? 'ltr' : 'rtl', width: '100%' }}>
                               <div className='section-title'>
                                    <img src={folder_img} alt="Chart-img" className='folder-img' />
-                                   <span style={{margin:'0px 10px'}} >{Strings.Analysis_title}</span>
+                                   <span style={{ margin: '0px 10px' }} >{Strings.Analysis_title}</span>
                               </div>
                               <div className='folder-summry'>
                                    <p>{Strings.Analysis_discription}</p>
@@ -63,9 +64,10 @@ const Analysis = () => {
                }
                <div className={lang ? 'img-backgrand-en' : 'img-backgrand-fa'}></div> {/* use background-image in CSS */}
                <div className="chart">
-                              <ManagerChart />
-                              <AnalysisChart />
-                         </div>
+                    <ManagerChart />
+                    <AnalysisChart />
+               </div>
+               <InsigImage />
           </>
      );
 }
