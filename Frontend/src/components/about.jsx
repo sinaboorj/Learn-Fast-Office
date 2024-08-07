@@ -6,8 +6,7 @@ import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
 import { FaSkype , FaEnvelope, FaLinkedin} from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
-import Home from '../pages/home';
-import InsigImage from './insigImage';
+import InsigImage from '../public/insigImage';
 
 const About = () => {
     const { lang } = useContext(PublicContext);

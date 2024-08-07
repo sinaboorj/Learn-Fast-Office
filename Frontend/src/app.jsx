@@ -5,7 +5,6 @@ import Footer from "./components/footer";
 import UserContextProvider from "./context/userContext";
 import SignInUp from "./pages/users/signInUp";
 import EmailVerify from "./pages/users/emailVerify"
-import Dashboard from "./dashboard/dashboard";
 import About from "./components/about";
 import Profile from "./pages/users/profile";
 import DropDownMenu from "./components/dropDownMenu";
@@ -16,6 +15,7 @@ import NotPage from "./pages/notpage";
 import NavSection from "./components/navSections";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Analysis from "./pages/analysis/analysis";
+import Dashboard from "./sections/dashboard";
 
 const App = () => {
   return (

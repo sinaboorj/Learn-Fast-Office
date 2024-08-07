@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import '../../sass/analysis.scss'
 import folder_img from '../../../public/sysImage/FY1.png'
-import ManagerChart from '../manager/managerChart';
 import Strings from '../../helper/strings';
-import AnalysisChart from './analysisChart';
 import { UserContext } from '../../context/userContext';
 import { PublicContext } from '../../context/publicContext';
 import InsigImage from '../../public/insigImage';
@@ -64,8 +62,6 @@ const Analysis = () => {
                }
                <div className={lang ? 'img-backgrand-en' : 'img-backgrand-fa'}></div> {/* use background-image in CSS */}
                <div className="chart">
-                    <ManagerChart />
-                    <AnalysisChart />
                </div>
                <InsigImage />
           </>
