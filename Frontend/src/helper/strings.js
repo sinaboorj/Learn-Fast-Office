@@ -14,6 +14,7 @@ const Strings = new LocalizedStrings({
     Analysis_title: "Statistics monitoring and analysis unit",
     Analysis_discription:
       "This unit was created with a supervisor and an expert in 2013, focusing on the preparation of reports. The main duties of this unit are as follows:",
+    Analysis_title_0:"Design and development of the central planning website",
     Analysis_title_1: "Data monitoring and analysis",
     Analysis_title_2: "Calculation of productivity bonus",
     Analysis_title_3: "Calculation of overtime",
@@ -28,6 +29,8 @@ const Strings = new LocalizedStrings({
     Expert: "Expert",
     Technician: "Technician",
     // ****************************************** Analysis Jobs *************************************
+    Analysis_job_0:
+      "including all kinds of dashboard reports, comparative charts of production and schedule, display of production efficiency and operational efficiency and production speed, etc.",
     Analysis_job_1:
       "The process of collecting primary data, filtering data, preparing data, processing data and finally analyzing various data in order to extract useful information for decision making is one of the most important activities of this unit.",
     Analysis_job_2:
@@ -73,6 +76,7 @@ const Strings = new LocalizedStrings({
     Analysis_title: "واحد پايش و تحليل آمار",
     Analysis_discription:
       "اين واحد با تمركز بر تهيه گزارشات در سال 1393 با يك سرپرست و يك كارشناس ايجاد شد. عمده وظايف اين واحد به شرح ذيل ميباشد:",
+    Analysis_title_0:"طراحی و توسعه وب سایت برنامه ریزی مرکزی",
     Analysis_title_1: "پايش و تحليل آمار",
     Analysis_title_2: "محاسبه پاداش بهره وري",
     Analysis_title_3: "محاسبه اضافه كاري",
@@ -87,6 +91,8 @@ const Strings = new LocalizedStrings({
     Expert: "كارشناس",
     Technician: "تكنيسين",
     // ****************************************** Analysis Jobs ***************************************
+    Analysis_job_0:
+      "شامل انواع گزارشات داشبوردی، نمودارهای مقایسه ای تولید و برنامه، نمایش راندمان تولید و راندمان عملیاتی و سرعت تولید و ...",
     Analysis_job_1:
       "فرایند جمع آوري داده هاي اوليه، فيلتر داده ها، آماده‌سازی داده ها ، پردازش داده ها و در نهايت تحلیل داده‌ هاي مختلف به منظور استخراج اطلاعات سودمند جهت تصمیم‌گیری، از مهم ترين فعاليت هاي اين واحد مي باشد.",
     Analysis_job_2:

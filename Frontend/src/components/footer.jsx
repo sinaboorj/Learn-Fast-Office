@@ -6,10 +6,12 @@ import darkLogo from '../../public/sysImage/darkLogo.jpg'
 import INSIGmain1 from '../../public/sysImage/INSIGmain1.jpg'
 import { Link } from 'react-router-dom';
 import { PublicContext } from '../context/publicContext';
+import navFunctions from '../helper/navFunctions';
 
 const Footer = () => {
     const { hidden } = useContext(UserContext)
-    const { lang } = useContext(PublicContext)
+    const { lang, setActiveLink } = useContext(PublicContext)
+    const { handleLinkClick } = navFunctions
     return (
         <>
             {!hidden && (
@@ -18,7 +20,7 @@ const Footer = () => {
                     <footer className="footer">
                         <div className="contact">
                             <span className="contact-us"> <FaMapPin className="footer-icon" /> : Iran.Ahvaz</span>
-                            <Link className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="footer-icon" /> : About Programmer</Link>
+                            <Link  onClick={() => { setActiveLink('')  }}  className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="footer-icon" /> : About Programmer</Link>
                         </div>
                         <div className="left-footer">
                             {lang

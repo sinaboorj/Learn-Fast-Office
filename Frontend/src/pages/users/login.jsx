@@ -20,10 +20,6 @@ function Login() {
   const [showPass, setShowPass] = useState({ type: 'password', status: true });
   const nav = useNavigate();
 
-  let url = window.location.href
-  url = url.slice(0, url.indexOf('/api/'))
-
-
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().required(), //password: yup.string().min(6).matches(/[A-Z]+/).matches(/[a-z]+/).matches(/\d*/).matches(/[!,@,#,$,&,*]+/).required(),
@@ -61,25 +57,10 @@ function Login() {
           })
           setIsLoading(false); setPassword('');
           setMessageStatus(true);
-
-          //*********** برای اینکه بعد از لاگین به لینک قبل هدایت شود و رنگ لینک عوض شود  **********  */
-          let perUrl = localStorage.getItem('previousURL')
-          let Link = ''
-          if (perUrl !== null ) {
-            perUrl = perUrl.replace(url, '')
-            if (perUrl !== '/' && perUrl !== '/api/login') {
-              Link = perUrl.replace('/api/', '')
-            } else {
-              Link = 'home'
-              perUrl='/'
-            }
-            setActiveLink(Link)
-            localStorage.setItem('activeLink', Link)
-            nav(perUrl)
-          } else {
-            nav('/')
-          }
-         }
+          setActiveLink('home')
+          localStorage.setItem('activeLink', Link)
+          nav('/')
+        }
       } catch (err) {
         setIsLoading(false); setMessageStatus(true);
         err?.response?.data?.msg !== undefined ? setMsg(err.response?.data)  : setMsg( {status: false, title: 'Error', msg:err.message })

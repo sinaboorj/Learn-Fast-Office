@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import '../../sass/analysis.scss'
-import folder_img from '../../../public/sysImage/FY1.png'
-import Strings from '../../helper/strings';
-import { UserContext } from '../../context/userContext';
-import { PublicContext } from '../../context/publicContext';
-import InsigImage from '../../public/insigImage';
+import '../sass/analysis.scss'
+import folder_img from '/sysImage/FY1.png'
+import Strings from '../helper/strings';
+import { PublicContext } from '../context/publicContext';
+import { UserContext } from '../context/userContext';
+import InsigImage from '../public/insigImage';
 
 const Analysis = () => {
      const { lang } = useContext(PublicContext)
@@ -20,11 +20,14 @@ const Analysis = () => {
                                    <span style={{ margin: '0px 10px' }} >{Strings.Analysis_title}</span>
                               </div>
                               <div className='folder-summry'>
-                                   <p>{Strings.Analysis_discription}</p>
+                                   <span>{Strings.Analysis_discription}</span><br /><br />
                               </div>
                          </div>
                          <div className='discription' style={{ flexDirection: !lang && 'row-reverse' }}>
-
+                              <ul className='items-title' style={{ direction: !lang && 'rtl' }}>
+                                   <li className='items'>{Strings.Analysis_title_0} </li>
+                                   <span className='under-items'>{Strings.Analysis_job_0}</span>
+                              </ul>
                               <ul className='items-title' style={{ direction: !lang && 'rtl' }}>
                                    <li className='items'>{Strings.Analysis_title_1} </li>
                                    <span className='under-items'>{Strings.Analysis_job_1}</span>
@@ -63,7 +66,6 @@ const Analysis = () => {
                <div className={lang ? 'img-backgrand-en' : 'img-backgrand-fa'}></div> {/* use background-image in CSS */}
                <div className="chart">
                </div>
-               <InsigImage />
           </>
      );
 }

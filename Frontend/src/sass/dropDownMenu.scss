@@ -101,13 +101,8 @@
   }
  
   hr {
-    margin: 23px 0 14px 5px;
-    color: $fontColor-primary;
-    border: 0;
-    border-top: var(--bs-border-width) solid;
-    opacity: .25;
-    width: 100%;
-}
+    @extend %hr
+  }
 
   ul {  
     padding-left: 0;  

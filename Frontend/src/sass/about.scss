@@ -2,7 +2,7 @@
 
 .about {  
     color: rgb(120, 120, 120);  
-    width: 80%;  
+    width: 95%;  
     margin: auto;  
     font-size: 16px;  
     font-family: math;  
@@ -12,8 +12,12 @@
     align-items: center;  
     flex-direction: column;  
     text-align: justify;  
+    ul{
+        font-family: system-ui;
+        font-size: 14px;
+        font-weight: 400;
+    }
 }  
-
 .resume {  
     font-family: fangsong;  
     font-weight: bold;  
@@ -65,9 +69,63 @@ img.resume-pic {
         color: $fontColor-primary;  
     }  
 }  
+.home-icon{
+    color: white;
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.about-description {
+    padding: 8px 45px;
+    text-align: justify;
+    line-break: auto;
+    font-family: system-ui;  
+    font-size: 14px;
+    line-height: 30px;
+    width: 92%;
+    a{
+        font-size: 14px;
+    }
+    li{
+        list-style: square;
+    }
+    li::marker {
+        font-size: 19px;
+    }
+    li.ok::marker{
+        color: green;
+    }
+    li.busy::marker{
+        color: blue;
+    }
+}
+p::first-line {  
+    color: $loginBtn;  
+    font-size: 16px;
+    font-weight: 500;
+}  
 
 @media only screen and (max-width: 762px) {  
     .contact-about {  
         flex-direction: column;  
     }  
 } 
+@media only screen and ( max-width: 500px){
+
+    .about-description {
+        padding: 8px 1px;
+        text-align: justify;
+        font-size: 14px;
+        line-height: 26px;
+        a{
+            font-size: 14px;
+        }
+        li{
+            margin-bottom: 15px;
+            text-align: start;
+        }
+
+
+
+    }
+}

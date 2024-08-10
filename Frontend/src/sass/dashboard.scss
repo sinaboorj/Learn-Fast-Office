@@ -1,0 +1,78 @@
+@import "variable.scss";  
+
+.dashboard-text {
+    font-weight: 700;
+    color: $fontColor-fifth;
+    font-size: 19px;
+    text-align: start;
+    padding: 10px 25px 15px 25px
+}
+.dashboard-items{
+    display: flex;
+    flex-direction: row;
+    color: rgb(241, 241, 241);
+    position: relative;
+    justify-content: center;
+
+    .product{
+        background-color: #0024ff;
+    }
+    .plan{
+        background-color: #0d8609;
+    }
+    .categories{
+        background-color: #dc1313;
+    }
+    .date{
+        background-color: #c17c09;
+    }
+    .dashboard-item{
+        margin: 10px;
+        border-radius: 4px;
+        width: 250px;
+        height: 130px;
+        padding: 6px 10px;
+        font-weight: 650;
+        cursor: pointer;
+        position: relative;
+    }
+    a{
+        text-decoration: none;
+    }
+    .dashboard-item{
+        .d-icon{
+            margin: 5px 15px;
+            position: absolute;
+            right: 0px;
+        }
+    }
+    label{
+        font-weight: 500;
+        font-size: 13px;
+        color: $mainBackgroundColor;
+        cursor: pointer;
+        margin: 2px 0px;
+    }
+}
+.filter-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+hr{
+    @extend %hr
+}
+
+@media only screen and (max-width: 1000px){
+    .dashboard-items{
+        flex-wrap: wrap;
+        flex-direction: row;
+        .dashboard-item{
+           
+            flex-grow: 1;
+        }
+    }
+
+}
+

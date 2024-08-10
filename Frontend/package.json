@@ -25,6 +25,7 @@
     "react-loading-skeleton": "^3.4.0",
     "react-localization": "^1.0.19",
     "react-router-dom": "^6.25.1",
+    "recharts": "^2.12.7",
     "sass": "^1.77.6",
     "yup": "^1.4.0"
   },

@@ -1,6 +1,4 @@
-import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-
 export const UserContext=createContext()
 
 //********************************************** User Context ****************************** */
@@ -15,11 +13,6 @@ const UserContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState({})
   const backendUrl = 'http://localhost:5500'
-
-  const fetchData = async () => {
-      const result = await axios.get(`${backendUrl}/api/user/${userData?.userID}`, { headers: headers })
-      setProfile(result?.data)
-    }
 
   //*********************************  read email, userID and token to local storage   ****************** */ 
   useEffect(() => {
@@ -37,10 +30,6 @@ const UserContextProvider = ({ children }) => {
       unit: userData?.unit,
       userID: userData?.userID,
     }));
-
-    if (userData?.userID !== undefined ) { 
-      fetchData()
-    }
  
   }, [userData]);
   const headers = {
@@ -58,7 +47,7 @@ const UserContextProvider = ({ children }) => {
     login, setLogin, Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError,
     setSchemaLoginError, schemaRegisterError, setSchemaRegisterError, hidden, setHidden,
     userData, setUserData, headers, level_No, isLoading, setIsLoading, backendUrl,
-    profile, setProfile, fetchData
+    profile, setProfile
   }
 
   return <UserContext.Provider value={UserContextValue}>{children} </UserContext.Provider>
