@@ -3,14 +3,14 @@
 .dashboard-text {
     font-weight: 700;
     color: $fontColor-fifth;
-    font-size: 19px;
+    font-size: 17px;
     text-align: start;
-    padding: 10px 25px 15px 25px
+    padding: 10px calc(100vw / 12);
 }
 .dashboard-items{
     display: flex;
     flex-direction: row;
-    color: rgb(241, 241, 241);
+    color: $fontColor-fifth;
     position: relative;
     justify-content: center;
 
@@ -23,8 +23,9 @@
     .categories{
         background-color: #dc1313;
     }
-    .date{
-        background-color: #c17c09;
+    .filter{
+        background-color: #dccc0b;
+        color: $mainBackgroundColor;
     }
     .dashboard-item{
         margin: 10px;
@@ -52,6 +53,8 @@
         color: $mainBackgroundColor;
         cursor: pointer;
         margin: 2px 0px;
+        display: flex;
+        align-items: center;
     }
 }
 .filter-date {
@@ -69,9 +72,12 @@ hr{
         flex-wrap: wrap;
         flex-direction: row;
         .dashboard-item{
-           
             flex-grow: 1;
         }
+
+    }
+    .dashboard-text {
+        padding: 10px 20px;
     }
 
 }

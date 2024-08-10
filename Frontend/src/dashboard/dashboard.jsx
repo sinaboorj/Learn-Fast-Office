@@ -2,7 +2,8 @@
 import { useState } from "react";
 import InsigImage from "../public/insigImage";
 import '../sass/dashboard.scss'
-import {BsFillArchiveFill, BsFillGrid3X3GapFill} from 'react-icons/bs'
+import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsFilterSquareFill } from 'react-icons/bs'
+import {  FaFilter} from 'react-icons/fa';
 
 const Dashboard = () => {
     const [selectedOption, setSelectedOption] = useState('option1');
@@ -27,34 +28,37 @@ const Dashboard = () => {
                 <div className="dashboard-item plan">
                     PLAN <BsFillGrid3X3GapFill className="d-icon" />
                 </div>
-                <div className="dashboard-item date">
-                    FILTER <BsFillGrid3X3GapFill className="d-icon" /><br />
+                <div className="dashboard-item filter">
+                    FILTER <FaFilter className="d-icon" /><br />
                     <div className="filter-date">
                         <label>
                             <input
+                                style={{marginRight:'3px'}}
                                 type="radio"
                                 value="option1"
                                 checked={selectedOption === 'option1'}
                                 onChange={handleChange}
-                            />  Month
+                            /> Month
                         </label>
 
                         <label>
                             <input
+                             style={{marginRight:'3px'}}
                                 type="radio"
                                 value="option2"
                                 checked={selectedOption === 'option2'}
                                 onChange={handleChange}
-                            />  Year
+                            /> Year
                         </label>
 
-                        <label>
+                        <label> 
                             <input
+                                style={{marginRight:'3px'}}
                                 type="radio"
                                 value="option3"
                                 checked={selectedOption === 'option3'}
                                 onChange={handleChange}
-                            />Custom
+                            /> Custom
                         </label>
                     </div>
 

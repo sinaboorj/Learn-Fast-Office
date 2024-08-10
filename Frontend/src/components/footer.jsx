@@ -1,17 +1,15 @@
 import { useContext } from 'react';
 import '../sass/footer.scss';
-import { FaEnvelope, FaMapPin, FaInfoCircle} from 'react-icons/fa';
+import {  FaMapPin, FaInfoCircle} from 'react-icons/fa';
 import { UserContext } from '../context/userContext';
 import darkLogo from '../../public/sysImage/darkLogo.jpg'
 import INSIGmain1 from '../../public/sysImage/INSIGmain1.jpg'
 import { Link } from 'react-router-dom';
 import { PublicContext } from '../context/publicContext';
-import navFunctions from '../helper/navFunctions';
 
 const Footer = () => {
     const { hidden } = useContext(UserContext)
     const { lang, setActiveLink } = useContext(PublicContext)
-    const { handleLinkClick } = navFunctions
     return (
         <>
             {!hidden && (
