@@ -90,7 +90,7 @@ const login = trycatchHandler(async (req, res, next) => {
     if (!validPass) return res.status(400).send({ status: false , type:'Password', title: 'Error', msg: 'Password is wrong' });
   
     const token = jwt.sign({ status: true , title: 'Successful', msg: 'Login successfully', token:chechUser.token }, process.env.LOGIN_PRIVATE_KEY)// ارسال توکن کاربر لاکین شده
-    res.header('authorization', token).send(_.pick(chechUser, ["userID", "email","unit","level","No"]))
+    res.header('authorization', token).send(_.pick(chechUser, ["userID", "email"]))
 }
 )
 

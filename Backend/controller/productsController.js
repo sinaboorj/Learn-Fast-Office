@@ -3,7 +3,7 @@ import trycatchHandler from '../config/trycatchHandler.js'
 import _ from 'lodash';
 
 const products = trycatchHandler(async (req, res, next) => {  
-    const filterValues = ["Section", "Date"];  
+    const filterValues = ["Section", "Date","TotalEstandard"];  
     const { startDate, endDate } = req.body;  
   
     const data = await ProductsModel.getProducts(startDate, endDate);   

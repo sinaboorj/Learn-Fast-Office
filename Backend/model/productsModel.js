@@ -13,12 +13,13 @@ class ProductsModel {
 
             const result = await request.query(`  
                 SELECT   
-                Section, [Date], SUM(Estandard) AS Expr1  
+                Section, [Date], SUM(Estandard) AS TotalEstandard  
                 FROM tb_Produce  
                 WHERE ([Date] BETWEEN @startDate AND @endDate)  
                 GROUP BY ROLLUP(Section, [Date])  
-            `);  
-            return result; // تنها داده‌ها را برمی‌گرداند  
+            `);   
+            console.log(result)
+            return result; // تنها داده‌ها را برمی‌گرداند 
         } catch (err) {  
             console.error('Error in getProduceData:', err);  
             throw err;  
