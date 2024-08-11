@@ -4,10 +4,10 @@ import { UserContext } from '../context/userContext';
 import DropDownMenuLogin from './dDMLogin';
 
 const DropDownMenu = () => {
-    const { hidden, userData} = useContext(UserContext)
+    const { userData } = useContext(UserContext)
     //************************************* show the First client's name in Navbar  ***************************** */
     var userStatus = false;
-    var firstStrEmail = userData?.email?.charAt(0)
+    var firstStrEmail = userData?.email?.charAt(0).toUpperCase()
 
     let url = window.location.href
     url = url.slice(0, url.indexOf('/api/'))
@@ -18,11 +18,7 @@ const DropDownMenu = () => {
 
     return (
         <>
-            {!hidden && 
-                <>
-                    {userStatus && <DropDownMenuLogin data={firstStrEmail} /> }
-                </>
-            }
+            {userStatus && <DropDownMenuLogin data={firstStrEmail} />}
         </>
     );
 

@@ -14,7 +14,7 @@ const About = () => {
     useEffect(() => {
         window.scrollTo({
             top: 180,
-            behavior: 'smooth' // باعث می‌شود که اسکرول به آرامی انجام شود  
+            behavior: 'smooth' 
         });
     }, [])
 

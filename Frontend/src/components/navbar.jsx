@@ -5,10 +5,11 @@ import NavLogin from "./navLogin";
 import NavNotLogin from "./navNotLogin";
 
 const Navbar = () => {
-    const { hidden, userData} = useContext(UserContext)
+    const { userData } = useContext(UserContext)
     //************************************* show the First client's name in Navbar  ***************************** */
     var userStatus = false;
-    var firstStrEmail = userData?.email?.charAt(0)
+    var firstStrEmail = userData?.email?.charAt(0).toUpperCase()
+
     //**************************************************************************************** */
    
     if (firstStrEmail !== undefined) {
@@ -17,15 +18,10 @@ const Navbar = () => {
 
     return (
         <>
-            {!hidden && (
-                <>
-                    {userStatus
-                        ? <NavLogin data={firstStrEmail} />
-                        : <NavNotLogin />
-                    }
-                </>
-            )}
-    
+            {userStatus
+                ? <NavLogin data={firstStrEmail} />
+                : <NavNotLogin />
+            }
         </>
     );
 }

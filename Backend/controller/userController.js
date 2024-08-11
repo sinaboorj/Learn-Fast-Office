@@ -31,8 +31,9 @@ const register = trycatchHandler(async (req, res, next) => {
     const randomToken = randomString.generate() // ایجاد توکن تصادفی
     
     const verified = 0;
+    const personel = 0;
     if (!checkEmail) {
-        newUser = await userModel.insertUser(req.body.email, hashPassword, randomToken, verified); // افزودن کاربر جدید
+        newUser = await userModel.insertUser(req.body.email, hashPassword, randomToken, verified, personel); // افزودن کاربر جدید
     }
 
     if (checkEmail && checkEmail.verified === 0) { // ارسال توكن جديد براي كاربر
@@ -43,12 +44,22 @@ const register = trycatchHandler(async (req, res, next) => {
     let url = `
     <br>
     <br>
-    <div> *** Email Verification *** </div>
-    <div><h4>Learn Fast:</h4></div>
-    <div >Hi ${req.body.email}</div>
+    <div style="background-color: green; padding: 10px; color: white; text-align: center;">
+     *** Email Verification ***
+    </div>
+    <div><h4>Central Planning:</h4></div>
+    <div>Hi ${req.body.email} </div>
+    <br><br><br><br>  
+    <span style="background-color: #f7fa55; padding: 10px; color: black; text-align: center;">
+        Please
+        <a style="font-size: 13px; margin: 5px; font-weight: 600; color:blue; cursor: pointer;" href= "${process.env.BASE_URL}/api/${newUser.userID}/mail-verification/${randomToken}"> 
+        Verify </a> your email
+    </span>
+    <br><br>  
+    <hr>
+    <div><h5>Programer: Hossein Zarei (Sina)</h5></div>
     <br>
-    <span>Please <a href= "${process.env.BASE_URL}/api/${newUser.userID}/mail-verification/${randomToken}"> Verify </a> your email</span>
-    <br>`
+    `
     
     const sentMail = await sendEmail(req.body.email, mailSubject, url) //ارسال ايميل براي تاييد كاربر
     
@@ -72,7 +83,8 @@ const login = trycatchHandler(async (req, res, next) => {
     const chechUser = await profileModel.getByEmail(req.body.email)//چک کردن ایمیل
     if (!chechUser) return res.status(400).send({ status: false , type:'Email', title: 'Error', msg: 'Email is invalid' });
     
-    if (chechUser.verified === 0) return res.status(400).send({ status: false , type:'Verify', title: 'Error', msg: 'Please verify your Email' }); // اگر ايميل وريفاي نشده بود
+    if (chechUser.verified === 0) return res.status(400).send({ status: false, type: 'Verify', title: 'Error', msg: 'Please verify your Email' }); // اگر ايميل وريفاي نشده بود
+    if (chechUser.personel === 0) return res.status(400).send({ status: false , type:'Verify', title: 'Error', msg: 'Your email has been verified, but you are not yet approved as a Central Planning staff member. Please call the internal number 5780.' }); // اگر ايميل وريفاي نشده بود
 
     const validPass = await bcrypt.compare(req.body.password, chechUser.password)// چک کردن پسورد
     if (!validPass) return res.status(400).send({ status: false , type:'Password', title: 'Error', msg: 'Password is wrong' });

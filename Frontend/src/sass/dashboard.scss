@@ -2,27 +2,25 @@
 
 .dashboard-text {
     font-weight: 700;
-    color: $fontColor-fifth;
     font-size: 17px;
     text-align: start;
-    padding: 10px calc(100vw / 12);
+    padding: 10px 12px ;
+    color: $fontColor-fifth;
 }
 .dashboard-items{
     display: flex;
     flex-direction: row;
-    color: $fontColor-fifth;
+    color: $mainBackgroundColor;
     position: relative;
     justify-content: center;
 
     .product{
-        background-color: #0024ff;
+        background-color: #2fa42c;
     }
     .plan{
-        background-color: #0d8609;
+        background-color: #6ab1ff;
     }
-    .categories{
-        background-color: #dc1313;
-    }
+
     .filter{
         background-color: #dccc0b;
         color: $mainBackgroundColor;
@@ -30,7 +28,7 @@
     .dashboard-item{
         margin: 10px;
         border-radius: 4px;
-        width: 250px;
+        width: calc(100% / 3);
         height: 130px;
         padding: 6px 10px;
         font-weight: 650;
@@ -40,11 +38,29 @@
     a{
         text-decoration: none;
     }
+    .amount{
+        margin: 0 3px;
+    }
     .dashboard-item{
         .d-icon{
             margin: 5px 15px;
             position: absolute;
             right: 0px;
+        }
+        .amounts{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            font-weight: 100;
+            position: absolute;
+            font-size: 15px;
+            left: 8px;
+            bottom: 7px;
+            font-weight: 500;
+            .amount{
+                bottom: 5px;
+            }
         }
     }
     label{
@@ -66,19 +82,29 @@
 hr{
     @extend %hr
 }
+.lines.categories {
+    height: 130px;
+    width: 98%;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 7px;
+    font-weight: 650;
+    background-color: #d9d6d6;
+}
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 560px){
     .dashboard-items{
-        flex-wrap: wrap;
-        flex-direction: row;
+        flex-direction: column;
         .dashboard-item{
-            flex-grow: 1;
+            width: 97%;
+            margin: 5px auto;
         }
-
     }
     .dashboard-text {
         padding: 10px 20px;
     }
-
+    .lines.categories {
+        width: 97%;
+    }
 }
 

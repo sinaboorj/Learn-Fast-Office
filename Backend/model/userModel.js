@@ -4,9 +4,11 @@ import profileModel from './profileModel.js'
 
 class userModel {
 
-    static insertUser = async (email, password, randomToken, verified) => {
-        const result = await connection.query(`INSERT INTO users (userID, email, password, token , verified)
-        VALUES(uuid(), ?, ?, ?, ?)`, [email, password, randomToken, verified])
+    static insertUser = async (email, password, randomToken, verified, personel) => {
+        const result = await connection.query(`
+        INSERT INTO users (userID, email, password, token , verified, personel)
+        VALUES(uuid(), ?, ?, ?, ?, ?)`
+        , [email, password, randomToken, verified, personel])
         return profileModel.getByEmail(email)
     }
  

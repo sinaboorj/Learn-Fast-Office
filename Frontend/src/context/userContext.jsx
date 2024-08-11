@@ -8,11 +8,10 @@ const UserContextProvider = ({ children }) => {
   const [messageStatus, setMessageStatus] = useState(false);
   const [schemaLoginError, setSchemaLoginError] = useState(false);
   const [schemaRegisterError, setSchemaRegisterError] = useState(false);
-  const [hidden, setHidden] = useState(false) //براي زماني كه ميخواهيم يك كاربر جديد را وريفاي كنيم و تمام صفحه شدن پيج وريفاي و مخفي شدن پيج فوتر و نوبار بالاي صفحه
   const [userData, setUserData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState({})
-  const backendUrl = 'http://localhost:5500'
+  const backendUrl = 'http://localhost:3000'
 
   //*********************************  read email, userID and token to local storage   ****************** */ 
   useEffect(() => {
@@ -45,7 +44,7 @@ const UserContextProvider = ({ children }) => {
 
   const UserContextValue = {
     login, setLogin, Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError,
-    setSchemaLoginError, schemaRegisterError, setSchemaRegisterError, hidden, setHidden,
+    setSchemaLoginError, schemaRegisterError, setSchemaRegisterError,
     userData, setUserData, headers, level_No, isLoading, setIsLoading, backendUrl,
     profile, setProfile
   }

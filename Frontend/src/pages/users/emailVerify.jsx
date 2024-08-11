@@ -10,7 +10,7 @@ const EmailVerify = () => {
     const [validationMsg, setValidationMsg] = useState('')
     const { userID, token } = useParams();
     const [isLoading, setIsLoading] = useState(true);
-    const {setHidden , backendUrl} = useContext(UserContext);
+    const {backendUrl} = useContext(UserContext);
 
     useEffect(() => {
         const verifyEmailUrl = async () => {
@@ -27,7 +27,6 @@ const EmailVerify = () => {
             }
             setIsLoading(false)
         }
-        setHidden(true)
         verifyEmailUrl()
     }, [userID, token])
 

@@ -6,6 +6,7 @@ import homeRouter from "./routes/homeRoute.js"
 import userRouter from "./routes/userRoute.js"
 import errorHandler from "./middelwares/errorHandler.js"
 import profileRouter from "./routes/profileRoute.js";
+import productRouter from "./routes/productsRoute.js";
 
 const app = express()
 dotenv.config(); 
@@ -23,10 +24,11 @@ app.use(express.static('public'))   //public خوانده فايل در فولد
 app.use('/', homeRouter)
 app.use('/api', userRouter) 
 app.use('/api', profileRouter)
+app.use('/api', productRouter);  
 
 app.use(errorHandler)
 
-const port = process.env.PORT || 3000
+const port = 3000
 app.listen(port, () => {
-    console.log(`***********************************  PORT:${port}  *********************************`)
+    console.log(`*********************************** Connect to PORT:${port}  *********************************`)
 })     

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -71,6 +71,13 @@ function Login() {
     
   }
 
+  useEffect(() => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+    });
+  }, [])
+  
   //**************************************************** Login Form ************************************ */
   return (
     <>

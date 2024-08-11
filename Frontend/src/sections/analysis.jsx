@@ -3,16 +3,11 @@ import '../sass/analysis.scss'
 import folder_img from '/sysImage/FY1.png'
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
-import { UserContext } from '../context/userContext';
-import InsigImage from '../public/insigImage';
 
 const Analysis = () => {
      const { lang } = useContext(PublicContext)
-     const { userData } = useContext(UserContext);
-
      return (
           <>
-               {userData?.token !== undefined &&
                     <div className="analysis" >
                          <div className='folder' style={{ direction: lang ? 'ltr' : 'rtl', width: '100%' }}>
                               <div className='section-title'>
@@ -62,7 +57,7 @@ const Analysis = () => {
                          </div>
 
                     </div>
-               }
+           
                <div className={lang ? 'img-backgrand-en' : 'img-backgrand-fa'}></div> {/* use background-image in CSS */}
                <div className="chart">
                </div>

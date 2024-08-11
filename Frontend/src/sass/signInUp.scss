@@ -6,7 +6,6 @@
     margin: auto;
     align-content: center;
     align-items: center;
-    margin-top: 20px;
 }
 .sign-form-container{
     width: 365px;
@@ -16,7 +15,6 @@
     display: flex;
     justify-content: space-around;
     font-family: 'Vazir';
-    margin-top: 15px;
     width: 100%;
     padding: 10px;
     background-color: $background-header;
@@ -56,5 +54,17 @@
 @media only screen and (max-width:416px ){
     .user-sign {
         width: 78%;
+    }
+    .sign-form-container {
+        width: 120%;
+    }
+}
+
+@media only screen and (max-width:416px ){
+    .user-sign {
+        width: 78%;
+    }
+    .sign-form-container {
+        width: 120%;
     }
 }
