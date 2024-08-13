@@ -21,7 +21,8 @@ const UserContextProvider = ({ children }) => {
 
   //*********************************  add email, userID and token to local storage   ****************** */ 
   useEffect(() => {
-    if (userData !== undefined) localStorage.setItem('userData', JSON.stringify({
+    if (userData !== undefined)
+      localStorage.setItem('userData', JSON.stringify({
       No: userData?.No,
       email: userData?.email,
       level: userData?.level,
@@ -29,8 +30,9 @@ const UserContextProvider = ({ children }) => {
       unit: userData?.unit,
       userID: userData?.userID,
     }));
- 
+
   }, [userData]);
+  
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': userData?.token
@@ -42,6 +44,8 @@ const UserContextProvider = ({ children }) => {
     unit: userData?.unit
   };
 
+
+  
   const UserContextValue = {
     login, setLogin, Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError,
     setSchemaLoginError, schemaRegisterError, setSchemaRegisterError,
@@ -52,8 +56,6 @@ const UserContextProvider = ({ children }) => {
   return <UserContext.Provider value={UserContextValue}>{children} </UserContext.Provider>
 }
 export default UserContextProvider
-
-
 
 
 

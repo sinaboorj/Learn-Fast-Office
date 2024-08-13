@@ -10,7 +10,7 @@ const DropDownMenu = () => {
     var firstStrEmail = userData?.email?.charAt(0).toUpperCase()
 
     let url = window.location.href
-    url = url.slice(0, url.indexOf('/api/'))
+    url = url.slice(0, url.indexOf('/'))
 
     if (firstStrEmail !== undefined) {
         userStatus = true;

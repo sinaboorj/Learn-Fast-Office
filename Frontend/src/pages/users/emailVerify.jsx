@@ -15,7 +15,7 @@ const EmailVerify = () => {
     useEffect(() => {
         const verifyEmailUrl = async () => {
             try {
-                const url = `${backendUrl}/api/${userID}/mail-verification/${token}` //localhost:متغيير 
+                const url = `${backendUrl}/${userID}/api/mail-verification/${token}` //localhost:متغيير 
                 const result = await axios.put(url)
                
                 if (result) {        // تاييد ايميل 
@@ -42,7 +42,7 @@ const EmailVerify = () => {
                 <div className='contaner-verify'>
                     <img src={success} alt="Verify-img" className='verification-img' />
                     <h5 style={{ color: '#b7b2b2', textAlign: 'center' }}>{validationMsg.msg}</h5>
-                    <Link to={'/api/login'} className='verifylogin'>
+                    <Link to={'/login'} className='verifylogin'>
                         Login
                     </Link>
                 </div>
@@ -52,7 +52,7 @@ const EmailVerify = () => {
                 <div className='contaner-verify'>
                     <img src={success} alt="Verify-img" className='verification-img' />
                     <h5 style={{ color: 'red', textAlign: 'center' }}>{validationMsg.msg}</h5>
-                    <Link to={'/api/login'} className='verifylogin'>
+                    <Link to={'/login'} className='verifylogin'>
                         Login
                     </Link> 
                 </div>

@@ -13,27 +13,28 @@ import './sass/font.scss'
 import NotPage from "./pages/notpage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./dashboard/dashboard";
-import Analysis from "./sections/analysis";
 import TopTextLogo from "./components/topTextLogo";
+import DashboardContextProvider from "./context/dashboardContext";
 
 const App = () => {
   return (
     <>
       <UserContextProvider>
         <PublicContextProvider>
-          <DropDownMenu />
-          <Navbar />
-          <TopTextLogo />
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/api/dashboard" element={<Dashboard />} />
-            <Route path="/api/about-hossein-zarei" element={<About />} />
-            <Route path="/api/login" element={<SignInUp />} />
-            <Route path="/api/statistics" element={<Analysis />} />
-            <Route path="/api/:userID/mail-verification/:token" element={<EmailVerify />} />
-            <Route path="*" element={<NotPage />} />
-          </Routes>
-          <Footer />
+          <DashboardContextProvider>
+            <DropDownMenu />
+            <Navbar />
+            <TopTextLogo />
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/about-hossein-zarei" element={<About />} />
+              <Route path="/login" element={<SignInUp />} />
+              <Route path="/:userID/mail-verification/:token" element={<EmailVerify />} />
+              <Route path="*" element={<NotPage />} />
+            </Routes>
+            <Footer />
+          </DashboardContextProvider>
         </PublicContextProvider>
       </UserContextProvider>
     </>

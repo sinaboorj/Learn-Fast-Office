@@ -9,8 +9,8 @@ import navFunctions from "../helper/navFunctions";
 
 const NavLogin = (props) => {
     const { userData } = useContext(UserContext)
-    const { lang, setLang, activeLink } = useContext(PublicContext)
-    const { exit, handleLinkClick } = navFunctions()
+    const { lang, setLang, activeLink, setActiveLink } = useContext(PublicContext)
+    const { exit } = navFunctions()
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef()
     const firstStrEmail = props.data;
@@ -29,8 +29,8 @@ const NavLogin = (props) => {
         <>
             <nav className="main-nav">
                 <ul className="nav-center">
-                    <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => { handleLinkClick('home'); }} style={{ margin: ' 0 3px 0' }}>{Strings.Home}</Link>
-                    <Link to='/api/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { handleLinkClick('dashboard'); }}>{Strings.Dashboard}</Link>
+                    <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => { setActiveLink('home'); }} style={{ margin: ' 0 3px 0' }}>{Strings.Home}</Link>
+                    <Link to='/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveLink('dashboard'); }}>{Strings.Dashboard}</Link>
                 </ul>
                 <ul ref={menuRef} className="nav-left">
                     <Link> <span onClick={() => { setIsOpen(!isOpen) }} className="user-login" >{firstStrEmail}</span></Link>
@@ -38,7 +38,7 @@ const NavLogin = (props) => {
                     {isOpen && (
                         <ul className="subdropdown-menu">
                             <li className="subdropdown-item item-email" >{userData?.email}</li>
-                            <Link to='/api/about-hossein-zarei'><li onClick={() => { setIsOpen(!isOpen); handleLinkClick('')  }} className="subdropdown-item view-profile">About Programmer</li></Link>
+                            <Link to='/about-hossein-zarei'><li onClick={() => { setIsOpen(!isOpen); setActiveLink('') }} className="subdropdown-item view-profile">About Programmer</li></Link>
                             <li className="subdropdown-item" onClick={() => { setLang(!lang); setIsOpen(!isOpen) }} >
                                 {lang
                                     ? <img src={faFlag} className="language" title="Change language" alt="language" />
@@ -46,9 +46,7 @@ const NavLogin = (props) => {
                                 }
                             </li>
                             <span className="line-seperator" ></span>
-                            <li className="subdropdown-item" onClick={() => {; setIsOpen(!isOpen); handleLinkClick('login'); exit(); }}>
-                                <Link to='/api/login' className="log-item" style={{ color: 'rgb(255 39 39)', fontWeight: '500', marginLeft: '-4px' }}>Exit</Link>
-                            </li>
+                            <Link to='/login' className="subdropdown-item log-item" onClick={() => { exit(); setIsOpen(!isOpen); setActiveLink('login') }} style={{ color: 'rgb(255 39 39)', fontWeight: '500', marginLeft: '-4px' }}>Exit</Link>
                         </ul>
                     )}
                 </ul>

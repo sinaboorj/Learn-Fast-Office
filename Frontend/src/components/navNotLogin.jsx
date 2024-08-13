@@ -17,7 +17,7 @@ const NavNotLogin = () => {
         <>
             <nav className="main-nav-not-login">
                 <ul className="nav-left">
-                    <Link to='/api/login' className="log-item navlink" onClick={() => { handleLinkClick('login') }} ><FontAwesomeIcon icon={faUserCircle} className={`login-icon ${activeLink === 'login' ? 'active' : ''}`} title="Login" /></Link>
+                    <Link to='/login' className="log-item navlink" onClick={() => { handleLinkClick('login') }} ><FontAwesomeIcon icon={faUserCircle} className={`login-icon ${activeLink === 'login' ? 'active' : ''}`} title="Login" /></Link>
                     {lang
                         ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="language navlink" title="Change language" alt="language" />
                         : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="language navlink" title="Change language" alt="language" />

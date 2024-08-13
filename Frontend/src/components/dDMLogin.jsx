@@ -47,14 +47,14 @@ const DropDownMenuLogin = (props) => {
                 <ul onClick={() => { setOpen(!open) }}>
                     <li className='user-email'>{userData?.email}</li>
                     <Link to='/'><DropDownItem icon={faHouse} text={Strings.Home} /></Link>
-                    <Link to='/api/dashboard'> <DropDownItem icon={faThLarge} text={Strings.Dashboard} /> </Link>
+                    <Link to='/dashboard'> <DropDownItem icon={faThLarge} text={Strings.Dashboard} /> </Link>
                     {lang
                         ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
                         : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
                     }
                     <br />
                     <hr />
-                    <Link to='/api/login' className="navlink exit" onClick={() => { handleLinkClick('login');exit() }} >Exit</Link>
+                    <Link to='/login' className="navlink exit" onClick={() => { handleLinkClick('login');exit() }} >Exit</Link>
                 </ul>
             </div>
         </>

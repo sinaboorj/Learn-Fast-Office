@@ -18,7 +18,7 @@ const Footer = () => {
                     <footer className="footer">
                         <div className="contact">
                             <span className="contact-us"> <FaMapPin className="footer-icon" /> : Iran.Ahvaz</span>
-                            <Link  onClick={() => { setActiveLink('')  }}  className="contact-us about-sina" to='/api/about-hossein-zarei'> <FaInfoCircle className="footer-icon" /> : About Programmer</Link>
+                            <Link  onClick={() => { setActiveLink('')  }}  className="contact-us about-sina" to='/about-hossein-zarei'> <FaInfoCircle className="footer-icon" /> : About Programmer</Link>
                         </div>
                         <div className="left-footer">
                             {lang

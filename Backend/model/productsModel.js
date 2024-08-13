@@ -2,29 +2,44 @@ import { poolPromise } from '../config/sqlConnection.js';
 
 class ProductsModel {
 
-    static getProducts = async (startDate, endDate) => {  
-        try {  
-            const pool = await poolPromise;  
-            const request = pool.request();  
+    static getProducts = async (startDate, endDate, lastStartDate, lastEndDate) => {
+        try {
+            const pool = await poolPromise;
+            const request = pool.request();
 
-            // تعریف پارامترها به همراه نام  
-            request.input('startDate', startDate);  
-            request.input('endDate', endDate);  
+            request.input('startDate', startDate);
+            request.input('endDate', endDate);
+            request.input('lastStartDate', lastStartDate);
+            request.input('lastEndDate', lastEndDate);
 
-            const result = await request.query(`  
+            const currentResult = await request.query(`  
                 SELECT   
-                Section, [Date], SUM(Estandard) AS TotalEstandard  
-                FROM tb_Produce  
-                WHERE ([Date] BETWEEN @startDate AND @endDate)  
-                GROUP BY ROLLUP(Section, [Date])  
-            `);   
-            console.log(result)
-            return result; // تنها داده‌ها را برمی‌گرداند 
-        } catch (err) {  
-            console.error('Error in getProduceData:', err);  
-            throw err;  
-        }  
-    }  
-}  
+                    (SELECT SUM(Estandard) FROM tb_Produce WHERE [Date] BETWEEN @startDate AND @endDate) AS TotalProduction,  
+                    (SELECT SUM(Ton) FROM tb_DayProgram WHERE [Date] BETWEEN @startDate AND @endDate) AS TotalPlan  
+            `);
+
+            const lastResult = await request.query(`  
+                    SELECT SUM(Estandard) AS LastTotalProduction   
+                    FROM tb_Produce   
+                    WHERE [Date] BETWEEN @lastStartDate AND @lastEndDate 
+            `);
+
+            if (currentResult.recordset.length > 0 && lastResult.recordset.length > 0) {
+                const result = {
+                    TotalProduction: currentResult.recordset[0].TotalProduction,
+                    TotalPlan: currentResult.recordset[0].TotalPlan,
+                    LastTotalProduction: lastResult.recordset[0].LastTotalProduction,
+                }
+                return result
+            } else {  
+                throw new Error('No data found');  
+            }  
+            
+        } catch (err) {
+            console.error('Error in Query: getProduceData', err);
+            throw err;
+        }
+    }
+}
 
 export default ProductsModel;   

@@ -7,6 +7,13 @@
     padding: 10px 12px ;
     color: $fontColor-fifth;
 }
+.growth {
+    display: flex;
+    flex-direction: row;
+}
+.last-production {
+    margin-left: 5px;
+}
 .dashboard-items{
     display: flex;
     flex-direction: row;
@@ -38,9 +45,6 @@
     a{
         text-decoration: none;
     }
-    .amount{
-        margin: 0 3px;
-    }
     .dashboard-item{
         .d-icon{
             margin: 5px 15px;
@@ -55,12 +59,8 @@
             font-weight: 100;
             position: absolute;
             font-size: 15px;
-            left: 8px;
             bottom: 7px;
             font-weight: 500;
-            .amount{
-                bottom: 5px;
-            }
         }
     }
     label{

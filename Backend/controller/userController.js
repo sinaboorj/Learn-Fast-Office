@@ -43,13 +43,12 @@ const register = trycatchHandler(async (req, res, next) => {
     let mailSubject = 'Email Verification'
     let url = `
     <br>
-    <br>
     <div style="background-color: green; padding: 10px; color: white; text-align: center;">
      *** Email Verification ***
     </div>
     <div><h4>Central Planning:</h4></div>
     <div>Hi ${req.body.email} </div>
-    <br><br><br><br>  
+    <br><br> 
     <span style="background-color: #f7fa55; padding: 10px; color: black; text-align: center;">
         Please
         <a style="font-size: 13px; margin: 5px; font-weight: 600; color:blue; cursor: pointer;" href= "${process.env.BASE_URL}/api/${newUser.userID}/mail-verification/${randomToken}"> 
@@ -57,7 +56,7 @@ const register = trycatchHandler(async (req, res, next) => {
     </span>
     <br><br>  
     <hr>
-    <div><h5>Programer: Hossein Zarei (Sina)</h5></div>
+    <h5>Programer: Hossein Zarei (Sina)</h5>
     <br>
     `
     

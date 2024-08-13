@@ -1,11 +1,11 @@
 import '../sass/home.scss'
 import InsigImage from '../public/insigImage';
-import Analysis from '../sections/analysis';
+import AboutSite from '../components/aboutSite';
 
 const Home = () => {
     return (
         <>
-            <Analysis />
+            <AboutSite />
             <InsigImage />
         </>
     );

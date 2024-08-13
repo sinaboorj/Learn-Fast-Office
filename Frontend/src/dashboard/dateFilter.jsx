@@ -1,24 +1,28 @@
-import { FaFilter, FaCalendar } from 'react-icons/fa';
-import { useState } from "react";
+import { FaFilter } from 'react-icons/fa';
+import { DashboardContext } from '../context/dashboardContext';
+import { useContext } from "react";
 
-const DashFilter = () => {
-    const [selectedOption, setSelectedOption] = useState('option1');
- 
+const DateFilter = () => {
+    const {filterDate, setFilterDate, dashboardLoading}=useContext(DashboardContext)
+
     const handleChange = (event) => {
-        setSelectedOption(event.target.value);
+        setFilterDate(event.target.value);
     };
 
+    if (dashboardLoading) {
+        return <div style={{color:'white'}}>Loading...</div>
+    }
     return (
         <>
             <div className="dashboard-item filter">
                 FILTER <FaFilter className="d-icon" /><br />
-                <div className="filter-date">
+                <form className="filter-date">
                     <label>
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value="option1"
-                            checked={selectedOption === 'option1'}
+                            value="Month"
+                            checked={filterDate === 'Month'}
                             onChange={handleChange}
                         /> Month
                     </label>
@@ -27,8 +31,8 @@ const DashFilter = () => {
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value="option2"
-                            checked={selectedOption === 'option2'}
+                            value="Year"
+                            checked={filterDate === 'Year'}
                             onChange={handleChange}
                         /> Year
                     </label>
@@ -37,15 +41,15 @@ const DashFilter = () => {
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value="option3"
-                            checked={selectedOption === 'option3'}
+                            value="Custom"
+                            checked={filterDate === 'Custom'}
                             onChange={handleChange}
                         /> Custom
                     </label>
-                </div>
+                </form>
             </div>
         </>
     );
 }
  
-export default DashFilter;
+export default DateFilter;

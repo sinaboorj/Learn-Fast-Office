@@ -56,7 +56,7 @@ img.resume-pic {
     h6 {  
         margin: 10px;  
         color: $fontColor-primary;  
-        font-size: 13px;  
+        font-size: 14px;  
     }  
 
     .about-icon {  
@@ -80,17 +80,20 @@ img.resume-pic {
     text-align: justify;
     line-break: auto;
     font-family: system-ui;  
-    font-size: 14px;
+    font-size: 13px;
     line-height: 30px;
-    width: 92%;
+    width: 100%;
+    color: $fontColor-primary; 
+
     a{
         font-size: 14px;
     }
     li{
         list-style: square;
+        padding: 0px 20px;
     }
     li::marker {
-        font-size: 19px;
+        font-size: 13px;
     }
     li.ok::marker{
         color: green;
@@ -99,33 +102,39 @@ img.resume-pic {
         color: blue;
     }
 }
-p::first-line {  
-    color: $loginBtn;  
-    font-size: 16px;
-    font-weight: 500;
-}  
-
+.title-aboutSite {
+    font-family: system-ui;
+    color: $loginBtn;
+    width: 100%;
+    font-weight: 600;
+    padding: 0px 5px;
+}
 @media only screen and (max-width: 762px) {  
     .contact-about {  
         flex-direction: column;  
     }  
 } 
+
 @media only screen and ( max-width: 500px){
 
     .about-description {
-        padding: 8px 1px;
+        padding: 8px 5px;
         text-align: justify;
-        font-size: 14px;
-        line-height: 26px;
+        line-height: 15px;
+        
         a{
             font-size: 14px;
         }
         li{
             margin-bottom: 15px;
             text-align: start;
+            padding: 5px;
         }
-
-
+        .contact-about {  
+            h6 {  
+                font-size: 13px;  
+            }  
+        } 
 
     }
 }
