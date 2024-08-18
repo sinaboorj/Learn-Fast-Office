@@ -42,21 +42,21 @@ function Register() {
         setMsg({ status: false, title: 'Error', msg: 'Enter your password' })
       }
       setMessageStatus(true);
-    }
-    
-    catch (err) {
-      if (err.response.status === 500) setMsg({ status: false, title: 'Error', msg: 'Something is failed' });  //Internal Service Error 
-        
-      if (err.response.status === 404) {
-        setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' }); //Url sending Error  or  ERR_BAD_REQUEST 
-      }
-      else {
-        setMsg(err.response.data);   //sending Error
-      }
-      setMessageStatus(true);
-    }
+    } catch (err) {  
+      // اگر خطا به دلیل عدم اتصال به سرور بود  
+      if (!err.response) {  
+        setMsg({ status: false, title: 'Error', msg: 'Unable to connect to the database. Your area is out of service.' }) // خطا: نمیتوان به سرور متصل شد  
+      } else if (err.response.status === 500) {  
+        setMsg({ status: false, title: 'Error', msg: 'Something failed' })  
+      } else if (err.response.status === 404) {  
+        setMsg({ status: false, title: 'Error', msg: 'ERR_BAD_REQUEST : URL Not Found' }) 
+      } else {  
+        setMsg(err.response.data); // خطاهای دیگر  
+      }  
+      setMessageStatus(true);  
+    } 
 
-    setIsLoading(false); setPassword(''); setConfirmPassword('');
+    setIsLoading(false); setPassword(''); setConfirmPassword('')
   };
 
   //**************************************************** Register Form ************************************ */

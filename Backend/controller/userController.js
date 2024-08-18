@@ -23,51 +23,56 @@ const register = trycatchHandler(async (req, res, next) => {
     const datavalidResult = Joi.object(schema).validate(req.body); // اعتبارسنجی داده‌های ورودی
     if (datavalidResult.error) return res.status(400).send(datavalidResult.error.details[0].message) ;
 
-    const checkEmail = await profileModel.getByEmail(req.body.email); // بررسی وجود ایمیل قبلی و وضعیت تایید کاربر
-    if (checkEmail && checkEmail.verified === 1) return res.status(400).send({ status: false, title: 'Error', msg: 'This user Already Registered' });
+    try {
+        const checkEmail = await profileModel.getByEmail(req.body.email); // بررسی وجود ایمیل قبلی و وضعیت تایید کاربر
+        if (checkEmail && checkEmail.verified === 1) return res.status(400).send({ status: false, title: 'Error', msg: 'This user Already Registered' });
    
-    //const salt = await bcrypt.genSalt(number(process.env.SALT)); // ايمن تر كردن رمز
-    const hashPassword = await bcrypt.hash(req.body.password, 10); // رمزنگاری رمز عبور
-    const randomToken = randomString.generate() // ایجاد توکن تصادفی
+        //const salt = await bcrypt.genSalt(number(process.env.SALT)); // ايمن تر كردن رمز
+        const hashPassword = await bcrypt.hash(req.body.password, 10); // رمزنگاری رمز عبور
+        const randomToken = randomString.generate() // ایجاد توکن تصادفی
     
-    const verified = 0;
-    const personel = 0;
-    if (!checkEmail) {
-        newUser = await userModel.insertUser(req.body.email, hashPassword, randomToken, verified, personel); // افزودن کاربر جدید
-    }
+        const verified = 0;
+        const personel = 0;
+        if (!checkEmail) {
+            newUser = await userModel.insertUser(req.body.email, hashPassword, randomToken, verified, personel); // افزودن کاربر جدید
+        }
 
-    if (checkEmail && checkEmail.verified === 0) { // ارسال توكن جديد براي كاربر
-        newUser = await userModel.updateToken(req.body.email, randomToken)
-    }
+        if (checkEmail && checkEmail.verified === 0) { // ارسال توكن جديد براي كاربر
+            newUser = await userModel.updateToken(req.body.email, randomToken)
+        }
     
-    let mailSubject = 'Email Verification'
-    let url = `
-    <br>
-    <div style="background-color: green; padding: 10px; color: white; text-align: center;">
-     *** Email Verification ***
-    </div>
-    <div><h4>Central Planning:</h4></div>
-    <div>Hi ${req.body.email} </div>
-    <br><br> 
-    <span style="background-color: #f7fa55; padding: 10px; color: black; text-align: center;">
-        Please
-        <a style="font-size: 13px; margin: 5px; font-weight: 600; color:blue; cursor: pointer;" href= "${process.env.BASE_URL}/api/${newUser.userID}/mail-verification/${randomToken}"> 
-        Verify </a> your email
-    </span>
-    <br><br>  
-    <hr>
-    <h5>Programer: Hossein Zarei (Sina)</h5>
-    <br>
-    `
+        let mailSubject = 'Email Verification'
+        let url = `
+            <br>
+            <div style="background-color: green; padding: 10px; color: white; text-align: center;">
+                *** Email Verification ***
+            </div>
+            <div><h4>Central Planning:</h4></div>
+            <div>Hi ${req.body.email} </div>
+            <br><br> 
+            <span style="background-color: #f7fa55; padding: 10px; color: black; text-align: center;">
+              Please
+            <a style="font-size: 13px; margin: 5px; font-weight: 600; color:blue; cursor: pointer;" href= "${process.env.BASE_URL}/api/${newUser.userID}/mail-verification/${randomToken}"> 
+            Verify </a> your email
+            </span>
+            <br><br>  
+            <hr>
+            <h5>Programer: Hossein Zarei (Sina)</h5>
+            <br> `
     
-    const sentMail = await sendEmail(req.body.email, mailSubject, url) //ارسال ايميل براي تاييد كاربر
-    
-    // const token = jwt.sign({ id: newUser.userID }, process.env.LOGIN_PRIVATE_KEY, { expiresIn: "7d" }); // صادره توکن برای ورود
-    // res.header('Authorization', token).send(_.pick(newUser, ["userID", "email"]));
-    res.status(400).send(sentMail);
+        const sentMail = await sendEmail(req.body.email, mailSubject, url) //ارسال ايميل براي تاييد كاربر
+        res.status(400).send(sentMail)
+    } catch (error) {
+        console.error(error) 
+        if (error.message.includes('ECONNREFUSED')) {
+            return res.status(500).send({ status: false, title: 'Database Error', msg: 'Unable to connect to the database. Your area is out of service.' })
+        } else {
+            return res.status(500).send({ status: false, title: 'Error', msg: 'An unexpected error occurred. Maybe your area is out of service.' })
+        }
+    } 
 
 }
-);
+)
 
 //******************************************************** Login *******************************  */
 
@@ -80,13 +85,13 @@ const login = trycatchHandler(async (req, res, next) => {
     if (datavalidResult.error) return res.status(400).send(datavalidResult.error.details[0].message) 
         
     const chechUser = await profileModel.getByEmail(req.body.email)//چک کردن ایمیل
-    if (!chechUser) return res.status(400).send({ status: false , type:'Email', title: 'Error', msg: 'Email is invalid' });
+    if (!chechUser) return res.status(400).send({ status: false , type:'Email', title: 'Error', msg: 'Email is invalid' })
     
     if (chechUser.verified === 0) return res.status(400).send({ status: false, type: 'Verify', title: 'Error', msg: 'Please verify your Email' }); // اگر ايميل وريفاي نشده بود
-    if (chechUser.personel === 0) return res.status(400).send({ status: false , type:'Verify', title: 'Error', msg: 'Your email has been verified, but you are not yet approved as a Central Planning staff member. Please call the internal number 5780.' }); // اگر ايميل وريفاي نشده بود
+    if (chechUser.personel === 0) return res.status(400).send({ status: false , type:'Verify', title: 'Error', msg: 'Your email has been verified, but you are not yet approved as a Central Planning staff member. Please call the internal number 5780.' }) // اگر ايميل وريفاي نشده بود
 
     const validPass = await bcrypt.compare(req.body.password, chechUser.password)// چک کردن پسورد
-    if (!validPass) return res.status(400).send({ status: false , type:'Password', title: 'Error', msg: 'Password is wrong' });
+    if (!validPass) return res.status(400).send({ status: false , type:'Password', title: 'Error', msg: 'Password is wrong' })
   
     const token = jwt.sign({ status: true , title: 'Successful', msg: 'Login successfully', token:chechUser.token }, process.env.LOGIN_PRIVATE_KEY)// ارسال توکن کاربر لاکین شده
     res.header('authorization', token).send(_.pick(chechUser, ["userID", "email"]))

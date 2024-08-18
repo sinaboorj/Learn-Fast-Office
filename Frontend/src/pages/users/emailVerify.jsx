@@ -5,6 +5,7 @@ import error from '/sysImage/warningSmall.png'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { UserContext } from '../../context/userContext'
+import loadingImage from '/sysImage/loading.gif'
 
 const EmailVerify = () => {
     const [validationMsg, setValidationMsg] = useState('')
@@ -34,7 +35,7 @@ const EmailVerify = () => {
         <>
             {isLoading && (
                 <div className='contaner-verify'>
-                    <h4 style={{ color: '#b7b2b2', textAlign: 'center' }}>Waiting... <img src="/sysImage/loading.gif" width={100} height={100} alt="Loading user" /></h4>
+                    <h4 style={{ color: '#b7b2b2', textAlign: 'center' }}>Waiting... <img src={loadingImage} width={70} height={70} alt="Loading user" /></h4>
                 </div>
             )}
 

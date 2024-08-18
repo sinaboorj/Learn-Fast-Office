@@ -15,8 +15,28 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./dashboard/dashboard";
 import TopTextLogo from "./components/topTextLogo";
 import DashboardContextProvider from "./context/dashboardContext";
+import { useEffect, useState } from "react";
+import loadingImage from '/sysImage/loading.gif'
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);  
+
+  useEffect(() => {  
+    const timer = setTimeout(() => {  
+      setIsLoading(false);  
+    }, 3000); 
+
+    return () => clearTimeout(timer);  
+  }, []);  
+
+  if (isLoading) {
+    return (
+    <div style={{width:'100vw', height:'100vh', display:'flex', alignItems:'center',margin:'auto', justifyContent:'center'}}>
+      <h5 style={{ color: '#b7b2b2', textAlign: 'center' }}>Waiting... <img src={loadingImage} width={70} height={70} alt="Loading user" /></h5>
+    </div>
+  )
+}  
+
   return (
     <>
       <UserContextProvider>
