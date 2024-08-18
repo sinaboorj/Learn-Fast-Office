@@ -12,6 +12,15 @@ const Strings = new LocalizedStrings({
       " My main interest and expertise is web design and programming. All parts of this site (Database, Frontend and Backend) have",
     Sina_3:
       "All parts of this site (Database, Frontend and Backend) have been designed, programmed and implemented by myself.",
+    FILTER: "FILTER",
+    PRODUCT: "PRODUCTION",
+    PLAN: "PLAN",
+    Month: "Month",
+    Year: "Year",
+    Custom: "Custom",
+    Growth: "Growth",
+    Previous: "Previous",
+    Execution: "Execution",
   },
 
   fa: {
@@ -25,6 +34,15 @@ const Strings = new LocalizedStrings({
     Sina_2: " علاقه و تخصص اصلي من طراحي و برنامه نويسي وب ميباشد.",
     Sina_3:
       " تمامي بخش هاي اين سايت (Database  وFrontend و Backend )  توسط خودم طراحي، برنامه نويسي و پياده سازي شده است.",
+    FILTER: "فیلتر",
+    PRODUCT: "تولید",
+    PLAN: "برنامه",
+    Month: "ماه",
+    Year: "سال",
+    Custom: "سفارشی",
+    Growth: "رشد",
+    Previous: "قبلی",
+    Execution: "اجرا",
   },
 });
 
