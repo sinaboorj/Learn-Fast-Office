@@ -3,18 +3,18 @@ import { DashboardContext } from '../context/dashboardContext';
 import { useContext } from "react";
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
+import loadingImage from '/sysImage/loading.gif'
 
 const DateFilter = () => {
     const {filterDate, setFilterDate, dashboardLoading}=useContext(DashboardContext)
     const { lang } = useContext(PublicContext);
 
-    const handleChange = (event) => {
-        setFilterDate(event.target.value);
-    };
-
     if (dashboardLoading) {
-        return <div style={{color:'white'}}>Loading...</div>
+        <div style={{ width: '100vw', height: '10vh', display: 'flex', alignItems: 'center', margin: 'auto', justifyContent: 'center' }}>
+            <h5 style={{ color: '#b7b2b2', textAlign: 'center' }}>Waiting... <img src={loadingImage} width={45} height={45} alt="Loading user" /></h5>
+        </div>
     }
+    
     return (
         <>
             <div className="dashboard-item filter">
@@ -26,7 +26,7 @@ const DateFilter = () => {
                             type="radio"
                             value='Month'
                             checked={filterDate === 'Month'}
-                            onChange={handleChange}
+                            onChange={(e)=> setFilterDate(e.target.value)}
                         /> {Strings.Month}
                     </label>
 
@@ -36,7 +36,7 @@ const DateFilter = () => {
                             type="radio"
                             value='Year'
                             checked={filterDate === 'Year'}
-                            onChange={handleChange}
+                            onChange={ (e)=> setFilterDate(e.target.value)}
                         /> {Strings.Year}
                     </label>
 
@@ -46,7 +46,7 @@ const DateFilter = () => {
                             type="radio"
                             value='Custom'
                             checked={filterDate === 'Custom'}
-                            onChange={handleChange}
+                            onChange={(e)=> setFilterDate(e.target.value)}
                         /> {Strings.Custom}
                     </label>
                 </form>

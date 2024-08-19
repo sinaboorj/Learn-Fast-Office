@@ -36,7 +36,7 @@ const DropDownMenuLogin = (props) => {
                     <div className='bar'></div>
                     <div className='bar'></div>
                 </div>
-                <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center',padding:'0 55px 0 0' }}>
                     <div className='user-title' >
                         <span className="dropDown-login" title={userData?.email}>{firstStrEmail}</span>
                     </div>
@@ -48,13 +48,14 @@ const DropDownMenuLogin = (props) => {
                     <li className='user-email'>{userData?.email}</li>
                     <Link to='/'><DropDownItem icon={faHouse} text={Strings.Home} /></Link>
                     <Link to='/dashboard'> <DropDownItem icon={faThLarge} text={Strings.Dashboard} /> </Link>
-                    {lang
-                        ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
-                        : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
-                    }
-                    <br />
+                    <li className="subdropdown-item" onClick={() => { setLang(!lang) }} style={{padding:'0'}} >
+                        {lang
+                            ? <img src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
+                            : <img src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
+                        }
+                    </li>
                     <hr />
-                    <Link to='/login' className="navlink exit" onClick={() => { handleLinkClick('login');exit() }} >Exit</Link>
+                    <Link to='/login' className="navlink exit" onClick={() => { handleLinkClick('login'); exit() }} >Exit</Link>
                 </ul>
             </div>
         </>

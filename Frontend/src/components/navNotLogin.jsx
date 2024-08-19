@@ -11,7 +11,7 @@ import navFunctions from "../helper/navFunctions";
 
 const NavNotLogin = () => {
     const { lang, setLang, activeLink } = useContext(PublicContext)
-    const { handleLinkClick, login}=navFunctions()
+    const { handleLinkClick}=navFunctions()
 
     return (
         <>
