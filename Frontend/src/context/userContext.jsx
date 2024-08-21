@@ -11,7 +11,7 @@ const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [profile, setProfile] = useState({})
-  const backendUrl = 'http://localhost:3000'
+  const backendUrl = 'http://localhost:3000' // برای تغییرات در همه ی کامپوننت ها جستجو شود
 
   //*********************************  read email, userID and token to local storage   ****************** */ 
   useEffect(() => {
@@ -38,18 +38,12 @@ const UserContextProvider = ({ children }) => {
     'Authorization': userData?.token
   };
 
-  const level_No = {
-    level: userData?.level,
-    No: userData?.No,
-    unit: userData?.unit
-  };
-
 
   
   const UserContextValue = {
     login, setLogin, Msg, setMsg, messageStatus, setMessageStatus, schemaLoginError,
     setSchemaLoginError, schemaRegisterError, setSchemaRegisterError,
-    userData, setUserData, headers, level_No, isLoading, setIsLoading, backendUrl,
+    userData, setUserData, headers, isLoading, setIsLoading, backendUrl,
     profile, setProfile
   }
 

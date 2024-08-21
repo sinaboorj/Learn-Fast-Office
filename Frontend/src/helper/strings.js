@@ -12,15 +12,19 @@ const Strings = new LocalizedStrings({
       " My main interest and expertise is web design and programming. All parts of this site (Database, Frontend and Backend) have",
     Sina_3:
       "All parts of this site (Database, Frontend and Backend) have been designed, programmed and implemented by myself.",
-    FILTER: "FILTER",
+    FILTER: "FILTER DATE",
     PRODUCT: "PRODUCTION",
     PLAN: "PLAN",
+    Day:"The day before",
     Month: "Month",
     Year: "Year",
     Custom: "Custom",
     Growth: "Growth",
     Previous: "Previous",
     Execution: "Execution",
+    StartDate: "Start Date:",
+    EndDate: "End Date:",
+    HelpTextDateInDashboard:'Enter the date into the solar date',
   },
 
   fa: {
@@ -34,15 +38,19 @@ const Strings = new LocalizedStrings({
     Sina_2: " علاقه و تخصص اصلي من طراحي و برنامه نويسي وب ميباشد.",
     Sina_3:
       " تمامي بخش هاي اين سايت (Database  وFrontend و Backend )  توسط خودم طراحي، برنامه نويسي و پياده سازي شده است.",
-    FILTER: "فیلتر",
+    FILTER: "فیلتر تاریخ",
     PRODUCT: "تولید",
     PLAN: "برنامه",
+    Day:"روز قبل",
     Month: "از ابتدای ماه",
     Year: "تجمعی سال",
     Custom: "سفارشی",
     Growth: "رشد",
     Previous: "دوره قبل",
     Execution: "اجرا",
+    StartDate: "تاریخ شروع:",
+    EndDate: "تاریخ پایان:",
+    HelpTextDateInDashboard:'تاریخ را به شمسی وارد کنید.',
   },
 });
 

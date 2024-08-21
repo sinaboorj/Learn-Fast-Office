@@ -18,10 +18,11 @@ const DashboardTags = () => {
     
     return (
         <>
-            <ShowDateDashboard />
+            <ShowDateDashboard />{/* نمایش تاریخ شروع و پایان بالای داشبرد*/}
             <div className="dashboard-items">
-                <DateFilter />
-             
+                <DateFilter /> {/* فیلتر تاریخ */}
+
+         {/* *********************************** PRODUCTION **************************** */}    
                 <div className="dashboard-item product">
                     {Strings.PRODUCT} <BsFillArchiveFill className="d-icon" /><br />
                     <div className="amounts">
@@ -29,12 +30,12 @@ const DashboardTags = () => {
                         {lang
                             ? <>  {/*En */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill title='Growth compared to the previous period' style={{ marginRight: '2px' }} />
+                                    <BsInfoCircleFill title='Growth compared to the previous period' style={{ marginRight: '3px', color:'green'}} />
                                     {Strings.Growth}: {growth}%
                                 </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill title={`Production of the same period as before`} style={{ marginRight: '2px' }} />
+                                    <BsInfoCircleFill title={`Production of the same period as before`} style={{ marginRight: '3px',color:'green' }} />
                                     {Strings.Previous}: {Lastproduction} Ton
                                 </span>
                             </>
@@ -54,7 +55,8 @@ const DashboardTags = () => {
                     </div>
                
                 </div>
-
+                
+{/* *********************************** PLAN **************************** */}
                 <div className="dashboard-item plan">
                     {Strings.PLAN} <BsPCircleFill className="d-icon" />
                     <div className="amounts">
@@ -63,7 +65,7 @@ const DashboardTags = () => {
                         {lang
                             ? <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*En */}
-                                    <BsInfoCircleFill title='Implementation of the production plan' style={{ marginRight: '2px' }} />
+                                    <BsInfoCircleFill title='Implementation of the production plan' style={{ marginRight: '3px', color:'blue'}} />
                                     {Strings.Growth}: {executionPercent}%
                                 </span>
                             </>

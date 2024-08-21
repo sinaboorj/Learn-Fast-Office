@@ -6,7 +6,7 @@ import { PublicContext } from '../context/publicContext';
 import loadingImage from '/sysImage/loading.gif'
 
 const DateFilter = () => {
-    const {filterDate, setFilterDate, dashboardLoading}=useContext(DashboardContext)
+    const { filterDate, setFilterDate, dashboardLoading } = useContext(DashboardContext)
     const { lang } = useContext(PublicContext);
 
     if (dashboardLoading) {
@@ -18,15 +18,26 @@ const DateFilter = () => {
     return (
         <>
             <div className="dashboard-item filter">
-                 {Strings.FILTER}  <FaFilter className="d-icon" /><br />
+                {Strings.FILTER}  <FaFilter className="d-icon" /><br />
                 <form className="filter-date">
+                   
+                    <label>
+                        <input
+                            style={{ marginRight: '3px' }}
+                            type="radio"
+                            value='Day'
+                            checked={filterDate === 'Day'}
+                            onChange={(e) => setFilterDate(e.target.value)}
+                        /> {Strings.Day}
+                    </label>
+                   
                     <label>
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
                             value='Month'
                             checked={filterDate === 'Month'}
-                            onChange={(e)=> setFilterDate(e.target.value)}
+                            onChange={(e) => setFilterDate(e.target.value)}
                         /> {Strings.Month}
                     </label>
 
@@ -36,7 +47,7 @@ const DateFilter = () => {
                             type="radio"
                             value='Year'
                             checked={filterDate === 'Year'}
-                            onChange={ (e)=> setFilterDate(e.target.value)}
+                            onChange={(e) => setFilterDate(e.target.value)}
                         /> {Strings.Year}
                     </label>
 
@@ -46,7 +57,7 @@ const DateFilter = () => {
                             type="radio"
                             value='Custom'
                             checked={filterDate === 'Custom'}
-                            onChange={(e)=> setFilterDate(e.target.value)}
+                            onChange={(e) => setFilterDate(e.target.value)}
                         /> {Strings.Custom}
                     </label>
                 </form>
