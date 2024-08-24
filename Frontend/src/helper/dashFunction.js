@@ -36,11 +36,20 @@ const dashFunction = ({ setStartDate, setEndDate, setLastStartDate, setLastEndDa
     const filterDateFunction = (filterDate) => {  
         const today = moment()  
         const yesterday = today.clone().subtract(1, 'days')  
+        let twoDaysAgo =today.clone().subtract(2, 'days'); 
+      
         const startOfYear = moment(`${today.jYear()}/01/01`, 'jYYYY/jMM/jDD')  
         const beginningOfMonth = formatDateString(today.startOf('jMonth').format('jYYYY/jM/jD'))  
         const theDayBefore = formatDateString(yesterday.format('jYYYY/jM/jD'))  
-
+        twoDaysAgo = formatDateString(twoDaysAgo.format('jYYYY/jM/jD'))
+        
         switch (filterDate) {  
+            case 'Day':  
+            setStartDate(theDayBefore)  
+            setEndDate(theDayBefore)  
+            setLastStartDate(twoDaysAgo)
+            setLastEndDate(twoDaysAgo)  
+            break 
             case 'Month':  
                 setStartDate(beginningOfMonth)  
                 setEndDate(theDayBefore)  

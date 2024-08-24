@@ -38,7 +38,6 @@ const NavLogin = (props) => {
                     {isOpen && (
                         <ul className="subdropdown-menu">
                             <li className="subdropdown-item item-email" >{userData?.email}</li>
-                            <Link to='/about-hossein-zarei'><li onClick={() => { setIsOpen(!isOpen); setActiveLink('') }} className="subdropdown-item view-profile">About Programmer</li></Link>
                             <li className="subdropdown-item" onClick={() => { setLang(!lang); setIsOpen(!isOpen) }} >
                                 {lang
                                     ? <img src={faFlag} className="language" title="Change language" alt="language" />

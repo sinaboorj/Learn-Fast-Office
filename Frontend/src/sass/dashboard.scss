@@ -36,7 +36,6 @@
         height: 160px;
         padding: 10px 10px;
         font-weight: 650;
-        cursor: pointer;
         position: relative;
     }
     a{
@@ -111,12 +110,13 @@ hr{
 }
 .input-date{
     border-radius: 3px;
-    padding: 2px;
+    height: 27px;
     background-color: black;
     text-align: center;
     color: #838282;
     margin: 0px 5px 0 15px;
     width: 90px;
+    font-family: 'IRANSanazWeb';
 }
 .input-date-date::-webkit-input-date-placeholder {
      color: #4b4a4a;
@@ -124,6 +124,28 @@ hr{
 .input-date:focus{
     outline: solid 1px $loginBtn; 
     border-color: $home-mainObject-color;  
+}
+.info{
+    font-size: 16px;
+    margin: 4px 4px 4px 0px;
+    cursor:pointer;
+}
+.rmdp-input {
+    border-radius: 5px;
+    border: 1px solid #b9b355!important;
+    height: 27px!important;
+    margin: 0px 5px !important;
+    background-color: black;
+    text-align: center;
+    color: $fontColor-primary!important;
+    width: 90px;
+    padding: 0!important;
+    border-inline: solid 1px black;
+    font-family: IRANSanazWeb;
+    font-size: 15px!important;
+}
+.rmdp-input:focus{
+    border-color: $fontColor-Second!important;  
 }
 
 @media only screen and (max-width: 600px){
@@ -141,6 +163,7 @@ hr{
         width: 97%;
     }
 }
+
 @media only screen and (max-width: 450px){
     .custom-date {
         flex-direction: column;
@@ -152,5 +175,3 @@ hr{
         margin-bottom: 5px;
     }
 }
-
-

@@ -1,6 +1,6 @@
 import { BsFillArchiveFill, BsFillGrid3X3GapFill, BsPCircleFill, BsInfoCircleFill } from 'react-icons/bs'
 import DateFilter from './dateFilter';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { DashboardContext } from '../context/dashboardContext';
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
@@ -30,23 +30,23 @@ const DashboardTags = () => {
                         {lang
                             ? <>  {/*En */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill title='Growth compared to the previous period' style={{ marginRight: '3px', color:'green'}} />
+                                    <BsInfoCircleFill className='info' title='Growth compared to the previous period' style={{  color:'#0a290a'}} />
                                     {Strings.Growth}: {growth}%
                                 </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill title={`Production of the same period as before`} style={{ marginRight: '3px',color:'green' }} />
+                                    <BsInfoCircleFill className='info' title={`Production of the same period as before`} style={{ color:'#0a290a' }} />
                                     {Strings.Previous}: {Lastproduction} Ton
                                 </span>
                             </>
                             :
                             <>  {/*Fa */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill title={` رشد تولید به ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل`} style={{ margin: '0 4px 0 0' }} /> {Strings.Growth}:
+                                    <BsInfoCircleFill className='info' title={` رشد تولید به ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل`} style={{  color:'#0a290a' }} /> {Strings.Growth}:
                                     <span style={{ direction: 'rtl', marginLeft: '2px' }}> {growth}% </span> </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill title={`تولید دوره مشابه ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل `} style={{ margin: '0 4px 0 0' }} />  {Strings.Previous}:
+                                    <BsInfoCircleFill className='info' title={`تولید دوره مشابه ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل `} style={{  color:'#0a290a' }} />  {Strings.Previous}:
                                     <span style={{ marginLeft: '2px' }}>{Lastproduction} Ton </span>
                                 </span>
                             </>
@@ -65,14 +65,14 @@ const DashboardTags = () => {
                         {lang
                             ? <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*En */}
-                                    <BsInfoCircleFill title='Implementation of the production plan' style={{ marginRight: '3px', color:'blue'}} />
+                                    <BsInfoCircleFill className='info' title='Implementation of the production plan' style={{ color:'blue'}} />
                                     {Strings.Growth}: {executionPercent}%
                                 </span>
                             </>
                             :
                             <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*Fa */}
-                                    <BsInfoCircleFill title='اجراي برنامه توليد' style={{ margin: '0 4px 0 0' }} />  {Strings.Execution}:
+                                    <BsInfoCircleFill className='info' title='اجراي برنامه توليد' style={{ color:'blue'}} />  {Strings.Execution}:
                                     <span style={{ direction: 'rtl', marginLeft: '2px' }}>{executionPercent}% </span>
                                 </span>
                             </>

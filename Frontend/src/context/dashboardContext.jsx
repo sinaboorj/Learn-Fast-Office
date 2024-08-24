@@ -20,6 +20,7 @@ const DashboardContextProvider = ({ children }) => {
 
     const fetchData = async () => {
         const dates = { startDate, endDate, lastStartDate, lastEndDate }
+        
         setDashboardLoading(true)
         try {
             if (startDate !== '' && endDate !== '' && lastStartDate !== '' && lastEndDate !== '') {
