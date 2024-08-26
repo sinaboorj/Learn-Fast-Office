@@ -5,4 +5,4 @@ const productRouter = express.Router()
 
 productRouter.post('/products', produceController.products)  
 
-export default productRouter 
+export default productRouter    

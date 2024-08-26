@@ -13,6 +13,7 @@ const DashboardContextProvider = ({ children }) => {
     const [endDate, setEndDate] = useState('')
     const [lastStartDate, setLastStartDate] = useState('')
     const [lastEndDate, setLastEndDate] = useState('')
+    const [previousDates, setPreviousDates] = useState({ startDate: '', endDate: '' })
   
     const { filterDateFunction } = dashFunction({ setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
@@ -20,19 +21,17 @@ const DashboardContextProvider = ({ children }) => {
 
     const fetchData = async () => {
         const dates = { startDate, endDate, lastStartDate, lastEndDate }
-        
         setDashboardLoading(true)
         try {
-            if (startDate !== '' && endDate !== '' && lastStartDate !== '' && lastEndDate !== '') {
+            if (startDate && endDate && lastStartDate && lastEndDate) {
                 const response = await axios.post(`${backendUrl}/api/products`, dates)
-                setData(response.data)
-                localStorage.setItem('production', JSON.stringify({
-                    TotalProduction: response.data?.TotalProduction,
-                    TotalPlan: response.data?.TotalPlan,
-                    LastTotalProduction: response.data?.LastTotalProduction
-                }))
+                    setData(response.data)
+                    localStorage.setItem('production', JSON.stringify({
+                        TotalProduction: response.data?.TotalProduction,
+                        TotalPlan: response.data?.TotalPlan,
+                        LastTotalProduction: response.data?.LastTotalProduction
+                    }))
             }
-  
         } catch (error) {
             console.error(error)
         } finally {
@@ -51,34 +50,36 @@ const DashboardContextProvider = ({ children }) => {
         localStorage.setItem('filterDate', JSON.stringify(filterDate))
     }, [])
 
-    useEffect(() => {
-        filterDateFunction(filterDate)
-        fetchData()
-        localStorage.setItem('filterDate', JSON.stringify(filterDate))
-    }, [filterDate, startDate, endDate, lastStartDate, lastEndDate])
-
-
     useEffect(() => {  
-        const checkDateChange = () => {  
-            const currentDate = moment().format('jYYYY/jM/jD')  
-            const lastCheckedDate = localStorage.getItem('lastCheckedDate')  
-            if (currentDate !== lastCheckedDate) {  
-                localStorage.setItem('lastCheckedDate', currentDate)  
-                window.location.reload()  
-            }  
+        filterDateFunction(filterDate) 
+        if (startDate !== previousDates.startDate || endDate !== previousDates.endDate) {  
+            fetchData() 
+            setPreviousDates({ startDate, endDate }) 
         }  
+        localStorage.setItem('filterDate', JSON.stringify(filterDate)) 
+    }, [filterDate, startDate, endDate, lastStartDate, lastEndDate]) 
 
-        const intervalId = setInterval(checkDateChange, 60000)  
+    useEffect(() => {
+        const checkDateChange = () => {
+            const currentDate = moment().format('jYYYY/jM/jD')
+            const lastCheckedDate = localStorage.getItem('lastCheckedDate')
+            if (currentDate !== lastCheckedDate) {
+                localStorage.setItem('lastCheckedDate', currentDate)
+                window.location.reload()
+            }
+        }
 
-        return () => clearInterval(intervalId) 
-    }, [])  
+        const intervalId = setInterval(checkDateChange, 60000)
+
+        return () => clearInterval(intervalId)
+    }, [])
 
     return (
         <DashboardContext.Provider
             value={{
                 filterDate, setFilterDate, data, dashboardLoading, startDate, endDate,
                 setStartDate, setEndDate, setLastStartDate, setLastEndDate,
-                lastStartDate, lastEndDate
+                lastStartDate, lastEndDate, fetchData
             }}>
             {children}
         </DashboardContext.Provider>

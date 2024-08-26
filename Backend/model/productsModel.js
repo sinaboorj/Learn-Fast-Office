@@ -1,3 +1,4 @@
+import { col } from 'sequelize';
 import { poolPromise } from '../config/sqlConnection.js';  
 
 class ProductsModel {
@@ -29,7 +30,10 @@ class ProductsModel {
                     TotalProduction: currentResult.recordset[0].TotalProduction,
                     TotalPlan: currentResult.recordset[0].TotalPlan,
                     LastTotalProduction: lastResult.recordset[0].LastTotalProduction,
+                    startDate: startDate,
+                    endDate: endDate,
                 }
+                  
                 return result
             } else {  
                 throw new Error('No data found');  

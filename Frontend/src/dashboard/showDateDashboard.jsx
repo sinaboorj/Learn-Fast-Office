@@ -1,17 +1,18 @@
-import { useContext } from "react";  
+import { useContext, useEffect } from "react";  
 import { DashboardContext } from "../context/dashboardContext";  
 import { PublicContext } from "../context/publicContext";  
 import Strings from "../helper/strings";  
 import { BsInfoCircleFill } from 'react-icons/bs';  
-import DatePicker, { Persian } from "react-multi-date-picker"; // Importing correctly 
+import DatePicker from "react-multi-date-picker"; // Importing correctly 
 import persian from "react-date-object/calendars/persian"
 import persian_fa from "react-date-object/locales/persian_fa"
+import dashFunction from "../helper/dashFunction";
 
 const ShowDateDashboard = () => {
     const { lang } = useContext(PublicContext)
-    const { data, filterDate, startDate, endDate, setStartDate, setEndDate } = useContext(DashboardContext)
- 
-
+    const { data, filterDate, startDate, endDate, lastStartDate, lastEndDate, setStartDate,
+        setEndDate, setLastStartDate, setLastEndDate, fetchData, } = useContext(DashboardContext)
+    
     return (
         <>
             <div className="dashboard-text">
