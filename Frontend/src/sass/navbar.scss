@@ -51,6 +51,7 @@ div.main-nav li {
     width: 27px;  
     cursor: pointer;  
     border-radius: 3px;  
+    margin: 0px 20px 0 0;
 }  
 
 .navlink {  
@@ -109,7 +110,7 @@ div.main-nav li {
 .login-icon {  
     font-size: 19px;  
     border-bottom: $mainBackgroundColor solid 2px !important;  
-    margin-top: 4px;  
+    margin-top: 8px;  
 }  
 
 .nav-left a {  
@@ -140,7 +141,6 @@ div.main-nav li {
 .item-email {  
     cursor: auto !important;  
     font-size: 15px; 
-    margin-bottom: 13px; 
 
     &:hover {  
         background-color: $background-menu !important;  

@@ -4,7 +4,7 @@
     font-weight: 700;
     font-size: 17px;
     text-align: start;
-    padding: 10px 12px ;
+    padding: 0px 0 1px 12px;
     color: $fontColor-fifth;
 }
 .growth {
@@ -19,14 +19,14 @@
     justify-content: center;
 
     .product{
-        background-color: #2fa42c;
+        background-color: #cecece;
     }
     .plan{
-        background-color: #248cfe;
+        background-color: #359dff;
     }
 
     .filter{
-        background-color: #dccc0b;
+        background-color: #f2e545;
         color: $mainBackgroundColor;
     }
     .dashboard-item{
@@ -77,7 +77,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
-    bottom: 7px;
+    bottom: 17px;
     left: 12px;
 }
 hr{
@@ -101,16 +101,15 @@ hr{
     direction: rtl;
     display: flex;
     width: 98%;
-    margin: auto;
+    margin: 10px auto 5px;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     font-size: 14px;
-    margin-bottom: 5px;
 }
 .input-date{
     border-radius: 3px;
-    height: 27px;
+    height: 30px;
     background-color: black;
     text-align: center;
     color: #838282;
@@ -130,25 +129,39 @@ hr{
     margin: 4px 4px 4px 0px;
     cursor:pointer;
 }
-.rmdp-input {
-    border-radius: 5px;
-    border: 1px solid #b9b355!important;
-    height: 27px!important;
+.input-custom-date{
+    border: solid 1px #646464 !important;
+    height: 28px !important;
     margin: 0px 5px !important;
-    background-color: black;
+    font-weight: 200;
+    background-color: #f4f4f4 !important;
     text-align: center;
-    color: $fontColor-primary!important;
-    width: 90px;
-    padding: 0!important;
-    border-inline: solid 1px black;
-    font-family: IRANSanazWeb;
-    font-size: 15px!important;
+    display: flex !important;
+    color: rgb(0 0 0) !important;
+    width: 120px;
+    border-radius: 3px;
+    padding: 3px 0 0 !important;
+    font-family: "Vazir";
+    font-size: 15px !important;
+    align-items: center !important;
+    align-content: center !important;
 }
-.rmdp-input:focus{
-    border-color: $fontColor-Second!important;  
+.input-custom-date:focus{
+    border: solid 2px green!important; 
+    outline: green; 
 }
-
-@media only screen and (max-width: 600px){
+.dashboard-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+form.dashbordAlignDate {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+}
+@media only screen and (max-width: 615px){
     .dashboard-items{
         flex-direction: column;
         .dashboard-item{
@@ -162,16 +175,20 @@ hr{
     .lines.categories {
         width: 97%;
     }
+    .dashboard-nav {
+        flex-direction: column;
+    }
 }
 
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 520px){
     .custom-date {
         flex-direction: column;
     }
-    span{
-        margin-bottom: 5px;
-    }
+
     .input-date{
         margin-bottom: 5px;
+    }
+    form.dashbordAlignDate {
+        flex-direction: column;
     }
 }

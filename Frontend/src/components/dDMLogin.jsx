@@ -30,7 +30,7 @@ const DropDownMenuLogin = (props) => {
 
     return (
         <>
-            <div className='menu-container' >
+            <div className='menu-container'>
                 <div className='bars' onClick={() => { setOpen(!open) }}>
                     <div className='bar'></div>
                     <div className='bar'></div>
@@ -50,8 +50,8 @@ const DropDownMenuLogin = (props) => {
                     <Link to='/dashboard'> <DropDownItem icon={faThLarge} text={Strings.Dashboard} /> </Link>
                     <li className="subdropdown-item" onClick={() => { setLang(!lang) }} style={{padding:'0'}} >
                         {lang
-                            ? <img src={faFlag} className="navlink language" title="En/Fa language" alt="language" />
-                            : <img src={EnFlag} className="navlink language" title="En/Fa language" alt="language" />
+                            ? <img src={faFlag} className="navlink language-down" title="En/Fa language" alt="language" />
+                            : <img src={EnFlag} className="navlink language-down" title="En/Fa language" alt="language" />
                         }
                     </li>
                     <hr />

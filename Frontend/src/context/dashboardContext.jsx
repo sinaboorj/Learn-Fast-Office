@@ -14,8 +14,10 @@ const DashboardContextProvider = ({ children }) => {
     const [lastStartDate, setLastStartDate] = useState('')
     const [lastEndDate, setLastEndDate] = useState('')
     const [previousDates, setPreviousDates] = useState({ startDate: '', endDate: '' })
-  
-    const { filterDateFunction } = dashFunction({ setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const [customStartDate, setCustomStartDate] = useState("");
+    const [custemEndDate, setCustomEndDate] = useState("");
+    const [submitCustomDate, setSubmitCustomDate] = useState(false);
+    const { filterDateFunction } = dashFunction({ customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
     const backendUrl = 'http://localhost:3000'
 
@@ -57,6 +59,7 @@ const DashboardContextProvider = ({ children }) => {
             setPreviousDates({ startDate, endDate }) 
         }  
         localStorage.setItem('filterDate', JSON.stringify(filterDate)) 
+       
     }, [filterDate, startDate, endDate, lastStartDate, lastEndDate]) 
 
     useEffect(() => {
@@ -79,7 +82,8 @@ const DashboardContextProvider = ({ children }) => {
             value={{
                 filterDate, setFilterDate, data, dashboardLoading, startDate, endDate,
                 setStartDate, setEndDate, setLastStartDate, setLastEndDate,
-                lastStartDate, lastEndDate, fetchData
+                lastStartDate, lastEndDate, fetchData, customStartDate, setCustomStartDate,
+                custemEndDate, setCustomEndDate, submitCustomDate, setSubmitCustomDate
             }}>
             {children}
         </DashboardContext.Provider>

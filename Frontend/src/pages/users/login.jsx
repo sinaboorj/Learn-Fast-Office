@@ -63,7 +63,7 @@ function Login() {
         }
       } catch (err) {
         setIsLoading(false); setMessageStatus(true);
-        err?.response?.data?.msg !== undefined ? setMsg(err.response?.data)  : setMsg( {status: false, title: 'Error', msg:err.message })
+        err?.response?.data?.msg !== undefined ? setMsg(err.response?.data) : setMsg({ status: false, title: 'Error', msg: err.message })
         setPassword('');
       
       }
@@ -73,8 +73,8 @@ function Login() {
 
   useEffect(() => {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth' 
+      top: 0,
+      behavior: 'smooth'
     });
   }, [])
   
@@ -86,16 +86,26 @@ function Login() {
           <form onSubmit={handleSubmit(loginUser)} className="register-data">
 
             <div className="register-input" >
-              <input {...register("email")} type="email" value={loginEmail}
-                onChange={(e) => { setLoginEmail(e.target.value); setSchemaLoginError(false); setMessageStatus(false) }}
+              <input
+                {...register("email")} type="email" value={loginEmail}
+                onChange={(e) => {
+                  setLoginEmail(e.target.value);
+                  setSchemaLoginError(false); setMessageStatus(false)
+                }}
                 placeholder="Email..." tabIndex={1}
-                className="input" onInput={() => { setMessageStatus(false); }} />
+                className="input" onInput={() => { setMessageStatus(false); }}
+              />
             </div>
 
             <div className="register-input">
-              <input {...register("password")} type={showPass.type} value={password}
-                onChange={(e) => { setPassword(e.target.value); setSchemaLoginError(false); setMessageStatus(false) }}
-                placeholder="Password..." className="input" autoComplete='off' tabIndex={2} />
+              <input
+                {...register("password")} type={showPass.type} value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setSchemaLoginError(false); setMessageStatus(false)
+                }}
+                placeholder="Password..." className="input" autoComplete='off' tabIndex={2}
+              />
               <FontAwesomeIcon icon={showPass.status ? faEyeSlash : faEye} className="show-pass" title="Show/Hidden"
                 onClick={() => { showPass.status ? setShowPass({ type: 'text', status: false }) : setShowPass({ type: 'password', status: true }) }} />
             </div>

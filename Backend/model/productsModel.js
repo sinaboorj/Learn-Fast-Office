@@ -33,7 +33,10 @@ class ProductsModel {
                     startDate: startDate,
                     endDate: endDate,
                 }
-                  
+                if (result.TotalProduction === null) result.TotalProduction = 0
+                if (result.TotalPlan === null) result.TotalPlan = 0
+                if (result.LastTotalProduction === null) result.LastTotalProduction = 0
+                
                 return result
             } else {  
                 throw new Error('No data found');  

@@ -1,6 +1,6 @@
 import moment from 'moment-jalaali'  
 
-const dashFunction = ({ setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
+const dashFunction = ({  customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
 
     const PreviousMonth = (dateString) => {
         const parts = dateString.split('/')
@@ -33,6 +33,13 @@ const dashFunction = ({ setStartDate, setEndDate, setLastStartDate, setLastEndDa
         return `${parts[0]}/${String(parts[1]).padStart(2, '0')}/${String(parts[2]).padStart(2, '0')}`
     }
     
+    const seperatorNumber=(num)=> {  
+        if (num < 1000) {  
+            return num.toString();  
+        }  
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  
+    }  
+
     const filterDateFunction = (filterDate) => {
         const today = moment()
         const yesterday = today.clone().subtract(1, 'days')
@@ -63,17 +70,17 @@ const dashFunction = ({ setStartDate, setEndDate, setLastStartDate, setLastEndDa
                 setLastEndDate(PreviousYear(theDayBefore))
                 break
             case 'Custom':
-                setStartDate(localStorage.getItem('customStartDate') || theDayBefore)
-                setEndDate(localStorage.getItem('customEndDate') || theDayBefore)
-                setLastStartDate("")
-                setLastEndDate("")
+                setStartDate(customStartDate)
+                setEndDate(custemEndDate)
+                setLastStartDate(PreviousYear(customStartDate))
+                setLastEndDate(PreviousYear(custemEndDate))
                 break
             default:
                 break
         }
     }
 
-    return { filterDateFunction }
+    return { filterDateFunction, seperatorNumber }
 } 
 
 export default dashFunction  

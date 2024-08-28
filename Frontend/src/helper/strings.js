@@ -24,6 +24,7 @@ const Strings = new LocalizedStrings({
     Execution: "Execution",
     StartDate: "Start Date:",
     EndDate: "End Date:",
+    Ok:'Ok',
     HelpTextDateInDashboard:'Enter the date into the solar date',
   },
 
@@ -50,6 +51,7 @@ const Strings = new LocalizedStrings({
     Execution: "اجرا",
     StartDate: "تاریخ شروع:",
     EndDate: "تاریخ پایان:",
+    Ok:'تایید',
     HelpTextDateInDashboard:'تاریخ را به شمسی وارد کنید.',
   },
 });

@@ -33,17 +33,16 @@ const NavLogin = (props) => {
                     <Link to='/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveLink('dashboard'); }}>{Strings.Dashboard}</Link>
                 </ul>
                 <ul ref={menuRef} className="nav-left">
+                    {lang
+                        ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="language" title="Change language" alt="language" />
+                        : <img onClick={() => { setLang(!lang) }} src={EnFlag} className="language" title="Change language" alt="language" />
+                    }
                     <Link> <span onClick={() => { setIsOpen(!isOpen) }} className="user-login" >{firstStrEmail}</span></Link>
                     <button className="dropdown-toggle" onClick={() => { setIsOpen(!isOpen) }}> </button>
                     {isOpen && (
                         <ul className="subdropdown-menu">
                             <li className="subdropdown-item item-email" >{userData?.email}</li>
-                            <li className="subdropdown-item" onClick={() => { setLang(!lang); setIsOpen(!isOpen) }} >
-                                {lang
-                                    ? <img src={faFlag} className="language" title="Change language" alt="language" />
-                                    : <img src={EnFlag} className="language" title="Change language" alt="language" />
-                                }
-                            </li>
+
                             <span className="line-seperator" ></span>
                             <Link to='/login' className="subdropdown-item log-item" onClick={() => { exit(); setIsOpen(!isOpen); setActiveLink('login') }} style={{ color: 'rgb(255 39 39)', fontWeight: '500', marginLeft: '-4px' }}>Exit</Link>
                         </ul>

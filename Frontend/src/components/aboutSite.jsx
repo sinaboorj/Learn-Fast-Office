@@ -21,7 +21,7 @@ const AboutSite = () => {
                         <li>Dashboard of production line performance <span>&#9989;</span></li>
                         <li>Display all types of charts related to production and program </li>
                         <li>Production growth report and implementation of production forecasting plan </li>
-                        <li>Create a production forecast for the next month and year </li>
+                        <li>Forecasting the production schedule based on the needs of the sales unit for the next month </li>
                         <li>Forecasting raw materials and consumables needed for production </li>
                         <li>Display operational efficiency, production efficiency and production speed </li>
                         <li>Display performance reports of production lines and their performance records </li>
@@ -43,7 +43,7 @@ const AboutSite = () => {
                         <li>داشبورد عملکرد خطوط تولید <span>&#9989;</span></li>
                         <li>نمایش انواع نمودارهای مربوط به تولید و برنامه</li>
                         <li>گزارش رشد تولید و اجرای برنامه تولید</li>
-                        <li>ایجاد برنامه پیش بینی تولید برای ماه و سال آینده</li>
+                        <li>پیش بینی برنامه تولید براساس نیاز واحد فروش برای ماه آینده</li>
                         <li>پیش بینی مواد اولیه و مواد مصرفی مورد نیاز برای تولید</li>
                         <li>نمایش راندمان عملیاتی، راندمان تولید و سرعت تولید</li>
                         <li>نمایش گزارش عملکرد خطوط تولید و سوابق عملکرد آنها</li>
