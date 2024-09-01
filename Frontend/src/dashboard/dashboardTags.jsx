@@ -11,7 +11,7 @@ import dashFunction from '../helper/dashFunction';
 const DashboardTags = () => {
     const { lang } = useContext(PublicContext);
     const { data, filterDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate,
-        customStartDate,custemEndDate } = useContext(DashboardContext)
+        dates, setDates, customStartDate,custemEndDate } = useContext(DashboardContext)
     
     let production = Math.round((data.TotalProduction) / 1000)//تولید
     let plan = Math.round((data.TotalPlan) / 1000)//برنامه
@@ -19,7 +19,7 @@ const DashboardTags = () => {
     let Lastproduction = Math.round((data.LastTotalProduction) / 1000)// تولید قبل
     let growth = Math.round((production - Lastproduction) / Lastproduction * 100)// رشد
 
-    const { seperatorNumber } = dashFunction({  customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { seperatorNumber } = dashFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
     
     production = seperatorNumber(production)
     plan = seperatorNumber(plan)
@@ -111,9 +111,9 @@ const DashboardTags = () => {
                 </div>
 
             </div>
-            <div className="lines categories">
+            {/* <div className="lines categories">
                     
-            </div>
+            </div> */}
             <br />
         </>
     );

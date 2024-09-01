@@ -1,6 +1,6 @@
 import moment from 'moment-jalaali'  
 
-const dashFunction = ({  customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
+const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
 
     const PreviousMonth = (dateString) => {
         const parts = dateString.split('/')
@@ -40,6 +40,38 @@ const dashFunction = ({  customStartDate,custemEndDate, setStartDate, setEndDate
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  
     }  
 
+    /* ******************************* Get 12 Day **************************************** */
+    const get12Days = (theDayBefore, day) => {  
+        const date = moment(theDayBefore, 'jYYYY/jMM/jDD');  
+
+        const newDates = {};  
+        const lastYearDates = {};  
+
+        // شامل کردن تاریخ ورودی به عنوان تاریخ اول  
+        newDates[`date1`] = date.format('jYYYY/jMM/jDD');  
+        lastYearDates[`lastDate1`] = date.clone().subtract(1,'year').add(1, 'days').format('jYYYY/jMM/jDD');  
+        for (let i = 1; i <= 11; i++) {  
+            const previousDate = date.clone().subtract(i, 'days');  
+            const lastYearDate = previousDate.clone().subtract(1, 'years');  
+
+            newDates[`date${i + 1}`] = previousDate.format('jYYYY/jMM/jDD');  
+            lastYearDates[`lastDate${i + 1}`] = lastYearDate.add(1, 'days').format('jYYYY/jMM/jDD');  
+        }  
+      
+        if (day === 'day') {
+            return setDates({
+                ...newDates,
+                ...lastYearDates,
+                startDate: theDayBefore,
+                endDate: theDayBefore,
+                lastStartDate: newDates['date2'],
+                lastEndDate: newDates['date2'],
+                searchType: day //مشخص کردن نوع جستجو برای سمت سرور
+            });
+        }
+ 
+    };
+
     const filterDateFunction = (filterDate) => {
         const today = moment()
         const yesterday = today.clone().subtract(1, 'days')
@@ -52,10 +84,7 @@ const dashFunction = ({  customStartDate,custemEndDate, setStartDate, setEndDate
         
         switch (filterDate) {
             case 'Day':
-                setStartDate(theDayBefore)
-                setEndDate(theDayBefore)
-                setLastStartDate(twoDaysAgo)
-                setLastEndDate(twoDaysAgo)
+                get12Days(theDayBefore, 'day')
                 break
             case 'Month':
                 setStartDate(beginningOfMonth)

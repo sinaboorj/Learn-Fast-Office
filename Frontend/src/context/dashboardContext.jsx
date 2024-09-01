@@ -17,16 +17,28 @@ const DashboardContextProvider = ({ children }) => {
     const [customStartDate, setCustomStartDate] = useState("");
     const [custemEndDate, setCustomEndDate] = useState("");
     const [submitCustomDate, setSubmitCustomDate] = useState(false);
-    const { filterDateFunction } = dashFunction({ customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const [dates, setDates] = useState({
+        date1: '', date2: '', date3: '', date4: '', date5: '', date6: '', date7: '', date8: '', date9: '', date10: '', date11: '', date12: '',
+        lastDate1: '', lastDate2: '', lastDate3: '', lastDate4: '', lastDate5: '', lastDate6: '', lastDate7: '', lastDate8: '', lastDate9: '', lastDate10: '', lastDate11: '', lastDate12: '',
+        startDate:'', endDate:'', lastStartDate:'', lastEndDate:'',searchType:''
+    })
+
+    const { filterDateFunction } = dashFunction({dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate})
 
     const backendUrl = 'http://localhost:3000'
 
     const fetchData = async () => {
-        const dates = { startDate, endDate, lastStartDate, lastEndDate }
+        const tempDate = {
+            date1: dates.date1, date2: dates.date2, date3: dates.date3 , date4: dates.date4 , date5: dates.date5, date6: dates.date6, date7: dates.date7, date8: dates.date8, date9: dates.date9, date10: dates.date10, date11: dates.date11, date12: dates.date12,
+            lastDate1: dates.lastDate1, lastDate2: dates.lastDate2, lastDate3: dates.lastDate3, lastDate4: dates.lastDate4, lastDate5: dates.lastDate5, lastDate6: dates.lastDate6, lastDate7: dates.lastDate7, lastDate8: dates.lastDate8, lastDate9: dates.lastDate9, lastDate10: dates.lastDate10, lastDate11: dates.lastDate11, lastDate12: dates.lastDate12,
+            startDate: dates.startDate, endDate: dates.endDate, lastStartDate: dates.lastStartDate, lastEndDate: dates.lastEndDate, searchType: dates.searchType
+        }
+        console.clear()
+        console.log(tempDate)
         setDashboardLoading(true)
         try {
             if (startDate && endDate && lastStartDate && lastEndDate) {
-                const response = await axios.post(`${backendUrl}/api/products`, dates)
+                const response = await axios.post(`${backendUrl}/api/products`, tempDate)
                     setData(response.data)
                     localStorage.setItem('production', JSON.stringify({
                         TotalProduction: response.data?.TotalProduction,
@@ -60,7 +72,7 @@ const DashboardContextProvider = ({ children }) => {
         }  
         localStorage.setItem('filterDate', JSON.stringify(filterDate)) 
        
-    }, [filterDate, startDate, endDate, lastStartDate, lastEndDate]) 
+    }, [filterDate, dates.startDate, dates.endDate, dates.lastStartDate, dates.lastEndDate]) 
 
     useEffect(() => {
         const checkDateChange = () => {
@@ -83,7 +95,8 @@ const DashboardContextProvider = ({ children }) => {
                 filterDate, setFilterDate, data, dashboardLoading, startDate, endDate,
                 setStartDate, setEndDate, setLastStartDate, setLastEndDate,
                 lastStartDate, lastEndDate, fetchData, customStartDate, setCustomStartDate,
-                custemEndDate, setCustomEndDate, submitCustomDate, setSubmitCustomDate
+                custemEndDate, setCustomEndDate, submitCustomDate, setSubmitCustomDate,
+                dates, setDates
             }}>
             {children}
         </DashboardContext.Provider>

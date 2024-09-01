@@ -8,10 +8,10 @@ const ShowDashboardDate = () => {
     const { lang } = useContext(PublicContext)
     const { filterDate, startDate, endDate, customStartDate, setCustomStartDate, setEndDate, fetchData,
         custemEndDate, setCustomEndDate, setSubmitCustomDate, setStartDate, setLastStartDate, setLastEndDate,
-        submitCustomDate
+        submitCustomDate,dates, setDates,
     } = useContext(DashboardContext)
    
-    const { filterDateFunction } = dashFunction({ customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { filterDateFunction } = dashFunction({dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
 
     const formatDate = (value) => {
@@ -66,14 +66,14 @@ const ShowDashboardDate = () => {
                         <>
                             <span> {Strings.StartDate}</span>
                             <input
-                                value={startDate}
+                                value={dates.startDate}
                                 className="input-date" autoComplete='off' tabIndex={0}
                                 style={{ border: 'solid 1px black' }}
                                 disabled={true}
                             />
                  
                             <span> {Strings.EndDate}</span>
-                            <input value={endDate}
+                            <input value={dates.endDate}
                                 className="input-date" autoComplete='off' tabIndex={1}
                                 style={{ border: 'solid 1px black' }}
                                 disabled={true}
