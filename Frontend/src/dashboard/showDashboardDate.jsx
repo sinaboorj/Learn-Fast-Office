@@ -8,10 +8,10 @@ const ShowDashboardDate = () => {
     const { lang } = useContext(PublicContext)
     const { filterDate, startDate, endDate, customStartDate, setCustomStartDate, setEndDate, fetchData,
         custemEndDate, setCustomEndDate, setSubmitCustomDate, setStartDate, setLastStartDate, setLastEndDate,
-        submitCustomDate,dates, setDates,
+        submitCustomDate, dates, setDates, selectedOptionCombo, setSelectedOptionCombo
     } = useContext(DashboardContext)
    
-    const { filterDateFunction } = dashFunction({dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { filterDateFunction } = dashFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
 
     const formatDate = (value) => {
@@ -46,11 +46,14 @@ const ShowDashboardDate = () => {
         }
     };
 
+    const handleChangeCombo = (event) => {
+        setSelectedOptionCombo(event.target.value);
+    };
 
-    useEffect(() => {  
-        filterDateFunction(filterDate) 
-        fetchData() 
-    }, [submitCustomDate]) 
+    useEffect(() => {
+        filterDateFunction(filterDate)
+        fetchData()
+    }, [submitCustomDate])
 
 
     return (
@@ -109,6 +112,24 @@ const ShowDashboardDate = () => {
                             </form>
                         </>
                 }
+            </div>
+            <div className="line-combo">
+                <select
+                    id="combo-box"
+                    value={selectedOptionCombo}
+                    onChange={handleChangeCombo}
+                >
+                    <option className="line-combo-open" value="insig">کل گروه</option>
+                    <option className="line-combo-open" value="k">کوثر</option>
+                    <option className="line-combo-open" value="1">خط 1</option>
+                    <option className="line-combo-open" value="3">خط 3</option>
+                    <option className="line-combo-open" value="s">صنایع فلزی</option>
+                    <option className="line-combo-open" value="630">خط 630</option>
+                    <option className="line-combo-open" value="650">خط 650</option>
+                    <option className="line-combo-open" value="l">لوله سازی</option>
+                    <option className="line-combo-open" value="f">فولادسازی</option>
+                </select>
+
             </div>
         </div>
     );

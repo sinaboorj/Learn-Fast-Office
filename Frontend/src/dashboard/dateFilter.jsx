@@ -8,7 +8,6 @@ import loadingImage from '/sysImage/loading.gif'
 const DateFilter = () => {
     const { filterDate, setFilterDate, dashboardLoading } = useContext(DashboardContext)
     const { lang } = useContext(PublicContext);
-    
 
     if (dashboardLoading) {
         <div style={{ width: '100vw', height: '10vh', display: 'flex', alignItems: 'center', margin: 'auto', justifyContent: 'center' }}>

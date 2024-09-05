@@ -24,7 +24,7 @@ const Strings = new LocalizedStrings({
     Execution: "Execution",
     StartDate: "Start Date:",
     EndDate: "End Date:",
-    Ok:'Ok',
+    Ok: 'Ok',
     HelpTextDateInDashboard:'Enter the date into the solar date',
   },
 

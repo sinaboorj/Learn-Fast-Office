@@ -13,6 +13,38 @@ const DashboardTags = () => {
     const { data, filterDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate,
         dates, setDates, customStartDate,custemEndDate } = useContext(DashboardContext)
     
+        const infoText = [
+            'تولید دو روز قبل',
+            'تولید دوره مشابه ماه قبل',
+            'تولید دوره مشابه سال قبل',
+            'تولید دوره مشابه سفارش  شده در روز، ماه یا سال قبل',
+            'رشد تولید به روز قبل تر',
+            'رشد تولید به دوره مشابه ماه قبل',
+            'رشد تولید به دوره مشابه سال قبل',
+            'رشد تولید به دوره مشابه سفارش شده در روز، ماه و یا سال قبل',
+        ]
+    let infoTextIndexLastProduction = 0
+    let infoTextIndexGrowth = 0
+        
+        switch (filterDate) {
+            case 'Day':
+                infoTextIndexLastProduction = 0
+                infoTextIndexGrowth=4
+                break;
+            case 'Month':
+                infoTextIndexLastProduction = 1
+                infoTextIndexGrowth=5
+                break;
+            case 'Year':
+                infoTextIndexLastProduction = 2
+                infoTextIndexGrowth=6
+                break;
+            case 'Custom':
+                infoTextIndexLastProduction = 3
+                infoTextIndexGrowth=7
+                break;
+        }
+    
     let production = Math.round((data.TotalProduction) / 1000)//تولید
     let plan = Math.round((data.TotalPlan) / 1000)//برنامه
     const executionPercent = Math.round((production / plan) * 100)//درصد اجرا
@@ -62,7 +94,7 @@ const DashboardTags = () => {
                             :
                             <>  {/*Fa */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill className='info' title={` رشد تولید به ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل`} style={{ color: '#424242' }} /> {Strings.Growth}:
+                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexGrowth]} style={{ color: '#424242' }} /> {Strings.Growth}:
                                     <span
                                         style={{
                                             marginLeft: '4px',
@@ -75,7 +107,7 @@ const DashboardTags = () => {
                                 </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill className='info' title={`تولید دوره مشابه ${filterDate === 'Month' ? 'ماه' : 'سال'} قبل `} style={{ color: '#424242' }} />  {Strings.Previous}:
+                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexLastProduction]} style={{ color: '#424242' }} />  {Strings.Previous}:
                                     <span style={{ marginLeft: '2px' }}>{Lastproduction} Ton </span>
                                 </span>
                             </>

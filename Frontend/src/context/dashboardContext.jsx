@@ -13,6 +13,7 @@ const DashboardContextProvider = ({ children }) => {
     const [endDate, setEndDate] = useState('')
     const [lastStartDate, setLastStartDate] = useState('')
     const [lastEndDate, setLastEndDate] = useState('')
+    const [selectedOptionCombo, setSelectedOptionCombo] = useState('') 
     const [previousDates, setPreviousDates] = useState({ startDate: '', endDate: '' })
     const [customStartDate, setCustomStartDate] = useState("");
     const [custemEndDate, setCustomEndDate] = useState("");
@@ -33,8 +34,7 @@ const DashboardContextProvider = ({ children }) => {
             lastDate1: dates.lastDate1, lastDate2: dates.lastDate2, lastDate3: dates.lastDate3, lastDate4: dates.lastDate4, lastDate5: dates.lastDate5, lastDate6: dates.lastDate6, lastDate7: dates.lastDate7, lastDate8: dates.lastDate8, lastDate9: dates.lastDate9, lastDate10: dates.lastDate10, lastDate11: dates.lastDate11, lastDate12: dates.lastDate12,
             startDate: dates.startDate, endDate: dates.endDate, lastStartDate: dates.lastStartDate, lastEndDate: dates.lastEndDate, searchType: dates.searchType
         }
-        console.clear()
-        console.log(tempDate)
+        
         setDashboardLoading(true)
         try {
             if (startDate && endDate && lastStartDate && lastEndDate) {
@@ -66,13 +66,13 @@ const DashboardContextProvider = ({ children }) => {
 
     useEffect(() => {  
         filterDateFunction(filterDate) 
-        if (startDate !== previousDates.startDate || endDate !== previousDates.endDate) {  
+        if (startDate !== previousDates?.startDate || endDate !== previousDates?.endDate) {  
             fetchData() 
             setPreviousDates({ startDate, endDate }) 
         }  
         localStorage.setItem('filterDate', JSON.stringify(filterDate)) 
        
-    }, [filterDate, dates.startDate, dates.endDate, dates.lastStartDate, dates.lastEndDate]) 
+    }, [filterDate, dates?.startDate, dates?.endDate, dates?.lastStartDate, dates?.lastEndDate]) 
 
     useEffect(() => {
         const checkDateChange = () => {
@@ -96,7 +96,7 @@ const DashboardContextProvider = ({ children }) => {
                 setStartDate, setEndDate, setLastStartDate, setLastEndDate,
                 lastStartDate, lastEndDate, fetchData, customStartDate, setCustomStartDate,
                 custemEndDate, setCustomEndDate, submitCustomDate, setSubmitCustomDate,
-                dates, setDates
+                dates, setDates, selectedOptionCombo, setSelectedOptionCombo
             }}>
             {children}
         </DashboardContext.Provider>
