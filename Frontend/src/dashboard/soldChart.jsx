@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';  
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import Strings from '../helper/strings';
 import { DashboardContext } from '../context/dashboardContext';
+import { PublicContext } from '../context/publicContext';
 
 const SoldChart = () => {
-
+    const { lang } = useContext(PublicContext);
     const {
         date1, date2, date3, date4, date5, date6, date7, date8, date9, date10,
         date11, date12, lastDate1, lastDate2, lastDate3, lastDate4, lastDate5,
@@ -60,25 +61,17 @@ const SoldChart = () => {
     
     return (
         <>
-            <ResponsiveContainer width="48%" height={300}>
-                <BarChart
-                    width={500}
-                    height={300}
-                    data={data}
-                    margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                    }}
-                >
+            
+            <ResponsiveContainer className='product-chart'>
+            <div className='chart-title'>{ Strings.SaleChartTitle}</div>
+                <BarChart data={data} >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-                    <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+                    <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="#8884d8" stroke="#8884d8" />} />
+                    <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="#82ca9d" stroke="#82ca9d" />} />
                 </BarChart>
             </ResponsiveContainer>
         </>

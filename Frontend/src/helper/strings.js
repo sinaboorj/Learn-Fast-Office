@@ -25,6 +25,8 @@ const Strings = new LocalizedStrings({
     StartDate: "Start Date:",
     EndDate: "End Date:",
     Ok: 'Ok',
+    ProductionChartTitle: 'Production trend chart',
+    SaleChartTitle: 'Sales trend chart',
     HelpTextDateInDashboard:'Enter the date into the solar date',
   },
 
@@ -51,7 +53,9 @@ const Strings = new LocalizedStrings({
     Execution: "اجرا",
     StartDate: "تاریخ شروع:",
     EndDate: "تاریخ پایان:",
-    Ok:'تایید',
+    Ok: 'تایید',
+    ProductionChartTitle: 'نمودار روند تولیدات',
+    SaleChartTitle: 'نمودار روند فروش',
     HelpTextDateInDashboard:'تاریخ را به شمسی وارد کنید.',
   },
 });

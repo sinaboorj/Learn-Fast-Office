@@ -32,6 +32,6 @@ const products = trycatchHandler(async (req, res, next) => {
         return res.send(totalTB);  
 }
 );  
- 
+     
   
 export default { products }  

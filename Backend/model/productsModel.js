@@ -14,11 +14,11 @@ class ProductsModel {
 
             dateParams.forEach((date, index) => {
                 request.input(`date${index + 1}`, date);
-            });
+            })
 
             lastDateParams.forEach((date, index) => {
                 request.input(`lastDate${index + 1}`, date);
-            });
+            })
 
             const currentResult = await request.query(`  
                 SELECT   
@@ -64,7 +64,7 @@ class ProductsModel {
         } catch (err) {
             console.error('Error in Query: getProduceData', err)
             throw err
-        }
+        }  
     }
 } 
 

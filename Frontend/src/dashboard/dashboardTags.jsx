@@ -146,7 +146,7 @@ const DashboardTags = () => {
             {/* <div className="lines categories">
                     
             </div> */}
-            <br />
+        
         </>
     );
 }

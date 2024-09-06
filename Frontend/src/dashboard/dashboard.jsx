@@ -15,12 +15,11 @@ const Dashboard = () => {
                 <ProductChart />
                 <SoldChart />
             </div>
-
+            <br /><br />
             <div className="chart">
                 
                 
             </div>
-            <br />
             <InsigImage />
         </>
     );
