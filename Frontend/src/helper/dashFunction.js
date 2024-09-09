@@ -58,7 +58,6 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
             lastYearDates[`lastDate${i + 1}`] = lastYearDate.add(1, 'days').format('jYYYY/jMM/jDD');  
         }  
       
-        if (day === 'day') {
             return setDates({
                 ...newDates,
                 ...lastYearDates,
@@ -68,10 +67,39 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
                 lastEndDate: newDates['date2'],
                 searchType: day //مشخص کردن نوع جستجو برای سمت سرور
             });
-        }
- 
     };
 
+    /* ******************************* Get 12 Month **************************************** */  
+    const get12Months = (theDayBefore, month,startDate, lastStartDate, lastEndDate) => {  
+        const date = moment(theDayBefore, 'jYYYY/jMM/jDD');  
+    
+        const newDates = {};  
+        const lastYearDates = {}; 
+        
+        let day = theDayBefore.split('/')
+        const fixedDay = day[2]; // استخراج روز ثابت   
+    
+        for (let i = 0; i < 12; i++) {  
+            // تنظیم ماه و روز ثابت  
+            const previousDate = moment(date).subtract(i, 'months');   
+            const lastYearDate = previousDate.clone().subtract(1, 'years');  
+    
+            newDates[`date${i + 1}`] = previousDate.format(`jYYYY/jMM/${fixedDay}`);  
+            lastYearDates[`lastDate${i + 1}`] = lastYearDate.format(`jYYYY/jMM/${fixedDay}`);  
+        }  
+         
+        return setDates({  
+            ...newDates,  
+            ...lastYearDates,  
+            startDate: startDate,  
+            endDate: theDayBefore,  
+            lastStartDate: lastStartDate,  
+            lastEndDate: lastEndDate,  
+            searchType: month // مشخص کردن نوع جستجو برای سمت سرور  
+        });  
+    };  
+
+/* ************************** filterDateFunction *************************************** */
     const filterDateFunction = (filterDate) => {
         const today = moment()
         const yesterday = today.clone().subtract(1, 'days')
@@ -84,13 +112,10 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
         
         switch (filterDate) {
             case 'Day':
-                get12Days(theDayBefore, 'day')
+                get12Days(theDayBefore, 'Day')
                 break
             case 'Month':
-                setStartDate(beginningOfMonth)
-                setEndDate(theDayBefore)
-                setLastStartDate(PreviousMonth(beginningOfMonth))
-                setLastEndDate(PreviousMonth(theDayBefore))
+                get12Months(theDayBefore, 'Month',beginningOfMonth,PreviousMonth(beginningOfMonth),PreviousMonth(theDayBefore))
                 break
             case 'Year':
                 setStartDate(startOfYear.format('jYYYY/jMM/jDD'))
@@ -113,3 +138,4 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
 } 
 
 export default dashFunction  
+

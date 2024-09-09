@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import axios from "axios"  
 import dashFunction from "../helper/dashFunction"  
 import moment from 'moment-jalaali'  
+import { Alert } from "bootstrap"
 
 export const DashboardContext = createContext()  
 
@@ -39,39 +40,44 @@ const DashboardContextProvider = ({ children }) => {
         try {
             if (dates.startDate && dates.endDate && dates.lastStartDate && dates.lastEndDate) {
                 const response = await axios.post(`${backendUrl}/api/products`, tempDate)
-                setData(response.data)
-                localStorage.setItem('production', JSON.stringify({
-                    TotalProduction: response.data?.TotalProduction,
-                    TotalPlan: response.data?.TotalPlan,
-                    LastTotalProduction: response.data?.LastTotalProduction,
-                    dateToken1: response.data?.dateToken1,
-                    dateToken2: response.data?.dateToken2,
-                    dateToken3: response.data?.dateToken3,
-                    dateToken4: response.data?.dateToken4,
-                    dateToken5: response.data?.dateToken5,
-                    dateToken6: response.data?.dateToken6,
-                    dateToken7: response.data?.dateToken7,
-                    dateToken8: response.data?.dateToken8,
-                    dateToken9: response.data?.dateToken9,
-                    dateToken10: response.data?.dateToken10,
-                    dateToken11: response.data?.dateToken11,
-                    dateToken12: response.data?.dateToken12,
-                    dateToken13: response.data?.dateToken13,
-                    dateToken14: response.data?.dateToken14,
-                    dateToken15: response.data?.dateToken15,
-                    dateToken16: response.data?.dateToken16,
-                    dateToken17: response.data?.dateToken18,
-                    dateToken18: response.data?.dateToken18,
-                    dateToken19: response.data?.dateToken19,
-                    dateToken20: response.data?.dateToken20,
-                    dateToken21: response.data?.dateToken21,
-                    dateToken22: response.data?.dateToken22,
-                    dateToken23: response.data?.dateToken23,
-                    dateToken24: response.data?.dateToken24,
-                }))
+                if (response.data && Object.keys(response.data).length > 0) {
+                    setData(response.data)
+                    localStorage.setItem('production', JSON.stringify({
+                        TotalProduction: response.data?.TotalProduction,
+                        TotalPlan: response.data?.TotalPlan,
+                        LastTotalProduction: response.data?.LastTotalProduction,
+                        dateToken1: response.data?.dateToken1,
+                        dateToken2: response.data?.dateToken2,
+                        dateToken3: response.data?.dateToken3,
+                        dateToken4: response.data?.dateToken4,
+                        dateToken5: response.data?.dateToken5,
+                        dateToken6: response.data?.dateToken6,
+                        dateToken7: response.data?.dateToken7,
+                        dateToken8: response.data?.dateToken8,
+                        dateToken9: response.data?.dateToken9,
+                        dateToken10: response.data?.dateToken10,
+                        dateToken11: response.data?.dateToken11,
+                        dateToken12: response.data?.dateToken12,
+                        dateToken13: response.data?.dateToken13,
+                        dateToken14: response.data?.dateToken14,
+                        dateToken15: response.data?.dateToken15,
+                        dateToken16: response.data?.dateToken16,
+                        dateToken17: response.data?.dateToken18,
+                        dateToken18: response.data?.dateToken18,
+                        dateToken19: response.data?.dateToken19,
+                        dateToken20: response.data?.dateToken20,
+                        dateToken21: response.data?.dateToken21,
+                        dateToken22: response.data?.dateToken22,
+                        dateToken23: response.data?.dateToken23,
+                        dateToken24: response.data?.dateToken24,
+                    }))
+                } else {
+                    Alert("داده ای واکشی نشد. مجددا تلاش کنید");  // نمایش پیام خطا  
+                }
             }
             if (!data) {
                 localStorage.setItem('production', JSON.stringify({}))
+                Alert("داده ای واکشی نشد. مجددا تلاش کنید"); 
             }
         } catch (error) {
             console.error(error)
@@ -101,9 +107,9 @@ const DashboardContextProvider = ({ children }) => {
        
     }, [filterDate, dates?.startDate, dates?.endDate, dates?.lastStartDate, dates?.lastEndDate])
 
-    useEffect(() => {  
-        fetchData(); 
-    }, [dates]);  
+    useEffect(() => {
+        fetchData();
+    }, [dates]);
 
     useEffect(() => {
         const checkDateChange = () => {
