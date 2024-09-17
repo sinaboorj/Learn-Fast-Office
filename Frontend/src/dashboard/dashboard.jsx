@@ -1,10 +1,14 @@
 import InsigImage from "../public/insigImage";
 import '../sass/dashboard.scss'
 import DashboardTags from "./dashboardTags";
-import OperationalEfficincyChart from "./operationalEfficincyChart";
+import OperationalEfficiency from "./operationalEfficiency";
 import ProductChart from "./productChart";
-import ProductEfficincyChart from "./productEfficincyChart";
+import ProductionEfficiency from "./productionEfficiency";
 import SoldChart from "./soldChart";
+import '../sass/efficiency.scss'
+import OutStopProduction from "./outStopProduction";
+import OutLostP from "./outLostP";
+
 
 const Dashboard = () => {
 
@@ -16,10 +20,17 @@ const Dashboard = () => {
                 <SoldChart />
             </div>
             <br /><br />
+            <hr />
             <div className="chart">
-                
-                
+                <ProductionEfficiency />
+                <OperationalEfficiency />
             </div>
+            <hr />
+            <div className="chart">
+                <OutStopProduction />
+                <OutLostP />
+            </div>
+            <br />
             <InsigImage />
         </>
     );

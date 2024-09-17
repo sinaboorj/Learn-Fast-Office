@@ -3,12 +3,25 @@ import { poolPromise } from '../config/sqlConnection.js';
 class ProductsModel {
 
     static getProducts = async (dateParams, lastDateParams, dateRanges, searchType) => {
+        console.clear()
+        function formatNumber(num) {  
+            return num < 10 ? `0${num}` : num; // اگر عدد کمتر از 10 باشد، با صفر پر کند  
+        }
+
+        function getLastDayOfShamsiDate(dateString) {  
+            const [yearStr, monthStr] = dateString.split('/');  
+            const year = parseInt(yearStr);  
+            const month = parseInt(monthStr);  
         
-        function getFirstDayOfMonth(shamsiDate) {  // برگرداندن ابتدای ماه  
-            const [year, month] = shamsiDate.split('/').map(Number);  
-            const formattedMonth = String(month).padStart(2, '0'); // فرمت کردن ماه  
-            return `${year}/${formattedMonth}/01`;  
-        }  
+            // تعداد روزهای هر ماه در سال شمسی (6 ماه اول 31 روزه، 6 ماه بعد 30 روزه)  
+            const daysInMonth = [0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30]; // 0-indexed, 12 ماه  
+        
+            // تاریخ آخرین روز ماه  
+            const lastDay = daysInMonth[month];  
+        
+            // برگرداندن تاریخ به صورت رشته 10 کاراکتری  
+            return `${year}/${formatNumber(month)}/${formatNumber(lastDay)}`;  
+        }
 
         try {
             const pool = await poolPromise;
@@ -21,12 +34,12 @@ class ProductsModel {
 
             dateParams.forEach((date, index) => {
                 request.input(`date${index + 1}`, date)
-                if (searchType === 'Month') { request.input(`start_A${index + 1}`, getFirstDayOfMonth(date)) }
+                if (searchType === 'Month') { request.input(`end_A${index + 1}`, getLastDayOfShamsiDate(date)) }
             })
 
             lastDateParams.forEach((date, index) => {
                 request.input(`lastDate${index + 1}`, date)
-                if (searchType === 'Month') { request.input(`start_B${index + 1}`, getFirstDayOfMonth(date)) }
+                if (searchType === 'Month') { request.input(`end_B${index + 1}`, getLastDayOfShamsiDate(date)) }
             })
 
             const currentResult = await request.query(`  
@@ -61,25 +74,26 @@ class ProductsModel {
                     result[`dateToken${i + 1}`] = Math.round((dailyResult.recordset[0]?.tolid) / 1000) || 0
                 }
 
-                for (let i = 0; i < lastDateParams.length; i++) {
-                    const dailyResult = await request.query(`  
-                        SELECT SUM(Estandard) AS lastTolid   
-                        FROM tb_Produce   
-                        WHERE [Date] BETWEEN @lastDate${i + 1} AND @lastDate${i + 1}  
-                    `);
-                    result[`dateToken${i + 12 + 1}`] = Math.round((dailyResult.recordset[0]?.lastTolid) / 1000) || 0
-                }
-            }
+            //     for (let i = 0; i < lastDateParams.length; i++) { //12 روز سال قبل 
+            //         const dailyResult = await request.query(`  
+            //             SELECT SUM(Estandard) AS lastTolid   
+            //             FROM tb_Produce   
+            //             WHERE [Date] BETWEEN @lastDate${i + 1} AND @lastDate${i + 1}  
+            //         `);
+            //         result[`dateToken${i + 12 + 1}`] = Math.round((dailyResult.recordset[0]?.lastTolid) / 1000) || 0
+            //     }
+            
+             }
 
             /* ******************************* Month ************************************************** */
 
-            if (searchType === 'Month') {
+            if (searchType === 'Month') { 
                  
                 for (let i = 0; i < dateParams.length; i++) {
                     const dailyResult = await request.query(`  
             SELECT SUM(Estandard) AS tolid   
             FROM tb_Produce   
-            WHERE [Date] BETWEEN @start_A${i + 1} AND @date${i + 1}  
+            WHERE [Date] BETWEEN @date${i + 1} AND @end_A${i + 1}  
            `)
                     result[`dateToken${i + 1}`] = Math.round((dailyResult.recordset[0]?.tolid) / 1000) || 0
                 }
@@ -88,11 +102,13 @@ class ProductsModel {
                     const dailyResult = await request.query(`  
             SELECT SUM(Estandard) AS lastTolid   
             FROM tb_Produce   
-            WHERE [Date] BETWEEN @start_B${i + 1} AND @lastDate${i + 1}  
+            WHERE [Date] BETWEEN @lastDate${i + 1} AND @end_B${i + 1}  
             `)
                     result[`dateToken${i + 12 + 1}`] = Math.round((dailyResult.recordset[0]?.lastTolid) / 1000) || 0
                 }
             }
+             console.log(dateParams)
+           // console.log(result) 
 
             return result
 

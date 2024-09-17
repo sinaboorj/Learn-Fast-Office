@@ -6,7 +6,8 @@ import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
 import 'react-calendar/dist/Calendar.css'; // استایل‌های پیش‌فرض
 import ShowDashboardDate from './showDashboardDate';
-import dashFunction from '../helper/dashFunction';
+import dashboardFunction from '../helper/dashboardFunction';
+
 
 const DashboardTags = () => {
     const { lang } = useContext(PublicContext);
@@ -51,7 +52,7 @@ const DashboardTags = () => {
     let Lastproduction = Math.round((data.LastTotalProduction) / 1000)// تولید قبل
     let growth = Math.round((production - Lastproduction) / Lastproduction * 100)// رشد
 
-    const { seperatorNumber } = dashFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { seperatorNumber } = dashboardFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
     
     production = seperatorNumber(production)
     plan = seperatorNumber(plan)

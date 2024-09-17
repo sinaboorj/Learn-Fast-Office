@@ -1,6 +1,6 @@
 import moment from 'moment-jalaali'  
 
-const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
+const dashboardFunction = ({ dates, setDates, customStartDate,custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate }) => {
 
     const PreviousMonth = (dateString) => {
         const parts = dateString.split('/')
@@ -35,27 +35,27 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
     
     const seperatorNumber=(num)=> {  
         if (num < 1000) {  
-            return num.toString();  
+            return num.toString()  
         }  
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");  
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
     }  
 
     /* ******************************* Get 12 Day **************************************** */
     const get12Days = (theDayBefore, day) => {  
-        const date = moment(theDayBefore, 'jYYYY/jMM/jDD');  
+        const date = moment(theDayBefore, 'jYYYY/jMM/jDD')  
 
         const newDates = {};  
         const lastYearDates = {};  
 
         // شامل کردن تاریخ ورودی به عنوان تاریخ اول  
-        newDates[`date1`] = date.format('jYYYY/jMM/jDD');  
-        lastYearDates[`lastDate1`] = date.clone().subtract(1,'year').add(1, 'days').format('jYYYY/jMM/jDD');  
+        newDates[`date1`] = date.format('jYYYY/jMM/jDD')  
+        lastYearDates[`lastDate1`] = date.clone().subtract(1,'year').add(1, 'days').format('jYYYY/jMM/jDD')  
         for (let i = 1; i <= 11; i++) {  
-            const previousDate = date.clone().subtract(i, 'days');  
-            const lastYearDate = previousDate.clone().subtract(1, 'years');  
+            const previousDate = date.clone().subtract(i, 'days')  
+            const lastYearDate = previousDate.clone().subtract(1, 'years')  
 
-            newDates[`date${i + 1}`] = previousDate.format('jYYYY/jMM/jDD');  
-            lastYearDates[`lastDate${i + 1}`] = lastYearDate.add(1, 'days').format('jYYYY/jMM/jDD');  
+            newDates[`date${i + 1}`] = previousDate.format('jYYYY/jMM/jDD')  
+            lastYearDates[`lastDate${i + 1}`] = lastYearDate.add(1, 'days').format('jYYYY/jMM/jDD')  
         }  
       
             return setDates({
@@ -66,47 +66,67 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
                 lastStartDate: newDates['date2'],
                 lastEndDate: newDates['date2'],
                 searchType: day //مشخص کردن نوع جستجو برای سمت سرور
-            });
+            })
     };
 
     /* ******************************* Get 12 Month **************************************** */  
-    const get12Months = (theDayBefore, month,startDate, lastStartDate, lastEndDate) => {  
-        const date = moment(theDayBefore, 'jYYYY/jMM/jDD');  
-    
-        const newDates = {};  
-        const lastYearDates = {}; 
+      
+    const get12Months = (theDayBefore, month, startDate, lastStartDate, lastEndDate) => {
+        const date = moment(theDayBefore, 'jYYYY/jMM/jDD')
+        const newDates = {};
+        const lastYearDates = {};
         
-        let day = theDayBefore.split('/')
-        const fixedDay = day[2]; // استخراج روز ثابت   
-    
-        for (let i = 0; i < 12; i++) {  
-            // تنظیم ماه و روز ثابت  
-            const previousDate = moment(date).subtract(i, 'months');   
-            const lastYearDate = previousDate.clone().subtract(1, 'years');  
-    
-            newDates[`date${i + 1}`] = previousDate.format(`jYYYY/jMM/${fixedDay}`);  
-            lastYearDates[`lastDate${i + 1}`] = lastYearDate.format(`jYYYY/jMM/${fixedDay}`);  
-        }  
-         
-        return setDates({  
-            ...newDates,  
-            ...lastYearDates,  
-            startDate: startDate,  
-            endDate: theDayBefore,  
-            lastStartDate: lastStartDate,  
-            lastEndDate: lastEndDate,  
+        let D = (date.clone().startOf('jYear').add(3, 'days').subtract(1, 'months').startOf('jMonth')).format('jYYYY/jMM/jDD')
+        D = moment(D, 'jYYYY/jMM/jDD')
+
+        // تعداد ماه هایی که باید صفر شوند
+        const remainingMonths = 12 - date.jMonth() - 1;
+        
+        //تعداد ماه هایی که باید داده بگیرند
+        let counter = ((date.clone()).format('jYYYY/jMM/jDD')).split('/');
+        counter = parseInt(counter[1])
+
+
+        // 0 کردن ماه‌های باقی‌مانده تا پایان سال  
+        for (let i = 1; i <= remainingMonths; i++) {
+            newDates[`date${i}`] = "0000/00/00";
+        }
+
+        // ماه هایی که تاریخ را به صورت صعودی میگیرند
+        for (let i = 1; i < counter; i++) {
+            const calculatedDate = date.clone().add(3, 'days').subtract(i , 'months').startOf('jMonth') // برای محاسبه درست تاریخ‌ها  
+            newDates[`date${remainingMonths + 1 + i}`] = calculatedDate.format('jYYYY/jMM/jDD')
+        }
+
+        // تاریخ ابتدایی ماه جاری  
+        newDates[`date${remainingMonths + 1}`] = date.clone().add(3, 'days').startOf('jMonth').format('jYYYY/jMM/jDD')
+
+        // محاسبه برای ماه‌های قبل در سال قبل
+        for (let i = 0; i < 12; i++) {
+            const startOfMonth = moment(D).add(3, 'days').subtract(i, 'months').startOf('jMonth')
+            lastYearDates[`lastDate${i + 1}`] = startOfMonth.format('jYYYY/jMM/jDD')
+        }
+
+        return setDates({
+            ...newDates,
+            ...lastYearDates,
+            startDate: startDate,
+            endDate: theDayBefore,
+            lastStartDate: lastStartDate,
+            lastEndDate: lastEndDate,
             searchType: month // مشخص کردن نوع جستجو برای سمت سرور  
-        });  
-    };  
+        })
+    } 
+
 
 /* ************************** filterDateFunction *************************************** */
     const filterDateFunction = (filterDate) => {
         const today = moment()
         const yesterday = today.clone().subtract(1, 'days')
-        let twoDaysAgo = today.clone().subtract(2, 'days');
+        let twoDaysAgo = today.clone().subtract(2, 'days')
       
         const startOfYear = moment(`${today.jYear()}/01/01`, 'jYYYY/jMM/jDD')
-        const beginningOfMonth = formatDateString(today.startOf('jMonth').format('jYYYY/jM/jD'))
+        const beginningOfMonth = formatDateString(yesterday.startOf('jMonth').format('jYYYY/jM/jD'))
         const theDayBefore = formatDateString(yesterday.format('jYYYY/jM/jD'))
         twoDaysAgo = formatDateString(twoDaysAgo.format('jYYYY/jM/jD'))
         
@@ -137,5 +157,7 @@ const dashFunction = ({ dates, setDates, customStartDate,custemEndDate, setStart
     return { filterDateFunction, seperatorNumber }
 } 
 
-export default dashFunction  
+export default dashboardFunction  
+
+
 

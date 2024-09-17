@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { DashboardContext } from "../context/dashboardContext";  
 import { PublicContext } from "../context/publicContext";  
 import Strings from "../helper/strings";  
-import dashFunction from "../helper/dashFunction";
+import dashboardFunction from "../helper/dashboardFunction";
 
 const ShowDashboardDate = () => {
     const { lang } = useContext(PublicContext)
@@ -11,7 +11,7 @@ const ShowDashboardDate = () => {
         submitCustomDate, dates, setDates, selectedOptionCombo, setSelectedOptionCombo
     } = useContext(DashboardContext)
    
-    const { filterDateFunction } = dashFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { filterDateFunction } = dashboardFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
 
     const formatDate = (value) => {

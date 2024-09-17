@@ -31,7 +31,7 @@ const DateFilter = () => {
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value='Day'
+                            value={filterDate}
                             checked={filterDate === 'Day'}
                             onChange={() => handleChange('Day')}
                         /> {Strings.Day}
@@ -40,7 +40,7 @@ const DateFilter = () => {
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value='Month'
+                            value={filterDate}
                             checked={filterDate === 'Month'}
                             onChange={() => handleChange('Month')}
                         /> {Strings.Month}
@@ -49,7 +49,7 @@ const DateFilter = () => {
                         <input
                             style={{ marginRight: '3px' }}
                             type="radio"
-                            value='Year'
+                            value={filterDate}
                             checked={filterDate === 'Year'}
                             onChange={() => handleChange('Year')}
                         /> {Strings.Year}

@@ -5,18 +5,79 @@ import { DashboardContext } from '../context/dashboardContext';
 import { PublicContext } from '../context/publicContext';
 
 const SoldChart = () => {
+    const { filterDate } = useContext(DashboardContext)
     const { lang } = useContext(PublicContext);
-    const {data } = useContext(DashboardContext)
+
+    let chartData = []
     
-    const chartData = [  
-        { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },  
-        { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },  
-        { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },  
-        { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },  
-        { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },  
-        { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },  
-        { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 },  
-    ];  
+    switch (filterDate) {
+        case 'Day':
+            chartData = [  
+                { name: '01', '1403': 2000, '1402': 2400 },  
+                { name: '02', '1403': 5000, '1402': 6398 },  
+                { name: '03', '1403': 7000, '1402': 1800 },  
+                { name: '04', '1403': 9780, '1402': 7908 },  
+                { name: '05', '1403': 1890, '1402': 7800 },  
+                { name: '06', '1403': 3390, '1402': 8800 },  
+                { name: '07', '1403': 3490, '1402': 1300 },
+                { name: '08', '1403': 5000, '1402': 4000 },
+                { name: '09', '1403': 1490, '1402': 1300 },
+                { name: '10', '1403': 5490, '1402': 5300 },
+                { name: '11', '1403': 4490, '1402': 2300 },  
+                { name: '12', '1403': 4490, '1402': 2300 }, 
+            ];
+            break;
+        case 'Month':
+            chartData = [  
+                { name: '01', '1403': 1000, '1402': 4400 },  
+                { name: '02', '1403': 6000, '1402': 3398 },  
+                { name: '03', '1403': 3000, '1402': 8800 },  
+                { name: '04', '1403': 2780, '1402': 2908 },  
+                { name: '05', '1403': 8890, '1402': 1800 },  
+                { name: '06', '1403': 7390, '1402': 6800 },  
+                { name: '07', '1403': 5490, '1402': 3300 },
+                { name: '08', '1403': 3490, '1402': 8300 },
+                { name: '09', '1403': 5090, '1402': 4300 },
+                { name: '10', '1403': 9490, '1402': 9300 },
+                { name: '11', '1403': 2490, '1402': 2300 },  
+                { name: '12', '1403': 4490, '1402': 2300 }, 
+            ];
+            break;
+        case 'Year':
+            chartData = [  
+                { name: '01', '1403': 4000, '1402': 7400 },  
+                { name: '02', '1403': 7000, '1402': 4398 },  
+                { name: '03', '1403': 2000, '1402': 3800 },  
+                { name: '04', '1403': 5780, '1402': 2908 },  
+                { name: '05', '1403': 7890, '1402': 5800 },  
+                { name: '06', '1403': 9390, '1402': 8800 },  
+                { name: '07', '1403': 2490, '1402': 5300 },
+                { name: '08', '1403': 5000, '1402': 3000 },
+                { name: '09', '1403': 1490, '1402': 2300 },
+                { name: '10', '1403': 8490, '1402': 8300 },
+                { name: '11', '1403': 3490, '1402': 6300 },    
+                { name: '12', '1403': 4490, '1402': 2300 }, 
+            ];
+            break;
+        case 'Custom':
+            chartData = [  
+                { name: '01', '1403': 3000, '1402': 2400 },  
+                { name: '02', '1403': 5000, '1402': 798 },  
+                { name: '03', '1403': 7000, '1402': 3800 },  
+                { name: '04', '1403': 4780, '1402': 6908 },  
+                { name: '05', '1403': 3890, '1402': 7800 },  
+                { name: '06', '1403': 1390, '1402': 4800 },  
+                { name: '07', '1403': 7490, '1402': 6300 },
+                { name: '08', '1403': 8490, '1402': 2300 },
+                { name: '09', '1403': 1090, '1402': 7300 },
+                { name: '10', '1403': 3490, '1402': 4300 },
+                { name: '11', '1403': 7490, '1402': 6300 }, 
+                { name: '12', '1403': 4490, '1402': 2300 }, 
+            ];
+            break;
+    }
+    
+  
       
     return (
         <>
@@ -29,8 +90,8 @@ const SoldChart = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="#8884d8" stroke="#8884d8" />} />
-                    <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="#82ca9d" stroke="#82ca9d" />} />
+                    <Bar dataKey='1402' fill="#8884d8" activeBar={<Rectangle fill="#8884d8" stroke="#8884d8" />} />
+                    <Bar dataKey='1403' fill="#82ca9d" activeBar={<Rectangle fill="#82ca9d" stroke="#82ca9d" />} />
                 </BarChart>
             </ResponsiveContainer>
         </>

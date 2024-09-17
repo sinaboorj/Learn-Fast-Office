@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import '../sass/footer.scss';
 import {  FaMapPin, FaInfoCircle} from 'react-icons/fa';
 import { UserContext } from '../context/userContext';
-import darkLogo from '../../public/sysImage/darkLogo.jpg'
-import INSIGmain1 from '../../public/sysImage/INSIGmain1.jpg'
+import darkLogo from '/sysImage/darkLogo.jpg'
+import INSIGmain1 from '/sysImage/INSIGmain1.jpg'
 import { Link } from 'react-router-dom';
 import { PublicContext } from '../context/publicContext';
 

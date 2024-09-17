@@ -41,12 +41,16 @@ img.resume-pic {
 .resume-text-en {  
     margin-bottom: 30px;  
 }  
-
+.skills {
+    margin: 10px 5px;
+    width: 220px;
+}
 .resume-text-fa {  
     margin-bottom: 20px;  
     direction: rtl;  
     font-family: system-ui;  
-    font-size: 14px;  
+    font-size: 14px;
+    line-height: 32px;  
 }  
 
 .contact-about {  

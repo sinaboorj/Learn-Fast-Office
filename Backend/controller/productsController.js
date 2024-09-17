@@ -29,6 +29,7 @@ const products = trycatchHandler(async (req, res, next) => {
     if (!totalTB) {  
         return res.status(404).send({ GetData: false, title: 'Error', msg: `No data found for the given dates.` });  
     }  
+    
         return res.send(totalTB);  
 }
 );  

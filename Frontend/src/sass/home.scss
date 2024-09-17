@@ -19,7 +19,7 @@
 }
 .home-text2{
     color: $fontColor-primary;
-    font-family:'Vazir';
+    font-family:'IRANSanazWeb';
     font-weight: 600;
     font-size: 18px;
 }
@@ -31,3 +31,33 @@
    flex-direction: column;
    align-items: center;
 } 
+.goal {
+    background: #2b2b2b;
+    color: #017c4d;
+    padding: 7px 12px;
+    width: 98%;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-family: 'Vazir';
+}
+.targets {
+    width: 96%;
+    color: $fontColor-primary;
+    margin: auto;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-family: 'IRANSanazWeb';
+    li {
+        margin-bottom: 10px;
+    }
+}
+span.target-title {
+    font-weight: bold;
+    margin: 0 0px 0px 3px;
+    font-size: 14px;
+    font-family: 'IRANSanazWeb';
+    color: #017c4d;
+}

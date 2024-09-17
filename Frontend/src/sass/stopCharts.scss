@@ -1,0 +1,39 @@
+@import '_variable.scss';
+
+.stop-in {
+    color: $fontColor-primary;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+}
+.table-title {  
+    text-align: center;  
+  }  
+  
+  .custom-table {  
+    width: 100%;  
+    border-collapse: collapse;  
+    margin: 0 auto;  
+  }  
+
+  .custom-table th {  //عنوان
+    background-color: rgb(169 169 167);
+    color: rgb(47 45 45);
+    font-weight: 300;
+    font-family: 'IRANSanazWeb';
+    font-size: 15px;
+  }  
+  
+  .custom-table th, .custom-table td { //بدنه جدول 
+    border: 1px solid rgba(241, 241, 241, 0.6352941176);
+    padding: 5px;
+    text-align: center;
+    font-family: 'IRANSanazWeb';
+    font-size: 14px;
+  }  
+
+  .custom-table tr:hover {  
+    background-color: rgb(4, 65, 24);  
+  } 

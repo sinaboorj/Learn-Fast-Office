@@ -7,9 +7,9 @@ const Strings = new LocalizedStrings({
     Dashboard: "Dashboard",
     // ********************************************** Sina About *************************************
     Sina_1:
-      "I am a software engineer and I have been working as a programmer in the central planning department of INSIG Steel Company in Ahvaz, Iran for about 15 years.",
+      "I am a software engineer and I have been working as a data analyst in the central planning department of INSIG Steel Company in Ahvaz, Iran for about 15 years.",
     Sina_2:
-      " My main interest and expertise is web design and programming. All parts of this site (Database, Frontend and Backend) have",
+      " My main interest and expertise is programming, design and data analysis. All parts of this site (Database, Frontend and Backend) have",
     Sina_3:
       "All parts of this site (Database, Frontend and Backend) have been designed, programmed and implemented by myself.",
     FILTER: "FILTER DATE",
@@ -27,7 +27,8 @@ const Strings = new LocalizedStrings({
     Ok: 'Ok',
     ProductionChartTitle: 'Production trend chart',
     SaleChartTitle: 'Sales trend chart',
-    HelpTextDateInDashboard:'Enter the date into the solar date',
+    HelpTextDateInDashboard: 'Enter the date into the solar date',
+    Target_title:'Goals:',
   },
 
   fa: {
@@ -37,8 +38,8 @@ const Strings = new LocalizedStrings({
 
     // ********************************************** Sina About *************************************
     Sina_1:
-      "مهندس نرم افزار هستم و حدود 15 سال است که به عنوان برنامه نویس در بخش برنامه ريزي مركزي شرکت فولاد INSIG در اهواز، ایران كار ميكنم.",
-    Sina_2: " علاقه و تخصص اصلي من طراحي و برنامه نويسي وب ميباشد.",
+      "مهندس نرم افزار هستم و حدود 15 سال است که به عنوان تحلیلگر داده در بخش برنامه ريزي مركزي شرکت گروه ملی صنعتی فولاد ایران (INSIG) در اهواز، ایران كار ميكنم.",
+    Sina_2: " علاقه و تخصص اصلي من برنامه نويسي، طراحی و تحلیل دادها ميباشد.",
     Sina_3:
       " تمامي بخش هاي اين سايت (Database  وFrontend و Backend )  توسط خودم طراحي، برنامه نويسي و پياده سازي شده است.",
     FILTER: "فیلتر تاریخ",
@@ -56,7 +57,8 @@ const Strings = new LocalizedStrings({
     Ok: 'تایید',
     ProductionChartTitle: 'نمودار روند تولیدات',
     SaleChartTitle: 'نمودار روند فروش',
-    HelpTextDateInDashboard:'تاریخ را به شمسی وارد کنید.',
+    HelpTextDateInDashboard: 'تاریخ را به شمسی وارد کنید.',
+    Target_title:'اهداف:',
   },
 });
 

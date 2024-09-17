@@ -1,6 +1,7 @@
 
 import '../sass/about.scss'
-import sina from '../../public/sysImage/Sina.png'
+import sina from '/sysImage/Sina.png'
+import skills from '/sysImage/skills.png'
 import { useContext, useEffect } from 'react'
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
@@ -15,7 +16,7 @@ const About = () => {
     useEffect(() => {
         window.scrollTo({
             top: 180,
-            behavior: 'smooth' 
+            behavior: 'smooth'
         });
     }, [])
 
@@ -31,13 +32,17 @@ const About = () => {
                     <span>{Strings.Sina_2}</span>
                     <span>{Strings.Sina_3}</span>
                 </div>
-                
+                <div style={{ width: '100%', display: 'flex', alignItems: 'flex-start' }}>
+                    <img className="skills" src={skills} alt="Sina picture profile" />
+                </div>
+                <br />
                 <div className="contact-about">
                     <h6 title='Email'> <FaEnvelope className="about-icon" /> Email : sina_boorj@yahoo.com</h6>
                     <h6 title='Skype'> <FaSkype className="about-icon" /> Skype : live:.cid.75d52dccd1467185</h6>
                     <h6 title='Linkedin'><FaLinkedin className="about-icon" /> Linkedn <a href="https://www.linkedin.com/in/hossein-zarei-462a8a215/"></a></h6>
                     <h6 title='Github'><FaGithub className="about-icon" /> GitHub <a href="https://github.com/sinaboorj/Learn-Fast-Office"> </a></h6>
                 </div>
+                <hr />
                 <br /><br />
                 <AboutSite />
             </div>

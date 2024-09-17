@@ -1,8 +1,9 @@
 import { createContext, useEffect, useState } from "react"  
 import axios from "axios"  
-import dashFunction from "../helper/dashFunction"  
+
 import moment from 'moment-jalaali'  
 import { Alert } from "bootstrap"
+import dashboardFunction from "../helper/dashboardFunction"
 
 export const DashboardContext = createContext()  
 
@@ -25,7 +26,7 @@ const DashboardContextProvider = ({ children }) => {
         startDate: '', endDate: '', lastStartDate: '', lastEndDate: '', searchType: ''
     })
 
-    const { filterDateFunction } = dashFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
+    const { filterDateFunction } = dashboardFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })
 
     const backendUrl = 'http://localhost:3000'
 
@@ -35,6 +36,9 @@ const DashboardContextProvider = ({ children }) => {
             lastDate1: dates.lastDate1, lastDate2: dates.lastDate2, lastDate3: dates.lastDate3, lastDate4: dates.lastDate4, lastDate5: dates.lastDate5, lastDate6: dates.lastDate6, lastDate7: dates.lastDate7, lastDate8: dates.lastDate8, lastDate9: dates.lastDate9, lastDate10: dates.lastDate10, lastDate11: dates.lastDate11, lastDate12: dates.lastDate12,
             startDate: dates.startDate, endDate: dates.endDate, lastStartDate: dates.lastStartDate, lastEndDate: dates.lastEndDate, searchType: dates.searchType
         }
+
+        console.clear();
+        console.log(tempDate)
         
         setDashboardLoading(true)
         try {

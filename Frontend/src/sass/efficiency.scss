@@ -1,0 +1,11 @@
+@import "variable.scss";
+
+.efficiency{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $fontColor-primary;
+    font-family: 'IRANSanazWeb';
+    font-size: 14px;
+    margin: 15px auto;
+}

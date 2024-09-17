@@ -171,6 +171,11 @@ option.line-combo-open {
 select {
     word-wrap: normal;
     border-radius: 3px;
+    background-color: black;
+    color: $fontColor-primary;
+    &:hover {
+        cursor: pointer;
+    }
 }
 .chart{
     display: flex;
