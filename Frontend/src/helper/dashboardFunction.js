@@ -58,6 +58,10 @@ const dashboardFunction = ({ dates, setDates, customStartDate,custemEndDate, set
             lastYearDates[`lastDate${i + 1}`] = lastYearDate.add(1, 'days').format('jYYYY/jMM/jDD')  
         }  
       
+      //  console.clear();
+        console.log(newDates)
+        console.log(theDayBefore)
+
             return setDates({
                 ...newDates,
                 ...lastYearDates,
@@ -106,7 +110,7 @@ const dashboardFunction = ({ dates, setDates, customStartDate,custemEndDate, set
             const startOfMonth = moment(D).add(3, 'days').subtract(i, 'months').startOf('jMonth')
             lastYearDates[`lastDate${i + 1}`] = startOfMonth.format('jYYYY/jMM/jDD')
         }
-
+        
         return setDates({
             ...newDates,
             ...lastYearDates,
@@ -123,13 +127,13 @@ const dashboardFunction = ({ dates, setDates, customStartDate,custemEndDate, set
     const filterDateFunction = (filterDate) => {
         const today = moment()
         const yesterday = today.clone().subtract(1, 'days')
-        let twoDaysAgo = today.clone().subtract(2, 'days')
+        let twoDaysAgo = ''
       
-        const startOfYear = moment(`${today.jYear()}/01/01`, 'jYYYY/jMM/jDD')
-        const beginningOfMonth = formatDateString(yesterday.startOf('jMonth').format('jYYYY/jM/jD'))
-        const theDayBefore = formatDateString(yesterday.format('jYYYY/jM/jD'))
-        twoDaysAgo = formatDateString(twoDaysAgo.format('jYYYY/jM/jD'))
-        
+        const startOfYear = formatDateString((yesterday.clone().startOf('jYear')).format('jYYYY/jM/jD'))
+        const beginningOfMonth = formatDateString((yesterday.startOf('jMonth')).format('jYYYY/jM/jD'))
+        const theDayBefore = formatDateString((today.clone().subtract(1, 'days')).format('jYYYY/jM/jD'))
+        twoDaysAgo = formatDateString((today.clone().subtract(2, 'days')).format('jYYYY/jM/jD'))
+
         switch (filterDate) {
             case 'Day':
                 get12Days(theDayBefore, 'Day')
