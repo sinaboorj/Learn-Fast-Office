@@ -32,20 +32,17 @@ const DashboardContextProvider = ({ children }) => {
 
     const fetchData = async () => {
         const tempDate = {
-            date1: dates.date1, date2: dates.date2, date3: dates.date3, date4: dates.date4, date5: dates.date5, date6: dates.date6, date7: dates.date7, date8: dates.date8, date9: dates.date9, date10: dates.date10, date11: dates.date11, date12: dates.date12,
-            lastDate1: dates.lastDate1, lastDate2: dates.lastDate2, lastDate3: dates.lastDate3, lastDate4: dates.lastDate4, lastDate5: dates.lastDate5, lastDate6: dates.lastDate6, lastDate7: dates.lastDate7, lastDate8: dates.lastDate8, lastDate9: dates.lastDate9, lastDate10: dates.lastDate10, lastDate11: dates.lastDate11, lastDate12: dates.lastDate12,
-            startDate: dates.startDate, endDate: dates.endDate, lastStartDate: dates.lastStartDate, lastEndDate: dates.lastEndDate, searchType: dates.searchType
+            date1: dates?.date1, date2: dates?.date2, date3: dates?.date3, date4: dates?.date4, date5: dates?.date5, date6: dates?.date6, date7: dates?.date7, date8: dates?.date8, date9: dates?.date9, date10: dates?.date10, date11: dates?.date11, date12: dates?.date12,
+            lastDate1: dates?.lastDate1, lastDate2: dates?.lastDate2, lastDate3: dates?.lastDate3, lastDate4: dates?.lastDate4, lastDate5: dates?.lastDate5, lastDate6: dates?.lastDate6, lastDate7: dates?.lastDate7, lastDate8: dates?.lastDate8, lastDate9: dates?.lastDate9, lastDate10: dates?.lastDate10, lastDate11: dates?.lastDate11, lastDate12: dates?.lastDate12,
+            startDate: dates?.startDate, endDate: dates?.endDate, lastStartDate: dates?.lastStartDate, lastEndDate: dates?.lastEndDate, searchType: dates?.searchType
         }
 
-        console.clear();
-        console.log(tempDate)
-        
         setDashboardLoading(true)
         try {
-            if (dates.startDate && dates.endDate && dates.lastStartDate && dates.lastEndDate) {
+            if (dates.startDate && dates.endDate && dates?.lastStartDate && dates?.lastEndDate) {
                 const response = await axios.post(`${backendUrl}/api/products`, tempDate)
-                if (response.data && Object.keys(response.data).length > 0) {
-                    setData(response.data)
+                if (response?.data && Object.keys(response?.data).length > 0) {
+                    setData(response?.data)
                     localStorage.setItem('production', JSON.stringify({
                         TotalProduction: response.data?.TotalProduction,
                         TotalPlan: response.data?.TotalPlan,

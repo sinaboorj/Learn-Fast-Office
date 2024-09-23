@@ -1,14 +1,15 @@
-$mainBackgroundColor:black; //پس زمينه اصلي
+$mainBackgroundColor:#e9e9e9; //پس زمينه اصلي
+$subMenuBackgroundColor:#c6d2e7; //پس زمینه زیر منو
 $background-header: #252525; // پس زمينه هدر ها با زنگ متفاوت پس زمينه
-$background-menu: #1c1c1c; // پس زمينه هدر ها با زنگ متفاوت پس زمينه
-$fontColor-Second: rgb(247, 211, 11); // فوت با رنگ متفاوت مثلا: در زمينه مشكي فونت آبي
-$fontColor-primary: #f1f1f1a2; // رنگ عمومي فونت ها
+$background-menu: #061552; // پس زمينه هدر ها با زنگ متفاوت پس زمينه
+$fontColor-Second: #f7d30b; // فوت با رنگ متفاوت مثلا: در زمينه مشكي فونت آبي
+$fontColor-primary: #141414e1; // رنگ عمومي فونت ها
 $fontColor-three: rgb(211 211 211 / 64%);
 $fontColor-fourth: rgba(230, 230, 230, 0.767);
 $fontColor-fifth:rgb(235, 235, 235);
 $navbar-color: #212529;
-$loginBtn: rgba(228, 195, 7, 0.74); // كليدهاي  لاگين و رجيستر
-$home-mainObject-color:  rgba(228, 195, 7, 0.74); // رنگ دور موضوعات اصلي صفحه هوم (خانه)
+$loginBtn: blue; // كليدهاي  لاگين و رجيستر
+$home-mainObject-color:  rgba(37, 90, 238, 0.74); //رنگ بیرونی  input ها
 
 $color-navBorder :#4b4d4c; //لوگوي navbar
 

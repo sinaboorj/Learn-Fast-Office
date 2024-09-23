@@ -17,17 +17,18 @@
     font-family: 'Vazir';
     width: 100%;
     padding: 10px;
-    background-color: $background-header;
+    background-color: $mainBackgroundColor;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    outline: solid 1px #262626;
+    border: solid 1px #c1c1c1;
     color: $fontColor-primary;
     font-weight: 200;
-    font-size: 15px;
+    font-size: 14px;
+    .active{
+        font-weight: bold;
+    }
 }
-.active{
-    color: $fontColor-Second;
-}
+
 .sign-form{
     display: flex;
     border-radius: 5px;

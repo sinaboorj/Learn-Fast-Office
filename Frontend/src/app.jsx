@@ -13,7 +13,6 @@ import './sass/font.scss'
 import NotPage from "./pages/notpage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./dashboard/dashboard";
-import TopTextLogo from "./components/topTextLogo";
 import DashboardContextProvider from "./context/dashboardContext";
 
 const App = () => {
@@ -24,7 +23,6 @@ const App = () => {
           <DashboardContextProvider>
             <DropDownMenu />
             <Navbar />
-            <TopTextLogo />
             <Routes>
               <Route index element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />

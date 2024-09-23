@@ -15,7 +15,7 @@ const OutStopProduction = () => {
     { name: 'سایر', value: 400 },
   ];
     
-  const totalValue = data.reduce((acc, entry) => acc + entry.value, 0); 
+  const totalValue = data?.reduce((acc, entry) => acc + entry.value, 0); 
   const COLORS = ['#0d6efd', '#6610f2', '#6c757d', '#dc3545', '#FF6384','red','blue','#198754'];
     
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value, name }) => {
@@ -35,7 +35,7 @@ const OutStopProduction = () => {
         <Pie data={data} cx={150} cy={150} labelLine={true} label={renderCustomizedLabel}
           outerRadius={90} fill="#8884d8" dataKey="value"
         >
-          {data.map((entry, index) => (
+          {data?.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index]} />
           ))}
         </Pie>

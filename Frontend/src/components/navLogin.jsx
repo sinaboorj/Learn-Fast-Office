@@ -6,6 +6,7 @@ import EnFlag from "/sysImage/Englan.png"
 import faFlag from "/sysImage/Iran.png"
 import { PublicContext } from "../context/publicContext";
 import navFunctions from "../helper/navFunctions";
+import logo from '/sysImage/INSIG_PNG.png'
 
 const NavLogin = (props) => {
     const { userData } = useContext(UserContext)
@@ -32,6 +33,10 @@ const NavLogin = (props) => {
                     <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => { setActiveLink('home'); }} style={{ margin: ' 0 3px 0' }}>{Strings.Home}</Link>
                     <Link to='/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveLink('dashboard'); }}>{Strings.Dashboard}</Link>
                 </ul>
+                <div className="moveing-text">
+                    <span className="home-text1">{lang ? 'I N S I G' : 'گروه ملي صنعتي فولاد ايران'} </span>
+                    <img src={logo} width={28} height={28} alt="Logo" />
+                </div>
                 <ul ref={menuRef} className="nav-left">
                     {lang
                         ? <img onClick={() => { setLang(!lang) }} src={faFlag} className="language" title="Change language" alt="language" />
@@ -44,7 +49,7 @@ const NavLogin = (props) => {
                             <li className="subdropdown-item item-email" >{userData?.email}</li>
 
                             <span className="line-seperator" ></span>
-                            <Link to='/login' className="subdropdown-item log-item" onClick={() => { exit(); setIsOpen(!isOpen); setActiveLink('login') }} style={{ color: 'rgb(255 39 39)', fontWeight: '500', marginLeft: '-4px' }}>Exit</Link>
+                            <Link to='/login' className="subdropdown-item log-item" onClick={() => { exit(); setIsOpen(!isOpen); setActiveLink('login') }}>Exit</Link>
                         </ul>
                     )}
                 </ul>

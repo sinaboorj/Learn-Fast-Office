@@ -2,11 +2,12 @@
 
 .register-form{
     width: 100%;
-    border: solid 1px #333333;
+    border: solid 1px #c1c1c1;
     padding-top: 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 20px 0;
+    margin-top: -1px;
 }
 .error-form-register{
   font-size: smaller;
@@ -30,6 +31,7 @@
     flex-direction: column;
     width: calc(100% - 40px);
     align-content: center;
+    font-size: 14px;
 }
 .small-margin{
     margin-bottom: 3px;
@@ -79,7 +81,7 @@
 }
 .input{
     padding: 4px;
-    border: solid 1px rgb(58 58 58);
+    border: solid 1px #c1c1c1;
     border-radius: 3px;
     background-color: $mainBackgroundColor;
     color: #838282;
@@ -100,14 +102,14 @@
 }
 .login-btn {
     background-color:$loginBtn;
-    color: black;
+    color: $mainBackgroundColor;
     border: none;
     border-radius: 3px;
     height: 36px;
 }
 .register-btn{
     background-color: $loginBtn;
-    color: black;
+    color: $mainBackgroundColor;
     padding: 3px;
     border: none; 
     border-radius: 3px;

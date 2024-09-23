@@ -6,13 +6,15 @@
     flex-direction: row;  
     justify-content: space-between;  
     background-color: $background-menu;  
-    height: 52px;  
-    padding: 5px;  
+    height: 41px;  
+    padding: 0px 5px;  
     flex-wrap: wrap;  
     align-content: center;  
     align-items: center;  
-    font-size: 14px;  
+    font-size: 13px;  
     color: rgba(241, 241, 241, 0.637);  
+    border-bottom: solid 1px #1d295b;
+    border-top: solid 2px black;
     /* position: fixed; */  
     /* top: 0; */  
     /* width: 100%; */  
@@ -47,25 +49,24 @@ div.main-nav li {
 }  
 
 .language {  
-    height: 18px;  
-    width: 27px;  
+    height: 15px;  
+    width: 23px;  
     cursor: pointer;  
-    border-radius: 3px;  
-    margin: 0px 20px 0 0;
+    margin: 0px 12px 0 0;
 }  
 
 .navlink {  
     margin: 0 10px;  
-    color: rgba(241, 241, 241, 0.637);  
+    color: $mainBackgroundColor;  
     text-decoration: none;  
 
-    &:hover {  
-        transition: all 0.6s;  
-        color: $fontColor-Second;  
-    }  
+    // &:hover {  
+    //     transition: all 0.6s;  
+    //     color: $fontColor-Second;  
+    // }  
 
     &.active {  
-        color: $fontColor-Second;  
+        font-weight: bold;
     }  
 
     &.diactive {  
@@ -73,9 +74,20 @@ div.main-nav li {
     }  
 }  
 
-.log-item {  
-    padding: 1px 4px;  
-    margin: -2px 0 0;  
+.subdropdown-item.log-item {  
+    color: rgb(255, 39, 39);
+    font-weight: 500;
+    margin: 2px 1px;
+    width: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {  
+        cursor: pointer;  
+        border: solid 1px red;
+        border-radius: 50%;
+        box-shadow: 0 0 10px red;  
+    } 
 }  
 
 .nav-logo {  
@@ -86,20 +98,36 @@ div.main-nav li {
 
 .user-login {  
     border-radius: 50%;  
-    border: solid 2px rgba(228, 195, 7, 0.74);  
+    border: solid 2px $fontColor-Second;  
     display: flex;  
     flex-direction: row;  
-    width: 34px;  
-    height: 34px;  
+    width: 28px;  
+    height: 28px;  
     font-family: sans-serif;
-    font-size: 15px;  
+    font-size: 12px;  
     color: white;  
     justify-content: center;  
-    box-shadow: 0 0 10px rgb(247, 211, 11);  
+    box-shadow: 0 0 10px rgb(214 189 52); 
     text-align: center;  
     align-items: center;  
     margin: auto;
 }  
+
+.home-text1{
+    color: $mainBackgroundColor;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'IRANSanazWeb';
+    margin-right: 4px;
+}
+
+.moveing-text {  
+    /* animation: scroll 40s linear infinite;  زمان حرکت متن را تنظیم کنید */
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+} 
 
 .sort-down {  
     font-size: 15px;  
@@ -109,8 +137,7 @@ div.main-nav li {
 
 .login-icon {  
     font-size: 19px;  
-    border-bottom: $mainBackgroundColor solid 2px !important;  
-    margin-top: 8px;  
+    margin-top: 3px;  
 }  
 
 .nav-left a {  
@@ -131,48 +158,44 @@ div.main-nav li {
 }  
 
 .dropdown-toggle {  
-    border: none;  
     background-color: $background-menu;  
-    color: $fontColor-primary;  
+    color: $mainBackgroundColor;  
     border-radius: 4px;  
-    margin-left: 5px;  
+    margin-left: 3px;
+    padding-right: 1px;
+    padding-left: 1px;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }  
 
 .item-email {  
     cursor: auto !important;  
-    font-size: 15px; 
-
-    &:hover {  
-        background-color: $background-menu !important;  
-    }  
-
+    font-weight: 400;
     text-align: center;  
-    padding: 20px;  
 }  
 
 .subdropdown-menu {  
-    position: absolute;  
-    flex-direction: column;  
-    display: flex;  
-    top: 51px;  
-    right: 1px;  
-    font-size: 14px;  
-    font-weight: 200;  
-    background-color: $background-menu;  
-    padding: 15px;  
-    border-bottom: none;  
-    border-radius: 0 0 5px 0;  
+    position: absolute;
+    flex-direction: column;
+    color: $fontColor-primary;
+    display: flex;
+    top: 41px;
+    right: 0px;
+    font-size: 13px;
+    background-color: $subMenuBackgroundColor;
+    padding: 15px;
+    border-bottom: none;
+    border-radius: 0 0 5px 5px;
     z-index: 1;  
+    height: 110px;
 }  
 
 .subdropdown-item {  
-    padding: 5px 10px;  
-    color: $fontColor-primary;  
-
-    &:hover {  
-        cursor: pointer;  
-        color: $fontColor-primary;  
-    }  
+    padding: 5px 10px;   
 }  
 
 .view-profile {  
@@ -182,10 +205,7 @@ div.main-nav li {
     text-align: center;  
     margin: -5px 10px 10px;  
 }  
-
-svg.svg-inline--fa.fa-circle-user.login-icon {  
-    color: $fontColor-primary;  
-}  
+ 
 
 @media only screen and (min-width: 993px) {  
     .main-nav {  

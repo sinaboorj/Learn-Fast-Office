@@ -46,10 +46,10 @@ const DashboardTags = () => {
                 break;
         }
     
-    let production = Math.round((data.TotalProduction) / 1000)//تولید
-    let plan = Math.round((data.TotalPlan) / 1000)//برنامه
+    let production = Math.round((data?.TotalProduction) / 1000)//تولید
+    let plan = Math.round((data?.TotalPlan) / 1000)//برنامه
     const executionPercent = Math.round((production / plan) * 100)//درصد اجرا
-    let Lastproduction = Math.round((data.LastTotalProduction) / 1000)// تولید قبل
+    let Lastproduction = Math.round((data?.LastTotalProduction) / 1000)// تولید قبل
     let growth = Math.round((production - Lastproduction) / Lastproduction * 100)// رشد
 
     const { seperatorNumber } = dashboardFunction({ dates, setDates, customStartDate, custemEndDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate })

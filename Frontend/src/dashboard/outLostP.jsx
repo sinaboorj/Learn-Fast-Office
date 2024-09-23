@@ -34,8 +34,8 @@ const OutLostP = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map(user => (
-              <tr key={user.id}>
+            {data?.map(user => (
+              <tr key={user.name}>
                 <td>{user.name}</td>
                 <td>{user.value}</td>
                 <td>{user.stop}</td>

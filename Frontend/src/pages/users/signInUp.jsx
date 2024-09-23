@@ -7,7 +7,7 @@ import Home from "../home";
 import { PublicContext } from "../../context/publicContext";
 
 const SignInUp = () => {
-    const { login, setLogin, Msg, messageStatus, setMessageStatus } = useContext(UserContext)
+    const { setLogin, Msg, messageStatus, setMessageStatus } = useContext(UserContext)
     const { lang ,activeLink, setActiveLink  } = useContext(PublicContext);
      
     const handleLinkClick = (link) => {
@@ -24,7 +24,7 @@ const SignInUp = () => {
                             <span className={`sign ${activeLink === 'login' ? 'active' : ''}`} onClick={() => { handleLinkClick('login'); setLogin(true); setMessageStatus(false) }}> {lang ? 'Login' : 'ورود'}</span>
                             <span className={`sign ${activeLink === 'Register' ? 'active' : ''}`}  onClick={() => { handleLinkClick('Register');setLogin(false);  setMessageStatus(false) }}> {lang ? 'Register' : 'ثبت نام'}</span>
                         </div>
-                        {login ? <Login /> : <Register />}
+                        {activeLink === 'login' ? <Login /> : <Register />}
                     </div>
                 </div>
                 {/* *********************************** Add User Msg ********************************  */}

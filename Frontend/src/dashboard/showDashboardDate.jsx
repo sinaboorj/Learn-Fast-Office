@@ -69,14 +69,14 @@ const ShowDashboardDate = () => {
                         <>
                             <span> {Strings.StartDate}</span>
                             <input
-                                value={dates.startDate}
+                                value={dates?.startDate}
                                 className="input-date" autoComplete='off' tabIndex={0}
                                 style={{ border: 'solid 1px black' }}
                                 disabled={true}
                             />
                  
                             <span> {Strings.EndDate}</span>
-                            <input value={dates.endDate}
+                            <input value={dates?.endDate}
                                 className="input-date" autoComplete='off' tabIndex={1}
                                 style={{ border: 'solid 1px black' }}
                                 disabled={true}

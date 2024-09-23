@@ -1,20 +1,20 @@
 @import "variable.scss";
 
 .footer{
-    background-color: black;
-    margin: 20px;
+    background-color: $mainBackgroundColor;
+    margin: 20px 20px 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    font-size: 15px;
-    border-top: solid 1px #68686833;
+    font-size: 13px;
     color: $fontColor-primary;
 }
 .footer-icon{
-    color: $fontColor-Second;
+    color: $loginBtn;
     margin: 5px 0px;
+    font-size: 15px;
 }
 .contact{
     color: rgba(241, 241, 241, 0.54);
@@ -34,7 +34,8 @@
 }
 .contact-us{
     margin-bottom: 3px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
     color: $fontColor-primary;
 }
 .under-footer{
@@ -49,7 +50,8 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
-    color: #616161;
+    color: $fontColor-primary;
+    font-family: 'IRANSanazWeb';
 }
 .left-footer h6{
     font-size: 11px;
