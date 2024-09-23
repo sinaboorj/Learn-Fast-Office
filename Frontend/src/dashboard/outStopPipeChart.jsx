@@ -2,7 +2,7 @@ import React from 'react';
 import {    PieChart,  Pie,  Cell,   Tooltip,    Legend,  } from 'recharts'; 
 import '../sass/stopCharts.scss'
 
-const OutStopProduction = () => {
+const OutStopPipeChart = () => {
     
   const data = [
     { name: 'ت.اساسی', value: 70 },
@@ -19,11 +19,11 @@ const OutStopProduction = () => {
   const COLORS = ['#0d6efd', '#6610f2', '#6c757d', '#dc3545', '#FF6384','red','blue','#198754'];
     
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value, name }) => {
-    const x = cx + (outerRadius + 0) * Math.cos(-midAngle * Math.PI / 180);
-    const y = cy + (outerRadius + 0) * Math.sin(-midAngle * Math.PI / 180);
+    const x = cx + 10+(outerRadius + 0) * Math.cos(-midAngle * Math.PI / 180);
+    const y = cy + 10+(outerRadius + 0) * Math.sin(-midAngle * Math.PI / 180);
     const percentage = Math.round(((value / totalValue) * 100).toFixed(2)); // محاسبه درصد 
     return (
-      <text x={x} y={y} fill="#f1f1f1a2" textAnchor="middle" dominantBaseline="central" style={{fontSize:'12px'}}>
+      <text x={x} y={y} fill="black" textAnchor="middle" dominantBaseline="central" style={{fontSize:'12px'}}>
         {` ${percentage}% ${name}`} 
       </text>
     );
@@ -45,4 +45,4 @@ const OutStopProduction = () => {
   );
 }
  
-export default OutStopProduction;
+export default OutStopPipeChart;

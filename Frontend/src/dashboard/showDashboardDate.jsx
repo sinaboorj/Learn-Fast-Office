@@ -57,81 +57,82 @@ const ShowDashboardDate = () => {
 
 
     return (
-        <div className="dashboard-nav">
-            <span className="dashboard-text">
-                DASHBOARD
-            </span>
-            <div className="custom-date" >
+        <>
+            <br />
+            <div className="dashboard-nav">
+                <span className="dashboard-text">
+                    DASHBOARD
+                </span>
+                <div className="custom-date" >
 
-                {
-                    filterDate !== 'Custom' // اگر تاریخ شروع چیزی غیر از سفارشی بود
-                        ?
-                        <>
-                            <span> {Strings.StartDate}</span>
-                            <input
-                                value={dates?.startDate}
-                                className="input-date" autoComplete='off' tabIndex={0}
-                                style={{ border: 'solid 1px black' }}
-                                disabled={true}
-                            />
+                    {
+                        filterDate !== 'Custom' // اگر تاریخ شروع چیزی غیر از سفارشی بود
+                            ?
+                            <>
+                                <span> {Strings.StartDate}</span>
+                                <input
+                                    value={dates?.startDate}
+                                    className="input-date" autoComplete='off' tabIndex={0}
+                                    disabled={true}
+                                />
                  
-                            <span> {Strings.EndDate}</span>
-                            <input value={dates?.endDate}
-                                className="input-date" autoComplete='off' tabIndex={1}
-                                style={{ border: 'solid 1px black' }}
-                                disabled={true}
-                            />
-                        </>
-                        :   // اگر تاریخ شروع سفارشی بود
-                        <>
-                            <form onSubmit={handleSubmit} className="dashbordAlignDate">
-                                <span>{Strings.StartDate}</span>
-                                <input className="input-custom-date"
-                                    type="text"
-                                    value={customStartDate}
-                                    onChange={handleStartDateChange}
-                                    placeholder="مثال: 14020101"
+                                <span> {Strings.EndDate}</span>
+                                <input value={dates?.endDate}
+                                    className="input-date" autoComplete='off' tabIndex={1}
+                                    disabled={true}
                                 />
-                                <span>{Strings.EndDate}</span>
-                                <input className="input-custom-date"
-                                    type="text"
-                                    value={custemEndDate}
-                                    onChange={handleEndDateChange}
-                                    placeholder="مثال: 14020131"
-                                />
-                                <input type='submit' value={Strings.Ok}
-                                    style={{
-                                        width: '57px',
-                                        textAlign: 'center',
-                                        backgroundColor: 'green',
-                                        border: 'solid 1px black',
-                                        borderRadius: '3px',
-                                        height: '30px',
-                                        fontWeight: '500'
-                                    }} />
-                            </form>
-                        </>
-                }
-            </div>
-            <div className="line-combo">
-                <select
-                    id="combo-box"
-                    value={selectedOptionCombo}
-                    onChange={handleChangeCombo}
-                >
-                    <option className="line-combo-open" value="insig">کل گروه</option>
-                    <option className="line-combo-open" value="k">کوثر</option>
-                    <option className="line-combo-open" value="1">خط 1</option>
-                    <option className="line-combo-open" value="3">خط 3</option>
-                    <option className="line-combo-open" value="s">صنایع فلزی</option>
-                    <option className="line-combo-open" value="630">خط 630</option>
-                    <option className="line-combo-open" value="650">خط 650</option>
-                    <option className="line-combo-open" value="l">لوله سازی</option>
-                    <option className="line-combo-open" value="f">فولادسازی</option>
-                </select>
+                            </>
+                            :   // اگر تاریخ شروع سفارشی بود
+                            <>
+                                <form onSubmit={handleSubmit} className="dashbordAlignDate">
+                                    <span>{Strings.StartDate}</span>
+                                    <input className="input-custom-date"
+                                        type="text"
+                                        value={customStartDate}
+                                        onChange={handleStartDateChange}
+                                        placeholder="مثال: 14020101"
+                                    />
+                                    <span>{Strings.EndDate}</span>
+                                    <input className="input-custom-date"
+                                        type="text"
+                                        value={custemEndDate}
+                                        onChange={handleEndDateChange}
+                                        placeholder="مثال: 14020131"
+                                    />
+                                    <input type='submit' value={Strings.Ok}
+                                        style={{
+                                            width: '57px',
+                                            textAlign: 'center',
+                                            backgroundColor: 'green',
+                                            border: 'solid 1px black',
+                                            borderRadius: '3px',
+                                            height: '30px',
+                                            fontWeight: '500'
+                                        }} />
+                                </form>
+                            </>
+                    }
+                </div>
+                <div className="line-combo">
+                    <select
+                        id="combo-box"
+                        value={selectedOptionCombo}
+                        onChange={handleChangeCombo}
+                    >
+                        <option className="line-combo-open" value="insig">کل گروه</option>
+                        <option className="line-combo-open" value="k">کوثر</option>
+                        <option className="line-combo-open" value="1">خط 1</option>
+                        <option className="line-combo-open" value="3">خط 3</option>
+                        <option className="line-combo-open" value="s">صنایع فلزی</option>
+                        <option className="line-combo-open" value="630">خط 630</option>
+                        <option className="line-combo-open" value="650">خط 650</option>
+                        <option className="line-combo-open" value="l">لوله سازی</option>
+                        <option className="line-combo-open" value="f">فولادسازی</option>
+                    </select>
 
+                </div>
             </div>
-        </div>
+        </>
     );
 }
  

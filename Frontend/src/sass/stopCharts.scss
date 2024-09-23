@@ -19,21 +19,22 @@
   }  
 
   .custom-table th {  //عنوان
-    background-color: rgb(169 169 167);
-    color: rgb(47 45 45);
+    background-color: $subMenuBackgroundColor;
+    color: $fontColor-primary;
     font-weight: 300;
     font-family: 'IRANSanazWeb';
     font-size: 15px;
   }  
   
   .custom-table th, .custom-table td { //بدنه جدول 
-    border: 1px solid rgba(241, 241, 241, 0.6352941176);
+    border: 1px solid #a4a4a4;
     padding: 5px;
     text-align: center;
     font-family: 'IRANSanazWeb';
-    font-size: 14px;
+    font-size: 13px;
   }  
 
   .custom-table tr:hover {  
-    background-color: rgb(4, 65, 24);  
+    background-color: rgb(4, 65, 24); 
+    color: $mainBackgroundColor; 
   } 

@@ -2,10 +2,9 @@
 
 .dashboard-text {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 16px;
     text-align: start;
     padding: 0px 0 1px 12px;
-    color: $fontColor-fifth;
 }
 .growth {
     display: flex;
@@ -14,20 +13,22 @@
 .dashboard-items{
     display: flex;
     flex-direction: row;
-    color: $mainBackgroundColor;
+    color: $fontColor-primary;
     position: relative;
     justify-content: center;
 
     .product{
-        background-color: #cecece;
+        background-color: #5ccc8a;
+        border: solid 1px #1fc362;
     }
     .plan{
-        background-color: #359dff;
+        background-color: #5e98fc;
+        border: solid 1px #3c82fc;
     }
 
     .filter{
-        background-color: #f2e545;
-        color: $mainBackgroundColor;
+        background-color: #cac9c9;
+        border: solid 1px #b6b6b6;
     }
     .dashboard-item{
         margin: 10px;
@@ -55,9 +56,8 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            font-weight: 100;
             position: absolute;
-            font-size: 14px;
+            font-size: 13px;
             bottom: 7px;
             font-weight: 500;
         }
@@ -65,7 +65,6 @@
     label{
         font-weight: 500;
         font-size: 13px;
-        color: $mainBackgroundColor;
         margin: 2px 0px;
         display: flex;
         align-items: center;
@@ -96,7 +95,6 @@ hr{
     align-items: center;
 }
 .custom-date {
-    color: $fontColor-primary;
     direction: rtl;
     display: flex;
     width: 98%;
@@ -104,17 +102,17 @@ hr{
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    font-size: 14px;
 }
 .input-date{
     border-radius: 3px;
-    height: 30px;
-    background-color: black;
+    height: 25px;
+    background-color: $mainBackgroundColor;
     text-align: center;
-    color: #838282;
+    color: #818181;
     margin: 0px 5px 0 15px;
     width: 90px;
-    font-family: 'IRANSanazWeb';
+    border: solid 1px $mainBackgroundColor;
+    font-family: "IRANSanazWeb";
 }
 .input-date-date::-webkit-input-date-placeholder {
      color: #4b4a4a;
@@ -153,6 +151,8 @@ hr{
     display: flex;
     align-items: center;
     flex-direction: row;
+    color: $fontColor-primary;
+    font-size: 12px;
 }
 form.dashbordAlignDate {
     display: flex;
@@ -163,7 +163,7 @@ form.dashbordAlignDate {
 .line-combo {
     margin: 0 10px 0 0;
     width: 120px;
-    font-size: 15px;
+    font-size: 13px;
 }
 option.line-combo-open {
     font-size: 12px;
@@ -171,8 +171,9 @@ option.line-combo-open {
 select {
     word-wrap: normal;
     border-radius: 3px;
-    background-color: black;
+    background-color: $mainBackgroundColor;
     color: $fontColor-primary;
+    padding: 2px 1px;
     &:hover {
         cursor: pointer;
     }
@@ -181,6 +182,7 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-size: 13px;
 }
 .recharts-wrapper {
     margin: auto;
@@ -195,7 +197,7 @@ select {
     display: flex;
     justify-content: center;
     font-family: 'IRANSanazWeb';
-    font-size: 15px;
+    font-size: 13px;
 }
 
 @media only screen and (max-width: 750px){

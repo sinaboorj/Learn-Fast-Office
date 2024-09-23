@@ -62,7 +62,7 @@ const ProductChart = () => {
     
     return (
         <>
-            <ResponsiveContainer className='product-chart' >
+            <ResponsiveContainer className='product-chart' style={{fontSize:'13px'}}>
                 <div className='chart-title'>{Strings.ProductionChartTitle}</div>
                 <LineChart data={chartData}>
                     <CartesianGrid stroke="#d3d3d3" strokeOpacity={0.3} strokeDasharray="3 3" />
@@ -72,9 +72,9 @@ const ProductChart = () => {
                     <Legend />
                     {
                         dates?.searchType === 'Month' &&
-                        <Line type="monotone" dataKey={lastY} stroke="#8884d8" activeDot={{ r: 5 }} />
+                        <Line type="monotone" dataKey={lastY} stroke="blue" activeDot={{ r: 5 }} />
                     }
-                    <Line type="monotone" dataKey={thisY} stroke="#82ca9d" activeDot={{ r: 5 }} />
+                    <Line type="monotone" dataKey={thisY} stroke="green" activeDot={{ r: 5 }} />
                 </LineChart>
             </ResponsiveContainer>
         </>

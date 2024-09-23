@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";  
 import { DashboardContext } from "../context/dashboardContext";
 
-const ProductionEfficiency = () => {
+const EfficiencyChart = () => {
     const [speed, setSpeed] = useState(0);
     const { filterDate } = useContext(DashboardContext)
 
@@ -65,7 +65,7 @@ const ProductionEfficiency = () => {
                     y1="140"
                     x2={150 + 125 * Math.cos((angle - 180) * (Math.PI / 180))}
                     y2={140 + 125 * Math.sin((angle - 180) * (Math.PI / 180))}
-                    stroke="#f1f1f1a2"
+                    stroke="black"
                     strokeWidth="2"
                 />
             </svg>
@@ -74,6 +74,6 @@ const ProductionEfficiency = () => {
     )
 }
 
-export default ProductionEfficiency; 
+export default EfficiencyChart; 
 
 

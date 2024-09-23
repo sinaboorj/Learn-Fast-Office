@@ -3,11 +3,11 @@ import '../sass/dashboard.scss'
 import DashboardTags from "./dashboardTags";
 import OperationalEfficiency from "./operationalEfficiency";
 import ProductChart from "./productChart";
-import ProductionEfficiency from "./productionEfficiency";
 import SoldChart from "./soldChart";
-import '../sass/efficiency.scss'
-import OutStopProduction from "./outStopProduction";
+import '../sass/efficiencyChart.scss'
 import OutLostP from "./outLostP";
+import EfficiencyChart from "./efficiencyChart";
+import OutStopPipeChart from "./outStopPipeChart";
 
 
 const Dashboard = () => {
@@ -22,12 +22,12 @@ const Dashboard = () => {
             <br /><br />
             <hr />
             <div className="chart">
-                <ProductionEfficiency />
+               <EfficiencyChart />
                 <OperationalEfficiency />
             </div>
             <hr />
             <div className="chart">
-                <OutStopProduction />
+                <OutStopPipeChart />
                 <OutLostP />
             </div>
             <br />
