@@ -1,4 +1,3 @@
-import InsigImage from "../public/insigImage";
 import '../sass/dashboard.scss'
 import DashboardTags from "./dashboardTags";
 import OperationalEfficiency from "./operationalEfficiency";
@@ -8,6 +7,7 @@ import '../sass/efficiencyChart.scss'
 import OutLostP from "./outLostP";
 import EfficiencyChart from "./efficiencyChart";
 import OutStopPipeChart from "./outStopPipeChart";
+import Home from '../pages/home';
 
 
 const Dashboard = () => {
@@ -31,7 +31,7 @@ const Dashboard = () => {
                 <OutLostP />
             </div>
             <br />
-            <InsigImage />
+            <Home />
         </>
     );
 }

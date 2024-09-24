@@ -65,7 +65,7 @@ const ProductChart = () => {
             <ResponsiveContainer className='product-chart' style={{fontSize:'13px'}}>
                 <div className='chart-title'>{Strings.ProductionChartTitle}</div>
                 <LineChart data={chartData}>
-                    <CartesianGrid stroke="#d3d3d3" strokeOpacity={0.3} strokeDasharray="3 3" />
+                    <CartesianGrid stroke="black" strokeOpacity={.3} strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />

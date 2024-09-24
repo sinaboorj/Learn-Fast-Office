@@ -1,12 +1,12 @@
 import '../sass/home.scss'
-import InsigImage from '../public/insigImage';
-import AboutSite from '../components/aboutSite';
+import homeimage from "/sysImage/home-image.jpg"
 
 const Home = () => {
     return (
         <>
-            <AboutSite />
-            <InsigImage />
+            <div className='home-image'>
+                <img className="main-image" src={homeimage} alt="image" />
+            </div>
         </>
     );
 }

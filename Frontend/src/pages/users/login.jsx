@@ -59,7 +59,7 @@ function Login() {
           setMessageStatus(true);
           setActiveLink('home')
           localStorage.setItem('activeLink', Link)
-          nav('/')
+          nav('/dashboard')
         }
       } catch (err) {
         setIsLoading(false); setMessageStatus(true);

@@ -30,8 +30,8 @@ const NavLogin = (props) => {
         <>
             <nav className="main-nav">
                 <ul className="nav-center">
-                    <Link to='/' className={`navlink ${activeLink === 'home' ? 'active' : ''}`} onClick={() => { setActiveLink('home'); }} style={{ margin: ' 0 3px 0' }}>{Strings.Home}</Link>
                     <Link to='/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveLink('dashboard'); }}>{Strings.Dashboard}</Link>
+                    <Link to='/targets' className={`navlink ${activeLink === 'targets' ? 'active' : ''}`} onClick={() => { setActiveLink('targets'); }}>{Strings.Target_title}</Link>
                 </ul>
                 <div className="moveing-text">
                     <span className="home-text1">{lang ? 'I N S I G' : 'گروه ملي صنعتي فولاد ايران'} </span>

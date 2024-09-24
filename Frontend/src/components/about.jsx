@@ -1,21 +1,19 @@
 
 import '../sass/about.scss'
 import sina from '/sysImage/Sina.png'
-import skills from '/sysImage/skills.png'
 import { useContext, useEffect } from 'react'
+import {  FaSkype, FaLinkedin , FaEnvelope, FaGithub} from 'react-icons/fa';
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
-import { FaSkype , FaEnvelope, FaLinkedin} from 'react-icons/fa';
-import { FaGithub } from 'react-icons/fa';
-import InsigImage from '../public/insigImage';
-import AboutSite from './aboutSite';
+import { Link } from 'react-router-dom';
+import Home from '../pages/home';
 
 const About = () => {
     const { lang } = useContext(PublicContext);
 
     useEffect(() => {
         window.scrollTo({
-            top: 180,
+            top: 0,
             behavior: 'smooth'
         });
     }, [])
@@ -24,7 +22,7 @@ const About = () => {
     return (
         <>
             <br />
-            <div className="about">
+            <div className="about-sina">
                 <img className="resume-pic" src={sina} alt="Sina picture profile" />
                 <span className='resume'>Hossein Zarei (Sina)</span>
                 <div className='resume-text-fa' style={{ direction: lang ? 'ltr' : 'rtl' }}>
@@ -32,22 +30,31 @@ const About = () => {
                     <span>{Strings.Sina_2}</span>
                     <span>{Strings.Sina_3}</span>
                 </div>
-                <div style={{ width: '100%', display: 'flex', alignItems: 'flex-start' }}>
-                    <img className="skills" src={skills} alt="Sina picture profile" />
-                </div>
-                <br />
-                <div className="contact-about">
-                    <h6 title='Email'> <FaEnvelope className="about-icon" /> Email : sina_boorj@yahoo.com</h6>
-                    <h6 title='Skype'> <FaSkype className="about-icon" /> Skype : live:.cid.75d52dccd1467185</h6>
-                    <h6 title='Linkedin'><FaLinkedin className="about-icon" /> Linkedn <a href="https://www.linkedin.com/in/hossein-zarei-462a8a215/"></a></h6>
-                    <h6 title='Github'><FaGithub className="about-icon" /> GitHub <a href="https://github.com/sinaboorj/Learn-Fast-Office"> </a></h6>
-                </div>
+               
+                    <span className='skills'>SKILLS:
+                        <li className='skill' style={{ marginTop: '5px' }}> Programming</li>
+                        <li className='skill' style={{ marginTop: '5px' }}> React, JavaScript, CSS, HTML</li>
+                        <li className='skill'> MySQL, SQL Server</li>
+                        <li className='skill'> GitHub</li>
+                        <li className='skill'> ui/ux, Figma</li>
+                        <li className='skill'> Node.js</li>
+                        <li className='skill'> Frontend Design</li>
+                        <li className='skill'> Excel</li>
+                        <li className='skill'> English language Conversation</li>
+                    </span>
+                    <br />
+                    <div className="contact-about">
+                        <span title='Email'> <FaEnvelope className="about-icon" /> Email : sina_boorj@yahoo.com</span>
+                        <span title='Skype'> <FaSkype className="about-icon" /> Skype : live:.cid.75d52dccd1467185</span>
+                        <Link title='Linkedin' to='https://www.linkedin.com/in/hossein-zarei-462a8a215/' ><FaLinkedin className="about-icon" /> Linkedn </Link>
+                        <Link title='Github' to='https://github.com/sinaboorj/Learn-Fast-Office'><FaGithub className="about-icon" /> GitHub </Link>
+                    </div>
+             
                 <hr />
-                <br /><br />
-                <AboutSite />
+                <br />
             </div>
             <br />
-            <InsigImage />
+            <Home />
         </>
     )
 }

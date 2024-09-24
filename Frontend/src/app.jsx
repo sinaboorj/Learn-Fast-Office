@@ -14,6 +14,7 @@ import NotPage from "./pages/notpage";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./dashboard/dashboard";
 import DashboardContextProvider from "./context/dashboardContext";
+import TargetsSite from "./components/targetsStie";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/about-hossein-zarei" element={<About />} />
               <Route path="/login" element={<SignInUp />} />
+              <Route path="/targets" element={<TargetsSite />} />
               <Route path="/:userID/mail-verification/:token" element={<EmailVerify />} />
               <Route path="*" element={<NotPage />} />
             </Routes>

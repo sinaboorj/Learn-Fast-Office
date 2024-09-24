@@ -10,38 +10,6 @@
 .main-image{
     width: 95%;
     border-radius: 5px;
-}
-
-.goal {
-    color: black;
-    background-color: green;
-    width: 63px;
-    height: 30px;
-    display: flex;
-    font-size: 13px;
-    border-radius: 5px;
-    font-family: "IRANSanazWeb";
-    align-items: center;
-    justify-content: center;
-    margin: 0 7px;
-}
-
-.targets {
-    width: 96%;
-    color: $fontColor-primary;
-    margin: auto;
-    padding: 5px 10px;
-    font-size: 13px;
     margin-top: 10px;
-    font-family: 'IRANSanazWeb';
-    li {
-        margin-bottom: 10px;
-    }
 }
-span.target-title {
-    font-weight: bold;
-    margin: 0 0px 0px 3px;
-    font-size: 13px;
-    font-family: 'IRANSanazWeb';
-    color: $fontColor-primary;
-}
+

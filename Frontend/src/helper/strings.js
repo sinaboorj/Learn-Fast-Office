@@ -28,7 +28,7 @@ const Strings = new LocalizedStrings({
     ProductionChartTitle: 'Production trend chart',
     SaleChartTitle: 'Sales trend chart',
     HelpTextDateInDashboard: 'Enter the date into the solar date',
-    Target_title:'Goals:',
+    Target_title:'Goals',
   },
 
   fa: {
@@ -58,7 +58,7 @@ const Strings = new LocalizedStrings({
     ProductionChartTitle: 'نمودار روند تولیدات',
     SaleChartTitle: 'نمودار روند فروش',
     HelpTextDateInDashboard: 'تاریخ را به شمسی وارد کنید.',
-    Target_title:'اهداف:',
+    Target_title:'اهداف',
   },
 });
 

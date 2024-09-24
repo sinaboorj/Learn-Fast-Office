@@ -1,80 +1,103 @@
-@import "variable.scss";
+@import "variable.scss";  
 
-.footer{
-    background-color: $mainBackgroundColor;
-    margin: 20px 20px 0px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    font-size: 13px;
-    color: $fontColor-primary;
-}
-.footer-icon{
-    color: $loginBtn;
-    margin: 5px 0px;
-    font-size: 15px;
-}
-.contact{
-    color: rgba(241, 241, 241, 0.54);
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
-}
-.unlink-decoration{
-    text-decoration: none;
-}
-.unlink-color{
-    color: rgba(241, 241, 241, 0.54);
-}
-.planning-pic {
-    width: 60px;
-    margin: 10px 10px 2px;
-}
-.contact-us{
-    margin-bottom: 3px;
-    font-size: 12px;
-    font-weight: 500;
-    color: $fontColor-primary;
-}
-.under-footer{
-    text-align: center;
-}
-.about-sina{
-    text-decoration: none;
-    color: $fontColor-primary;
-}
-.left-footer {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    color: $fontColor-primary;
-    font-family: 'IRANSanazWeb';
-}
-.left-footer h6{
-    font-size: 11px;
-}
+.footer {  
+    background-color: $mainBackgroundColor;  
+    margin: 20px 20px 0px;  
+    display: flex;  
+    flex-direction: row;  
+    align-items: center;  
+    justify-content: space-between;  
+    padding: 5px;  
+    font-size: 13px;  
+    color: $fontColor-primary;  
+}  
 
-@media only screen and (max-width:619px) {
+.footer-icon {  
+    color: $loginBtn;  
+    margin: 5px 0px;  
+    font-size: 15px;  
+}  
+
+.contact {  
+    color: rgba(241, 241, 241, 0.54);  
+    display: flex;  
+    flex-direction: column;  
+    margin-bottom: 0;  
+}  
+
+.unlink-decoration {  
+    text-decoration: none;  
+}  
+
+.unlink-color {  
+    color: rgba(241, 241, 241, 0.54);  
+}  
+
+.planning-pic {  
+    width: 40px;  
+    margin: 0px 0px 5px;  
+}  
+
+.contact-us {  
+    margin-bottom: 3px;  
+    font-size: 12px;  
+    font-weight: 500;  
+    color: $fontColor-primary;  
+    text-decoration: none;
+}  
+
+
+.left-footer {  
+    display: flex;  
+    flex-direction: column;  
+    align-content: center;  
+    align-items: center;  
+    color: $fontColor-primary;  
+    font-family: 'IRANSanazWeb';  
+}  
+
+.left-footer h6 {  
+    font-size: 11px;  
+}  
+
+// Media queries for responsiveness  
+
+@media (max-width: 1024px) {  
+    .footer {  
+        font-size: 12px;  
+    }  
     
-    .footer {
-        flex-direction: column;
-    }
-    .contact {
-        margin-bottom: 20px;
-    }
-    .insig-footer{
-        display: none;
-    }
-  } 
-  @media only screen and (max-width: 455px){
+    .planning-pic {  
+        width: 50px;  
+    }  
+}  
 
-    .contact-us {
-        font-size: 13px;
-    }
-    .planning-pic {
-        width: 110px;
-    }
+@media (max-width: 768px) {  
+    
+    .contact-us {  
+        font-size: 11px;  
+    }  
+}  
+
+@media (max-width: 619px) {  
+
+    .insig-footer {  
+        display: none;  
+    }  
+    
+    .footer-icon {  
+        font-size: 14px;  
+    }  
+}  
+
+@media (max-width: 455px) {  
+    .contact-us {  
+        font-size: 13px;  
+    }  
+    
+    .footer {  
+        margin: 10px; 
+        flex-direction: column;  
+        align-items: center;  
+    }  
 }

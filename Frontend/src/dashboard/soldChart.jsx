@@ -85,13 +85,13 @@ const SoldChart = () => {
             <ResponsiveContainer className='product-chart' style={{fontSize:'13px'}}>
             <div className='chart-title'>{ Strings.SaleChartTitle}</div>
                 <BarChart data={chartData} >
-                    <CartesianGrid stroke="#d3d3d3" strokeOpacity={0.3} strokeDasharray="3 3"/>
+                    <CartesianGrid stroke="black" strokeOpacity={0.3} strokeDasharray="3 3"/>
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey='1402' fill="#8884d8" activeBar={<Rectangle fill="#8884d8" stroke="#8884d8" />} />
-                    <Bar dataKey='1403' fill="#82ca9d" activeBar={<Rectangle fill="#82ca9d" stroke="#82ca9d" />} />
+                    <Bar dataKey='1402' fill="#6c757d" activeBar={<Rectangle fill="#6c757d" stroke="#8884d8" />} />
+                    <Bar dataKey='1403' fill="#d9a303" activeBar={<Rectangle fill="#d9a303" stroke="#82ca9d" />} />
                 </BarChart>
             </ResponsiveContainer>
         </>

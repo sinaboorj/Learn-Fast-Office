@@ -207,13 +207,13 @@ div.main-nav li {
 }  
  
 
-@media only screen and (min-width: 993px) {  
+@media (min-width: 993px) {  
     .main-nav {  
         display: flex;  
     }  
 }  
 
-@media only screen and (max-width: 992px) {  
+@media (max-width: 992px) {  
     .main-nav {  
         display: none;  
     }  

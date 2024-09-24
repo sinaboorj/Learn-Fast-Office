@@ -18,17 +18,14 @@
     justify-content: center;
 
     .product{
-        background-color: #5ccc8a;
-        border: solid 1px #1fc362;
+        background-color: #1fc362;
     }
     .plan{
-        background-color: #5e98fc;
-        border: solid 1px #3c82fc;
+        background-color: #3c82fc;
     }
 
     .filter{
-        background-color: #cac9c9;
-        border: solid 1px #b6b6b6;
+        background-color: #d5c63f;
     }
     .dashboard-item{
         margin: 10px;
@@ -200,7 +197,7 @@ select {
     font-size: 13px;
 }
 
-@media only screen and (max-width: 750px){
+@media (max-width: 750px){
 
     .chart{
         flex-direction: column;
@@ -211,7 +208,7 @@ select {
          margin: 30px 0px!important;
     }
 }
-@media only screen and (max-width: 615px){
+@media (max-width: 615px){
     .dashboard-items{
         flex-direction: column;
         .dashboard-item{
@@ -231,7 +228,7 @@ select {
 
 }
 
-@media only screen and (max-width: 520px){
+@media (max-width: 520px){
     .custom-date {
         flex-direction: column;
         align-items: center;
