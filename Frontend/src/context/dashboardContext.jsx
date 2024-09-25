@@ -37,6 +37,8 @@ const DashboardContextProvider = ({ children }) => {
             startDate: dates?.startDate, endDate: dates?.endDate, lastStartDate: dates?.lastStartDate, lastEndDate: dates?.lastEndDate, searchType: dates?.searchType
         }
 
+        console.log(tempDate)
+        
         setDashboardLoading(true)
         try {
             if (dates.startDate && dates.endDate && dates?.lastStartDate && dates?.lastEndDate) {

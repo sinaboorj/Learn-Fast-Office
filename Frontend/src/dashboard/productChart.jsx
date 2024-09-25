@@ -13,7 +13,7 @@ const ProductChart = () => {
     let chartDate = []
     let index = 0
 
-    if (thisY) thisY = thisY[0]
+    if (thisY && dates?.searchType !== 'Year') { thisY = thisY[0] } else{ thisY = 'تولید'}
     if (lastY) lastY = lastY[0]
     
     switch (dates?.searchType) {
@@ -37,12 +37,18 @@ const ProductChart = () => {
             break;
         case 'Year':
             index = 0
+            for (let i = 1; i <= 12; i++) {
+                const temp = dates[`date${i}`]?.split('/');
+                if (temp) {
+                    chartDate.push(temp[index]);
+                }
+            }
+         
             break;
         case 'Custom':
             index = 3
             break;
     }
-
 
     const chartData = [
         { name: chartDate[11], [lastY]: data?.dateToken24, [dates?.date12 !== '0000/00/00' && thisY]: data?.dateToken12 },
@@ -59,10 +65,9 @@ const ProductChart = () => {
         { name: chartDate[0], [lastY]: data?.dateToken13, [dates?.date1 !== '0000/00/00' && thisY]: data?.dateToken1 }
     ]
     
-    
     return (
         <>
-            <ResponsiveContainer className='product-chart' style={{fontSize:'13px'}}>
+            <ResponsiveContainer className='product-chart' style={{ fontSize: '13px' }}>
                 <div className='chart-title'>{Strings.ProductionChartTitle}</div>
                 <LineChart data={chartData}>
                     <CartesianGrid stroke="black" strokeOpacity={.3} strokeDasharray="3 3" />

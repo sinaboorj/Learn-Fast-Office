@@ -111,7 +111,7 @@ const dashboardFunction = ({ dates, setDates, customStartDate, custemEndDate, se
             const startOfMonth = moment(D).add(3, 'days').subtract(i, 'months').startOf('jMonth')
             lastYearDates[`lastDate${i + 1}`] = startOfMonth.format('jYYYY/jMM/jDD')
         }
-
+        
         return setDates({
             ...newDates,
             ...lastYearDates,
@@ -123,6 +123,33 @@ const dashboardFunction = ({ dates, setDates, customStartDate, custemEndDate, se
         })
     }
 
+    /* ******************************* Get 12 Year **************************************** */ 
+    
+    const get12Years = (theDayBefore, year, startOfYear, lastStartDate, lastEndDate) => {  
+        const date = moment(theDayBefore, 'jYYYY/jMM/jDD');  
+        const newDates = {};  
+        const lastYearDates = {};
+        // تاریخ ابتدای سال جاری را به newDates اضافه کنید  
+        const startOfCurrentYear = date.clone().startOf('jYear'); // ابتدای سال جاری  
+        for (let i = 1; i <= 12; i++) {  
+            const yearStartDate = date.clone().subtract(i, 'years').startOf('jYear'); // تاریخ ابتدای 11 سال قبل  
+            newDates[`date${i+1}`] = yearStartDate.format('jYYYY/jMM/jDD'); 
+            lastYearDates[`lastDate${i + 1}`] = '0000/00/00'
+        }  
+    
+        newDates[`date1`] = (date.clone().startOf('jYear')).format('jYYYY/jMM/jDD')
+        //lastYearDates=newDates;
+
+        return setDates({  
+            ...newDates, 
+            ...lastYearDates,
+            startDate: startOfYear,  
+            endDate: theDayBefore,  
+            lastStartDate: lastStartDate,  
+            lastEndDate: lastEndDate,  
+            searchType: year // مشخص کردن نوع جستجو برای سمت سرور  
+        });  
+    }
 
     /* ************************** filterDateFunction *************************************** */
     const filterDateFunction = (filterDate) => {
@@ -143,10 +170,7 @@ const dashboardFunction = ({ dates, setDates, customStartDate, custemEndDate, se
                 get12Months(theDayBefore, 'Month', beginningOfMonth, PreviousMonth(beginningOfMonth), PreviousMonth(theDayBefore))
                 break
             case 'Year':
-                setStartDate(startOfYear.format('jYYYY/jMM/jDD'))
-                setEndDate(theDayBefore)
-                setLastStartDate(PreviousYear(startOfYear.format('jYYYY/jMM/jDD')))
-                setLastEndDate(PreviousYear(theDayBefore))
+                get12Years(theDayBefore , 'Year', startOfYear , PreviousYear(startOfYear), PreviousYear(theDayBefore))
                 break
             case 'Custom':
                 setStartDate(customStartDate)
