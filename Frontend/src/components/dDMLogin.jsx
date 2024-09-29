@@ -46,7 +46,6 @@ const DropDownMenuLogin = (props) => {
             <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`} ref={menuRef} >
                 <ul onClick={() => { setOpen(!open) }}>
                     <li className='user-email'>{userData?.email}</li>
-                    <Link to='/'><DropDownItem icon={faHouse} text={Strings.Home} /></Link>
                     <Link to='/dashboard'> <DropDownItem icon={faThLarge} text={Strings.Dashboard} /> </Link>
                     <li className="subdropdown-item" onClick={() => { setLang(!lang) }} style={{padding:'0'}} >
                         {lang
@@ -63,7 +62,7 @@ const DropDownMenuLogin = (props) => {
     function DropDownItem(props) {//for Icons
         return (
             <li className='item'>
-                <FontAwesomeIcon style={{ color: 'white', marginRight: '6px' }} icon={props.icon}></FontAwesomeIcon>
+                <FontAwesomeIcon style={{  marginRight: '6px' }} icon={props.icon}></FontAwesomeIcon>
                 <span>{props.text}</span>
             </li>
         )

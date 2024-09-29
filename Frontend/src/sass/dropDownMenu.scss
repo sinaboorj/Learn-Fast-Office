@@ -1,7 +1,7 @@
 @import "variable.scss";  
 
 .menu-container {  
-  background-color: $navbar-color;  
+  background-color: $background-menu;  
   position: relative;  
   top: 0;  
   height: 51px;  
@@ -21,16 +21,17 @@
 
   .user-title {  
     border-radius: 50%;
-    border: solid 2px rgba(228, 195, 7, 0.74);
+    border: solid 2px #f7d30b;
     display: flex;
     flex-direction: row;
     width: 34px;
     height: 34px;
     font-family: sans-serif;
-    color: white;
+    color: $fontColor-primary;
     font-size: 14px;
-    box-shadow: 0 0 10px rgb(247, 211, 11);
+    box-shadow: 0 0 10px rgb(214, 189, 52);
     text-align: center;
+    color: white;
     margin: auto;
     align-items: center;
     justify-content: center;
@@ -44,13 +45,12 @@
 .dropdown-menu { 
   position: absolute;  
   border: none;  
-  top: 49px;  
+  top: 51px;  
   left: 0;  
   font-size: 15px;  
-  font-weight: 200;  
-  background-color: $navbar-color;  
+  font-weight: 400;  
+  background-color: $subMenuBackgroundColor;  
   padding: 20px 10px;  
-  width: 200px;  
   border-bottom: none;  
   border-radius: 0 0 5px 0;  
 
@@ -92,8 +92,14 @@
   }  
 
   .exit{
-    color: rgb(255 39 39);
     font-weight: 500;
+    padding: 6px;
+    &:hover {  
+      cursor: pointer;  
+      border: solid 1px red;
+      border-radius: 50%;
+      box-shadow: 0 0 10px red;  
+  } 
   }
  
   hr {
@@ -114,11 +120,9 @@
   }  
 
   .language-down {  
-    height: 18px;  
+    height: 17px;  
     width: 27px;  
     cursor: pointer;  
-    border-radius: 3px; 
-    margin: 0px 0px 0 12px;
   }  
 }  
 

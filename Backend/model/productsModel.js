@@ -54,14 +54,15 @@ class ProductsModel {
 
             const currentResult = await request.query(`  
                 SELECT   
-                    (SELECT SUM(Estandard) FROM tb_Produce WHERE [Date] BETWEEN @startDate AND @endDate) AS TotalProduction,  
-                    (SELECT SUM(Ton) FROM tb_DayProgram WHERE [Date] BETWEEN @startDate AND @endDate) AS TotalPlan  
+                    (SELECT SUM(Estandard) FROM tb_Produce WHERE ([Date] BETWEEN @startDate AND @endDate) AND (Section <> 'بسته بندي لوله سازي') ) AS TotalProduction,  
+                    (SELECT SUM(Ton) FROM tb_DayProgram WHERE ([Date] BETWEEN @startDate AND @endDate) AND (Section <> 'بسته بندي لوله سازي') ) AS TotalPlan  
             `);
             
             const lastResult = await request.query(`  
                 SELECT SUM(Estandard) AS LastTotalProduction   
                 FROM tb_Produce   
-                WHERE [Date] BETWEEN @lastStartDate AND @lastEndDate   
+                WHERE ([Date] BETWEEN @lastStartDate AND @lastEndDate )
+                AND (Section <> 'بسته بندي لوله سازي')
             `);
      
             const result = {
@@ -78,12 +79,13 @@ class ProductsModel {
                     const dailyResult = await request.query(`  
                         SELECT SUM(Estandard) AS tolid   
                         FROM tb_Produce   
-                        WHERE [Date] BETWEEN @date${i + 1} AND @date${i + 1}  
+                        WHERE ([Date] BETWEEN @date${i + 1} AND @date${i + 1})
+                        AND (Section <> 'بسته بندي لوله سازي')  
                     `);
                     result[`dateToken${i + 1}`] = Math.round((dailyResult.recordset[0]?.tolid) / 1000) || 0
                 }
 
-                //     for (let i = 0; i < lastDateParams.length; i++) { //12 روز سال قبل 
+                //    for (let i = 0; i < lastDateParams.length; i++) { //12 روز سال قبل 
                 //         const dailyResult = await request.query(`  
                 //             SELECT SUM(Estandard) AS lastTolid   
                 //             FROM tb_Produce   
@@ -101,7 +103,8 @@ class ProductsModel {
                     const dailyResult = await request.query(`  
             SELECT SUM(Estandard) AS tolid   
             FROM tb_Produce   
-            WHERE [Date] BETWEEN @date${i + 1} AND @end_A${i + 1}  
+            WHERE ([Date] BETWEEN @date${i + 1} AND @end_A${i + 1})  
+            AND (Section <> 'بسته بندي لوله سازي')
            `)
                     result[`dateToken${i + 1}`] = Math.round((dailyResult.recordset[0]?.tolid) / 1000) || 0
                 }
@@ -110,7 +113,8 @@ class ProductsModel {
                     const dailyResult = await request.query(`  
             SELECT SUM(Estandard) AS lastTolid   
             FROM tb_Produce   
-            WHERE [Date] BETWEEN @lastDate${i + 1} AND @end_B${i + 1}  
+            WHERE ([Date] BETWEEN @lastDate${i + 1} AND @end_B${i + 1}) 
+            AND (Section <> 'بسته بندي لوله سازي')  
             `)
                     result[`dateToken${i + 12 + 1}`] = Math.round((dailyResult.recordset[0]?.lastTolid) / 1000) || 0
                 }
@@ -123,7 +127,9 @@ class ProductsModel {
                     const dailyResult = await request.query(`  
                         SELECT SUM(Estandard) AS tolid   
                         FROM tb_Produce   
-                        WHERE [Date] BETWEEN @date${i + 1} AND @end_L${i + 1}  
+                        WHERE ([Date] BETWEEN @date${i + 1} AND @end_L${i + 1})
+                        AND (Section <> 'بسته بندي لوله سازي')
+
                     `);
                     result[`dateToken${i + 1}`] = Math.round((dailyResult.recordset[0]?.tolid) / 1000) || 0
                 }
