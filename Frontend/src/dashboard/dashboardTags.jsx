@@ -73,7 +73,7 @@ const DashboardTags = () => {
                         {lang
                             ? <>  {/*En */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill className='info' title='Growth compared to the previous period' style={{ color: '#424242' }} />
+                                    <BsInfoCircleFill className='info' title='Growth compared to the previous period'  />
                                     {Strings.Growth}:
                                     <span
                                         style={{
@@ -88,14 +88,14 @@ const DashboardTags = () => {
                                 </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill className='info' title={`Production of the same period as before`} style={{ color: '#424242' }} />
+                                    <BsInfoCircleFill className='info' title={`Production of the same period as before`}  />
                                     {Strings.Previous}: {Lastproduction} Ton
                                 </span>
                             </>
                             :
                             <>  {/*Fa */}
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexGrowth]} style={{ color: '#424242' }} /> {Strings.Growth}:
+                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexGrowth]} /> {Strings.Growth}:
                                     <span
                                         style={{
                                             marginLeft: '4px',
@@ -108,7 +108,7 @@ const DashboardTags = () => {
                                 </span>
                         
                                 <span className="last-production">
-                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexLastProduction]} style={{ color: '#424242' }} />  {Strings.Previous}:
+                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexLastProduction]} />  {Strings.Previous}:
                                     <span style={{ marginLeft: '2px' }}>{Lastproduction} Ton </span>
                                 </span>
                             </>
@@ -127,14 +127,14 @@ const DashboardTags = () => {
                         {lang
                             ? <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*En */}
-                                    <BsInfoCircleFill className='info' title='Implementation of the production plan' style={{ color: '#000025' }} />
+                                    <BsInfoCircleFill className='info' title='Implementation of the production plan'  />
                                     {Strings.Execution}: {executionPercent}%
                                 </span>
                             </>
                             :
                             <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*Fa */}
-                                    <BsInfoCircleFill className='info' title='اجراي برنامه توليد' style={{ color: '#000025' }} />  {Strings.Execution}:
+                                    <BsInfoCircleFill className='info' title='اجراي برنامه توليد' />  {Strings.Execution}:
                                     <span style={{ direction: 'rtl', marginLeft: '2px' }}>{executionPercent}% </span>
                                 </span>
                             </>

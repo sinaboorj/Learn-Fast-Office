@@ -99,16 +99,7 @@ const ShowDashboardDate = () => {
                                         onChange={handleEndDateChange}
                                         placeholder="مثال: 14020131"
                                     />
-                                    <input type='submit' value={Strings.Ok}
-                                        style={{
-                                            width: '57px',
-                                            textAlign: 'center',
-                                            backgroundColor: 'green',
-                                            border: 'solid 1px black',
-                                            borderRadius: '3px',
-                                            height: '30px',
-                                            fontWeight: '500'
-                                        }} />
+                                    <input type='submit' className="dashboard-submit" value={Strings.Ok} />
                                 </form>
                             </>
                     }
