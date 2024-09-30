@@ -30,25 +30,29 @@ const About = () => {
                     <span>{Strings.Sina_2}</span>
                     <span>{Strings.Sina_3}</span>
                 </div>
-               
-                    <span className='skills'>SKILLS:
-                        <li className='skill' style={{ marginTop: '5px' }}> Programming</li>
-                        <li className='skill' style={{ marginTop: '5px' }}> React, JavaScript, CSS, HTML</li>
+                <div style={{width:'100%', fontWeight:'700', fontSize:'13px' }}> SKILLS:</div>
+                <div className='skills'>
+                    <ul>
+                        <li className='skill'> Programming</li>
+                        <li className='skill'> React, JavaScript, CSS, HTML</li>
                         <li className='skill'> MySQL, SQL Server</li>
                         <li className='skill'> GitHub</li>
                         <li className='skill'> ui/ux, Figma</li>
-                        <li className='skill'> Node.js</li>
+                    </ul>
+                    <ul>
+                        <li className='skill' > Node.js</li>
                         <li className='skill'> Frontend Design</li>
                         <li className='skill'> Excel</li>
                         <li className='skill'> English language Conversation</li>
-                    </span>
-                    <br />
-                    <div className="contact-about">
-                        <span title='Email'> <FaEnvelope className="about-icon" /> Email : sina_boorj@yahoo.com</span>
-                        <span title='Skype'> <FaSkype className="about-icon" /> Skype : live:.cid.75d52dccd1467185</span>
-                        <Link title='Linkedin' to='https://www.linkedin.com/in/hossein-zarei-462a8a215/' ><FaLinkedin className="about-icon" /> Linkedn </Link>
-                        <Link title='Github' to='https://github.com/sinaboorj/Learn-Fast-Office'><FaGithub className="about-icon" /> GitHub </Link>
-                    </div>
+                    </ul>
+                </div>
+                <br />
+                <div className="contact-about">
+                    <span title='Email'> <FaEnvelope className="about-icon" /> Email : sina_boorj@yahoo.com</span>
+                    <span title='Skype'> <FaSkype className="about-icon" /> Skype : live:.cid.75d52dccd1467185</span>
+                    <Link title='Linkedin' to='https://www.linkedin.com/in/hossein-zarei-462a8a215/' ><FaLinkedin className="about-icon" /> Linkedn </Link>
+                    <Link title='Github' to='https://github.com/sinaboorj/Learn-Fast-Office'><FaGithub className="about-icon" /> GitHub </Link>
+                </div>
              
                 <hr />
                 <br />
