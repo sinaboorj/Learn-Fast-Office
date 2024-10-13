@@ -4,7 +4,6 @@ const NotPage = () => {
     return ( 
         <>
             <h4 className="not-found">Page not found.</h4>
-            <Dashboard />
         </>
      );
 }

@@ -14,6 +14,7 @@ const Strings = new LocalizedStrings({
       "All parts of this site (Database, Frontend and Backend) have been designed, programmed and implemented by myself.",
     FILTER: "FILTER DATE",
     PRODUCT: "PRODUCTION",
+    Planning:'Planning',
     PLAN: "PLAN",
     Day:"The day before",
     Month: "Month",
@@ -28,7 +29,16 @@ const Strings = new LocalizedStrings({
     ProductionChartTitle: 'Production trend chart',
     SaleChartTitle: 'Sales trend chart',
     HelpTextDateInDashboard: 'Enter the date into the solar date',
-    Target_title:'Goals',
+    Target_title: 'Goals',
+    Production: 'Production',
+    Sale: 'sale',
+    Material: 'Material',
+    Efficiency: 'Efficiency',
+    Stops: 'stops',
+    Quality: 'quality',
+    Planning:'Plan',
+    Skills: 'Skills:',
+    Productivity:'Reward',
   },
 
   fa: {
@@ -39,7 +49,7 @@ const Strings = new LocalizedStrings({
     // ********************************************** Sina About *************************************
     Sina_1:
       "مهندس نرم افزار هستم و حدود 15 سال است که به عنوان تحلیلگر داده در بخش برنامه ريزي مركزي شرکت گروه ملی صنعتی فولاد ایران (INSIG) در اهواز، ایران كار ميكنم.",
-    Sina_2: " علاقه و تخصص اصلي من برنامه نويسي، طراحی و تحلیل دادها ميباشد.",
+    Sina_2: " علاقه و تخصص اصلي من برنامه نويسي، طراحی و تحلیل داده ها ميباشد.",
     Sina_3:
       " تمامي بخش هاي اين سايت (Database  وFrontend و Backend )  توسط خودم طراحي، برنامه نويسي و پياده سازي شده است.",
     FILTER: "فیلتر تاریخ",
@@ -58,7 +68,16 @@ const Strings = new LocalizedStrings({
     ProductionChartTitle: 'نمودار روند تولیدات',
     SaleChartTitle: 'نمودار روند فروش',
     HelpTextDateInDashboard: 'تاریخ را به شمسی وارد کنید.',
-    Target_title:'اهداف',
+    Target_title: 'اهداف',
+    Production: 'تولید',
+    Sale: 'فروش',
+    Material: 'مواد',
+    Efficiency: 'راندمان',
+    Stops: 'توقفات',
+    Quality: 'کیفیت',
+    Planning: 'برنامه',
+    Skills: 'مهارت ها:',
+    Productivity:'پاداش',
   },
 });
 

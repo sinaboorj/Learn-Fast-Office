@@ -22,10 +22,16 @@
         width: 100%;
         font-weight: 700;
         font-size: 12px;
+
+        li::marker {  
+            color: #000000; 
+            font-size: 14px;
+        } 
         .skill {
             font-weight: 400;
             margin: 4px 0 0 15px;
             font-size: 12px;
+            list-style-type: square;
         }
     }
 }  
@@ -74,7 +80,7 @@ img.resume-pic {
     } 
 
     .about-icon {  
-        color: #0074ff;  
+        color: blue;  
         font-size: 16px; 
         margin: 0 3px; 
     }  

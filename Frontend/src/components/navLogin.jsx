@@ -31,7 +31,10 @@ const NavLogin = (props) => {
             <nav className="main-nav">
                 <ul className="nav-center">
                     <Link to='/dashboard' className={`navlink ${activeLink === 'dashboard' ? 'active' : ''}`} onClick={() => { setActiveLink('dashboard'); }}>{Strings.Dashboard}</Link>
+                    <Link to='/planning' className={`navlink ${activeLink === 'planning' ? 'active' : ''}`} onClick={() => { setActiveLink('planning'); }}>{Strings.Planning}</Link>
+                    <Link to='/productivity' className={`navlink ${activeLink === 'productivity' ? 'active' : ''}`} onClick={() => { setActiveLink('productivity'); }}>{Strings.Productivity}</Link>
                     <Link to='/targets' className={`navlink ${activeLink === 'targets' ? 'active' : ''}`} onClick={() => { setActiveLink('targets'); }}>{Strings.Target_title}</Link>
+       
                 </ul>
                 <div className="moveing-text">
                     <span className="home-text1">{lang ? 'I N S I G' : 'گروه ملي صنعتي فولاد ايران'} </span>

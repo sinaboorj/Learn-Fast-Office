@@ -23,7 +23,6 @@ const TargetsSite = () => {
                                 <li><span class="target-title">Efficiency analysis:</span> Display and analysis of operational efficiency, production efficiency and production speed.</li>
                                 <li><span class="target-title">Production line performance report:</span> Providing comprehensive reports on the performance of production lines and their records.</li>
                                 <li><span class="target-title">Calculation of productivity bonus:</span> Online display of production productivity bonus and monthly overtime amount.</li>
-                                <li><span class="target-title">Organizational chart:</span> Display the organizational chart, people present in the chart, experiences, knowledge and skills of each person.</li>
                             </ul>
                         </div>
                         :
@@ -36,7 +35,6 @@ const TargetsSite = () => {
                                 <li><span className='target-title'>تحلیل راندمان:</span>نمایش و تحلیل راندمان عملیاتی، راندمان تولید و سرعت تولید</li>
                                 <li><span className='target-title'>گزارش عملکرد خطوط تولید:</span>ارائه گزارش‌هایی جامع از عملکرد خطوط تولید و سوابق آن‌ها</li>
                                 <li><span className='target-title'>محاسبه پاداش بهره وری:</span>نمایش آنلاین پاداش بهره‌وری تولید و میزان اضافه‌کاری ماهانه</li>
-                                <li><span className='target-title'>چارت سازمانی:</span>نمایش چارت سازمانی، افراد حاظر در چارت، تجارب، دانش و مهارت های هر فرد</li>
                             </ul>
                         </div>
                     }

@@ -191,6 +191,9 @@ select {
     flex-direction: row;
     justify-content: center;
     font-size: 13px;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: $mainBackgroundColor;
 }
 .recharts-wrapper {
     margin: auto;
@@ -212,6 +215,7 @@ select {
 
     .chart{
         flex-direction: column;
+        
     }
     .product-chart{
         width: 98%!important;
@@ -236,7 +240,11 @@ select {
     .dashboard-nav {
         flex-direction: column;
     }
-
+    .line-combo {
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
 }
 
 @media (max-width: 520px){
@@ -250,5 +258,11 @@ select {
     }
     form.dashbordAlignDate {
         flex-direction: column;
+    }
+    .dashboard-submit {
+        margin-top: 4px;
+    }
+    .input-custom-date {
+        margin: 2px 5px !important;
     }
 }

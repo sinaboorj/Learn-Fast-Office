@@ -1,0 +1,36 @@
+@import '_variable.scss';
+
+.tabs-Navigation{
+    display: flex;
+    flex-direction: row;
+    background-color: $mainBackgroundColor;
+    width: 100%;
+    margin: auto;
+    border-radius: 2px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 13px;
+   
+    li{
+        list-style-type: none;
+        padding: 4px 10px;
+        border-radius: 3px;
+        border: #acacac solid 1px;
+        display: flex;
+        align-items: center;
+        border-top: solid 1px $mainBackgroundColor;
+        border-left: solid 1px $mainBackgroundColor;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .production , .plan, .sale , .material, .productivity ,.stops, .quality{
+        background-color: #d3d3d3;
+        font-weight: 500;
+
+        a{
+            color: #0159fd;
+        }
+    }
+}

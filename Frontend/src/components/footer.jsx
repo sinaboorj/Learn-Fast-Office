@@ -13,7 +13,7 @@ const Footer = () => {
         <>
             {!hidden && (
                 <>
-                    <footer className="footer">
+                    <footer className="footer" >
                         <div className="contact">
                             <span className="contact-us"> <FaMapPin className="footer-icon" /> : Ahvaz, Iran</span>
                             <Link className="contact-us" to='https://insig.org/'><FaInternetExplorer className="footer-icon" /> : www.insig.org </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                             }
                         </div>
                     </footer>
-                    <br />
+
                 </>
             )}
         </>

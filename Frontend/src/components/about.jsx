@@ -30,19 +30,19 @@ const About = () => {
                     <span>{Strings.Sina_2}</span>
                     <span>{Strings.Sina_3}</span>
                 </div>
-                <div style={{width:'100%', fontWeight:'700', fontSize:'13px' }}> SKILLS:</div>
+                <div style={{width:'100%', fontWeight:'700', fontSize:'13px' }}> {Strings.Skills} </div>
                 <div className='skills'>
                     <ul>
                         <li className='skill'> Programming</li>
                         <li className='skill'> React, JavaScript, CSS, HTML</li>
+                        <li className='skill' > Node.js</li>
                         <li className='skill'> MySQL, SQL Server</li>
-                        <li className='skill'> GitHub</li>
-                        <li className='skill'> ui/ux, Figma</li>
+                        <li className='skill'> Frontend Design</li>
                     </ul>
                     <ul>
-                        <li className='skill' > Node.js</li>
-                        <li className='skill'> Frontend Design</li>
+                        <li className='skill'> ui/ux, Figma</li>
                         <li className='skill'> Excel</li>
+                        <li className='skill'> GitHub</li>
                         <li className='skill'> English language Conversation</li>
                     </ul>
                 </div>

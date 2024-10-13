@@ -18,11 +18,7 @@ const PublicContextProvider = ({ children }) => {
   
   useEffect(() => {
     if (lang !== undefined) localStorage.setItem('language', JSON.stringify(lang))
-    if (activeLink !== undefined) {
-      localStorage.setItem('activeLink', activeLink)
-
-    }
-
+    if (activeLink !== undefined) localStorage.setItem('activeLink', activeLink)
   }, [lang, activeLink])
 
   //******************************** Main Body ************************************************ */
