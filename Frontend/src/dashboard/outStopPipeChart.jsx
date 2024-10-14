@@ -30,7 +30,7 @@ const OutStopPipeChart = () => {
   };
   return (
     <div className="stop-in">
-      <span className="efficiency-text" style={{margin:'auto'}}> ( ساعت )توقفات خارج بخشی</span>
+      <span className="chart-title" style={{margin:'auto'}}> ( ساعت )توقفات خارج بخشی</span>
       <PieChart width={300} height={300}>
         <Pie data={data} cx={150} cy={150} labelLine={true} label={renderCustomizedLabel}
           outerRadius={90} fill="#8884d8" dataKey="value"

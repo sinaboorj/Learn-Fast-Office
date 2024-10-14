@@ -3,8 +3,8 @@ import DashboardTags from "./dashboardTags";
 import OperationalEfficiency from "./operationalEfficiency";
 import ProductChart from "./productChart";
 import SoldChart from "./soldChart";
-import '../sass/efficiencyChart.scss'
 import '../sass/navigation.scss'
+import '../sass/tables.scss'
 import OutLostP from "./outLostP";
 import EfficiencyChart from "./efficiencyChart";
 import OutStopPipeChart from "./outStopPipeChart";
@@ -12,9 +12,9 @@ import Home from '../pages/home';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Strings from '../helper/strings';
-import AllProductionDetail from './allProductionDetails';
 import plan from "/sysImage/plan.png"
 import Qc from  "/sysImage/QC.png"
+import TableProduction from './tableProduction';
 
 
 const Dashboard = () => {
@@ -56,10 +56,9 @@ const Dashboard = () => {
             </nav>
             <br />
 
-            {tabNavigation === 'production' && <div className="chart"> <ProductChart /> <br /> <AllProductionDetail /> </div>}
-
+            {tabNavigation === 'production' && <div className="chart"> <ProductChart /> <br /> <TableProduction /> </div>}
             {tabNavigation === 'plan' && <div className="chart">  <img src={plan} alt="planning " className='main-image' style={{width:'70%'}}  /></div>}
-            {tabNavigation === 'sale' && <div className="chart">  <SoldChart /> </div>}
+            {tabNavigation === 'sale' && <div className="chart"> <SoldChart /> </div>}
             {tabNavigation === 'material' && <div className="chart">  <span style={{backgroundColor:'#acacac', width:'95%'}}>Nothing</span> </div>}
             {tabNavigation === 'efficiencyy' && <div className="chart">  <EfficiencyChart />  <br /> <OperationalEfficiency /> </div> }
             {tabNavigation === 'stops' && <div className="chart">  <OutStopPipeChart />  <br />  <OutLostP /> </div> }

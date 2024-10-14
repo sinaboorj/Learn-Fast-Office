@@ -29,7 +29,7 @@ const OperationalEfficiency = () => {
 
     return (
         <div className="efficiency">
-            <span className="efficiency-text">راندمان عملیاتی</span><br />
+            <span className="chart-title">راندمان عملیاتی</span><br />
             <svg width="300" height="170" viewBox="0 0 300 150">
                 <defs>
                     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">

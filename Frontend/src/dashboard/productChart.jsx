@@ -3,6 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { DashboardContext } from '../context/dashboardContext';
 import Strings from '../helper/strings';
 import { PublicContext } from '../context/publicContext';
+import '../sass/charts.scss'
 
 const ProductChart = () => {
     const { dates, data } = useContext(DashboardContext)
@@ -74,7 +75,7 @@ const ProductChart = () => {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
+                    <Legend className='legend' verticalAlign="top" align="center" /> 
                     {
                         dates?.searchType === 'Month' &&
                         <Line type="monotone" dataKey={lastY} stroke="blue" activeDot={{ r: 5 }} />

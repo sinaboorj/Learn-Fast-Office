@@ -89,7 +89,7 @@ const SoldChart = () => {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Legend />
+                    <Legend className='legend' verticalAlign="top" align="center" />
                     <Bar dataKey='1402' fill="#6c757d" activeBar={<Rectangle fill="#6c757d" stroke="#8884d8" />} />
                     <Bar dataKey='1403' fill="#d9a303" activeBar={<Rectangle fill="#d9a303" stroke="#82ca9d" />} />
                 </BarChart>

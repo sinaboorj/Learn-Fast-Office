@@ -12,39 +12,39 @@ import dashboardFunction from '../helper/dashboardFunction';
 const DashboardTags = () => {
     const { lang } = useContext(PublicContext);
     const { data, filterDate, setStartDate, setEndDate, setLastStartDate, setLastEndDate,
-        dates, setDates, customStartDate,custemEndDate } = useContext(DashboardContext)
+        dates, setDates, customStartDate, custemEndDate } = useContext(DashboardContext)
     
-        const infoText = [
-            'تولید دو روز قبل',
-            'تولید دوره مشابه ماه قبل',
-            'تولید دوره مشابه سال قبل',
-            'تولید دوره مشابه سفارش  شده در روز، ماه یا سال قبل',
-            'رشد تولید به روز قبل تر',
-            'رشد تولید به دوره مشابه ماه قبل',
-            'رشد تولید به دوره مشابه سال قبل',
-            'رشد تولید به دوره مشابه سفارش شده در روز، ماه و یا سال قبل',
-        ]
+    const infoText = [
+        'تولید دو روز قبل',
+        'تولید دوره مشابه ماه قبل',
+        'تولید دوره مشابه سال قبل',
+        'تولید دوره مشابه سفارش  شده در روز، ماه یا سال قبل',
+        'رشد تولید به روز قبل تر',
+        'رشد تولید به دوره مشابه ماه قبل',
+        'رشد تولید به دوره مشابه سال قبل',
+        'رشد تولید به دوره مشابه سفارش شده در روز، ماه و یا سال قبل',
+    ]
     let infoTextIndexLastProduction = 0
     let infoTextIndexGrowth = 0
         
-        switch (filterDate) {
-            case 'Day':
-                infoTextIndexLastProduction = 0
-                infoTextIndexGrowth=4
-                break;
-            case 'Month':
-                infoTextIndexLastProduction = 1
-                infoTextIndexGrowth=5
-                break;
-            case 'Year':
-                infoTextIndexLastProduction = 2
-                infoTextIndexGrowth=6
-                break;
-            case 'Custom':
-                infoTextIndexLastProduction = 3
-                infoTextIndexGrowth=7
-                break;
-        }
+    switch (filterDate) {
+        case 'Day':
+            infoTextIndexLastProduction = 0
+            infoTextIndexGrowth = 4
+            break;
+        case 'Month':
+            infoTextIndexLastProduction = 1
+            infoTextIndexGrowth = 5
+            break;
+        case 'Year':
+            infoTextIndexLastProduction = 2
+            infoTextIndexGrowth = 6
+            break;
+        case 'Custom':
+            infoTextIndexLastProduction = 3
+            infoTextIndexGrowth = 7
+            break;
+    }
     
     let production = Math.round((data?.TotalProduction) / 1000)//تولید
     let plan = Math.round((data?.TotalPlan) / 1000)//برنامه
@@ -72,8 +72,12 @@ const DashboardTags = () => {
                         <span className="amount">{production} Ton</span>
                         {lang
                             ? <>  {/*En */}
+                                <span className="last-production">
+                                    <BsInfoCircleFill className='info' title={`Production of the same period as before`} />
+                                    {Strings.Previous}: {Lastproduction} Ton
+                                </span>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
-                                    <BsInfoCircleFill className='info' title='Growth compared to the previous period'  />
+                                    <BsInfoCircleFill className='info' title='Growth compared to the previous period' />
                                     {Strings.Growth}:
                                     <span
                                         style={{
@@ -87,13 +91,14 @@ const DashboardTags = () => {
               
                                 </span>
                         
-                                <span className="last-production">
-                                    <BsInfoCircleFill className='info' title={`Production of the same period as before`}  />
-                                    {Strings.Previous}: {Lastproduction} Ton
-                                </span>
+
                             </>
                             :
                             <>  {/*Fa */}
+                                <span className="last-production">
+                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexLastProduction]} />  {Strings.Previous}:
+                                    <span style={{ marginLeft: '2px' }}>{Lastproduction} Ton </span>
+                                </span>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}>
                                     <BsInfoCircleFill className='info' title={infoText[infoTextIndexGrowth]} /> {Strings.Growth}:
                                     <span
@@ -107,10 +112,7 @@ const DashboardTags = () => {
                                     </span>
                                 </span>
                         
-                                <span className="last-production">
-                                    <BsInfoCircleFill className='info' title={infoText[infoTextIndexLastProduction]} />  {Strings.Previous}:
-                                    <span style={{ marginLeft: '2px' }}>{Lastproduction} Ton </span>
-                                </span>
+
                             </>
                         }
            
@@ -120,14 +122,14 @@ const DashboardTags = () => {
                 
                 {/* *********************************** PLAN **************************** */}
                 <div className="dashboard-item plan">
-                    {Strings.PLAN} <BsPCircleFill className="d-icon" style={{fontSize:'19px'}} />
+                    {Strings.PLAN} <BsPCircleFill className="d-icon" style={{ fontSize: '19px' }} />
                     <div className="amounts">
                         <span className="amount">{plan} Ton</span>
 
                         {lang
                             ? <>
                                 <span className="amount" style={{ display: 'flex', alignItems: 'center' }}> {/*En */}
-                                    <BsInfoCircleFill className='info' title='Implementation of the production plan'  />
+                                    <BsInfoCircleFill className='info' title='Implementation of the production plan' />
                                     {Strings.Execution}: {executionPercent}%
                                 </span>
                             </>

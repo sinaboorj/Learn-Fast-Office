@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { PublicContext } from "../context/publicContext";
 
 
-const AllProductionDetail = () => {
+const TableProduction = () => {
     const { lang } = useContext(PublicContext)
     
     const data = [
@@ -20,7 +20,7 @@ const AllProductionDetail = () => {
     return (
         <>
             <div className="stop-in">
-                <span className="efficiency-text"> {lang ? 'Production by lines' : 'تولیدات به تفکیک خطوط '} </span><br />
+                <span className="chart-title" > {lang ? 'Production by lines' : 'تولیدات به تفکیک خطوط '} </span>
                 <div>
                     <table className="custom-table">
                         <thead>
@@ -45,7 +45,7 @@ const AllProductionDetail = () => {
                                     <td>{user.runA}</td>
                                     <td>{user.plannA}</td>
                                     <td>{user.production}</td>
-                                    <td>{user.name}</td>
+                                    <td style={{backgroundColor:user.name==='جمع کل' && '#c3c3c3'}}>{user.name}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -55,4 +55,4 @@ const AllProductionDetail = () => {
         </>
     )
 }
-export default AllProductionDetail;
+export default TableProduction;

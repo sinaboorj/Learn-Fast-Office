@@ -1,4 +1,8 @@
-@import "variable.scss";
+@import "variable.scss";  
+
+.recharts-legend-wrapper{
+    top: 0px!important;
+}
 
 .efficiency{
     display: flex;
@@ -9,3 +13,4 @@
     font-size: 12px;
     margin: 15px auto;
 }
+

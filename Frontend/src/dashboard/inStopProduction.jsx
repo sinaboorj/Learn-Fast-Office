@@ -26,7 +26,7 @@ const InStopProduction = () => {
   };
   return (
       <div className="stop-in">
-        <span className="efficiency-text">توقفات داخل بخشی</span><br />
+        <span className="chart-title">توقفات داخل بخشی</span><br />
         <PieChart width={450} height={400}>
           <Pie data={data} cx={200} cy={200} labelLine={true} label={renderCustomizedLabel}
             outerRadius={80} fill="#8884d8" dataKey="value"

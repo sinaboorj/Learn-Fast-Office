@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";  
 import { DashboardContext } from "../context/dashboardContext";
+import '../sass/charts.scss'
 
 const EfficiencyChart = () => {
     const [speed, setSpeed] = useState(0);
@@ -31,7 +32,7 @@ const EfficiencyChart = () => {
 
     return (
         <div className="efficiency">
-            <span className="efficiency-text">راندمان تولید</span><br />
+            <span className="chart-title">راندمان تولید</span><br />
             <svg width="300" height="170" viewBox="0 0 300 150">
                 <defs>
                     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -60,7 +61,7 @@ const EfficiencyChart = () => {
                     strokeWidth="20"  
                     strokeDasharray="146.67 293.34" // 440 - 146.67  
                     strokeDashoffset="146.67" /> 
-                <line
+                <line className="efficiency-line"
                     x1="150"
                     y1="140"
                     x2={150 + 125 * Math.cos((angle - 180) * (Math.PI / 180))}
@@ -68,6 +69,7 @@ const EfficiencyChart = () => {
                     stroke="black"
                     strokeWidth="2"
                 />
+
             </svg>
             <div>% {speed}</div>
         </div>

@@ -16,7 +16,7 @@ const OutLostP = () => {
 
   return (
     <div className="stop-in">
-      <span className="efficiency-text">تولیدات از دست رفته به دلیل توقفات خارج</span><br />
+      <span className="chart-title">تولیدات از دست رفته به دلیل توقفات خارج</span><br />
       <div>
         <table className="custom-table">
           <thead>
