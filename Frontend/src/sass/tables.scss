@@ -1,7 +1,8 @@
 @import '_variable.scss';
 
 .table-title {  
-    text-align: center;  
+    text-align: center; 
+    color: black; 
   }  
   
   .custom-table {  
@@ -15,7 +16,7 @@
     color: $fontColor-primary;
     font-weight: 300;
     font-family: 'IRANSanazWeb';
-    font-size: 15px;
+    font-size: 14px;
   }  
   
   .custom-table th, .custom-table td { //بدنه جدول 
@@ -31,3 +32,25 @@
     color: $mainBackgroundColor; 
     cursor: pointer;
   } 
+
+  @media (max-width: 550px){
+    .custom-table th {  //عنوان
+      font-size: 12px;
+    }  
+    
+    .custom-table th, .custom-table td { //بدنه جدول 
+      font-size: 10px;
+      padding: 3px;
+    }
+}
+
+@media (max-width: 415px){
+  .custom-table th {  //عنوان
+    font-size: 10px;
+  }  
+  
+  .custom-table th, .custom-table td { //بدنه جدول 
+    font-size: 8px;
+    padding: 1px;
+  }
+}

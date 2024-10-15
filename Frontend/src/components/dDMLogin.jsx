@@ -9,6 +9,7 @@ import EnFlag from "/sysImage/Englan.png"
 import faFlag from "/sysImage/Iran.png"
 import Strings from "../helper/strings";
 import navFunctions from '../helper/navFunctions';
+import logo from '/sysImage/INSIG_PNG.png'
 
 const DropDownMenuLogin = (props) => {
     const { userData } = useContext(UserContext)
@@ -36,11 +37,12 @@ const DropDownMenuLogin = (props) => {
                     <div className='bar'></div>
                     <div className='bar'></div>
                 </div>
-                <div style={{ width: '100%', display: 'flex', justifyContent: 'center',padding:'0 55px 0 0' }}>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <div className='user-title' >
                         <span className="dropDown-login" title={userData?.email}>{firstStrEmail}</span>
                     </div>
                 </div>
+                <img src={logo} width={28} height={28} alt="Logo" style={{marginRight:'5px'}} />
             </div>
 
             <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`} ref={menuRef} >

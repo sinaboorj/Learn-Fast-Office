@@ -10,16 +10,17 @@ import EfficiencyChart from "./efficiencyChart";
 import OutStopPipeChart from "./outStopPipeChart";
 import Home from '../pages/home';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Strings from '../helper/strings';
 import plan from "/sysImage/plan.png"
 import Qc from  "/sysImage/QC.png"
 import TableProduction from './tableProduction';
+import { PublicContext } from '../context/publicContext';
 
 
 const Dashboard = () => {
     const [tabNavigation, setTabNavigation] = useState('production');
-
+    const {lang}=useContext(PublicContext)
     return (
         <>
             <DashboardTags />
@@ -41,8 +42,8 @@ const Dashboard = () => {
                         <Link to="">{Strings.Material}</Link>
                     </li>
 
-                    <li className={tabNavigation === 'efficiencyy' ? 'efficiencyy' : ''} onClick={()=>{setTabNavigation('efficiencyy')}}>
-                        <Link to="">{Strings.Efficiency}</Link>
+                    <li className={tabNavigation === 'yield' ? 'yield' : ''} onClick={()=>{setTabNavigation('yield')}}>
+                        <Link to="">{Strings.Yield}</Link>
                     </li>
 
                     <li className={tabNavigation === 'stops' ? 'stops' : ''} onClick={()=>{setTabNavigation('stops')}}>
@@ -60,7 +61,7 @@ const Dashboard = () => {
             {tabNavigation === 'plan' && <div className="chart">  <img src={plan} alt="planning " className='main-image' style={{width:'70%'}}  /></div>}
             {tabNavigation === 'sale' && <div className="chart"> <SoldChart /> </div>}
             {tabNavigation === 'material' && <div className="chart">  <span style={{backgroundColor:'#acacac', width:'95%'}}>Nothing</span> </div>}
-            {tabNavigation === 'efficiencyy' && <div className="chart">  <EfficiencyChart />  <br /> <OperationalEfficiency /> </div> }
+            {tabNavigation === 'yield' && <div className="chart">  <EfficiencyChart />  <br /> <OperationalEfficiency /> </div> }
             {tabNavigation === 'stops' && <div className="chart">  <OutStopPipeChart />  <br />  <OutLostP /> </div> }
             {tabNavigation === 'quality' && <div className="chart"> <img src={Qc} alt="Quality" className='main-image' style={{width:'70%'}} /> </div> }
             <br />    

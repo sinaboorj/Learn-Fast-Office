@@ -68,7 +68,7 @@ const ProductChart = () => {
     
     return (
         <>
-            <ResponsiveContainer className='product-chart' style={{ fontSize: '13px' }}>
+            <ResponsiveContainer className='product-chart'>
                 <div className='chart-title'>{Strings.ProductionChartTitle}</div>
                 <LineChart data={chartData}>
                     <CartesianGrid stroke="black" strokeOpacity={.3} strokeDasharray="3 3" />

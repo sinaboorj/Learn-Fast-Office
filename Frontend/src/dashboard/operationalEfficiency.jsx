@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";  
 import { DashboardContext } from "../context/dashboardContext";
+import Strings from "../helper/strings";
+import { PublicContext } from "../context/publicContext";
 
 const OperationalEfficiency = () => {
     const [speed, setSpeed] = useState(0);
     const { filterDate } = useContext(DashboardContext)
+    const { lang } = useContext(PublicContext)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -26,6 +29,7 @@ const OperationalEfficiency = () => {
     }, [filterDate]);
 
     const angle = (speed / 100) * 180;
+    const angleIndex = (94 / 100) * 180;
 
     return (
         <div className="efficiency">
@@ -37,27 +41,35 @@ const OperationalEfficiency = () => {
                         <stop offset="100%" style={{ stopColor: "#f44336", stopOpacity: 1 }} />
                     </linearGradient>
                 </defs>
-                <path  
-                    d="M 10 140 A 140 140 0 0 1 290 140"  
-                    fill="none"  
-                    stroke="red"  
-                    strokeWidth="20"  
+                <path
+                    d="M 10 140 A 140 140 0 0 1 290 140"
+                    fill="none"
+                    stroke="red"
+                    strokeWidth="20"
                     strokeDasharray="146.67 293.34" // 440 - 146.67  
-                    strokeDashoffset="0" />  
-                <path  
-                    d="M 10 140 A 140 140 0 0 1 290 140"  
-                    fill="none"  
-                    stroke="#ffc107"  
-                    strokeWidth="20"  
+                    strokeDashoffset="0" />
+                <path
+                    d="M 10 140 A 140 140 0 0 1 290 140"
+                    fill="none"
+                    stroke="#ffc107"
+                    strokeWidth="20"
                     strokeDasharray="146.67 293.34" // 440 - 146.67  
-                    strokeDashoffset="293.34" />  
-                <path  
-                    d="M 10 140 A 140 140 0 0 1 290 140"  
-                    fill="none"  
-                    stroke="green"  
-                    strokeWidth="20"  
+                    strokeDashoffset="293.34" />
+                <path
+                    d="M 10 140 A 140 140 0 0 1 290 140"
+                    fill="none"
+                    stroke="green"
+                    strokeWidth="20"
                     strokeDasharray="146.67 293.34" // 440 - 146.67  
-                    strokeDashoffset="146.67" /> 
+                    strokeDashoffset="146.67" />
+                <line
+                    x1={150 + 120 * Math.cos((angleIndex - 180) * (Math.PI / 180))}
+                    y1={140 + 120 * Math.sin((angleIndex - 180) * (Math.PI / 180))}
+                    x2={150 + 160 * Math.cos((angleIndex - 180) * (Math.PI / 180))}
+                    y2={140 + 160 * Math.sin((angleIndex - 180) * (Math.PI / 180))}
+                    stroke="Green"
+                    strokeWidth="1"
+                />
 
                 <line
                     x1="150"
@@ -69,6 +81,12 @@ const OperationalEfficiency = () => {
                 />
             </svg>
             <div>% {speed} </div>
+            <div className="index">
+                {lang
+                    ? <span>{Strings.Index} 94 %</span>
+                    : <span> {Strings.Index} %94</span>
+                }
+            </div>
         </div>
         
     )
